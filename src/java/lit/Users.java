@@ -62,14 +62,50 @@ public class Users implements Serializable {
         return null;
     }
     
-    public void addUser(User user) 
+    public boolean addUser(String name, String email, String password, String dob) 
     {
-        customers.add(user);
+        if (!isEmailAlreadyUsed(email)){
+            User user = new User(getRandomUserIDUnique(), name, email, password, dob);
+            customers.add(user);
+            return true;
+        }
+        return false;
     }
     
     public ArrayList<User> getUsers ()
     {
         return customers;
+    }
+    
+    
+    
+    private boolean isEmailAlreadyUsed(String email) {
+        for(User user : customers) 
+            if (user.getEmail().equals(email))
+                return false;
+        return true;
+    }
+    
+    
+    public String getRandomUserIDUnique() 
+    {
+        Random randomGenerator = new Random(); 
+        boolean isUnique = false;
+        int randomID = randomGenerator.nextInt(999);
+        String id = "" + randomID;;
+        while(isUnique == false) 
+        {
+            isUnique = true;   
+            randomID = randomGenerator.nextInt(999);
+            id = "" + randomID;
+            for (User user : customers) 
+            {
+                if (id.equals(user.getUserID()))
+                    isUnique = false;
+            }
+       } 
+       
+       return id;
     }
     
 
