@@ -1,0 +1,104 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/05/2017, 8:55:58 PM
+    Author     : Owner
+*/
+
+body {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 300px;
+    margin-left: 450px;
+    font-family: "Segoe UI";
+    color: white;
+}
+table {background-color: #808080;
+       padding-top: 0px;
+       padding-right: 30px;
+       padding-bottom: 30px;
+       padding-left: 30px;
+       margin-top: 20px;
+       text-align:center; 
+       margin-left:auto; 
+       margin-right:auto; 
+}
+
+#registerHeader {
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 20px;
+}
+
+td {
+    padding: 10px 10px 10px 10px;
+}
+
+.logo {
+    float: left;
+    width: 150px;
+    height: 100px;
+}
+
+.mainTable {
+    background-color: #808080;
+    padding-top: 15px;
+    margin-top: 30px;
+}
+.wrapper {
+    background-color : #DCDCDC;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    width: 500px;
+    margin: auto;
+}
+
+.header {
+    padding-bottom: 80px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+a {
+    display: block;
+    padding: 8px;
+    background-color: white;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #778899;
+}
+
+.active {
+    background-color: #4CAF50;
+}

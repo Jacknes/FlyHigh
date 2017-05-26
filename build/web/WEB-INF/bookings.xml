@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<bookings>
+    <booking>
+        <bookingID>378345</bookingID>
+        <userID>456453</userID>
+        <flightID>845454</flightID>
+        <bookingTime>19-05-2017</bookingTime>
+    </booking>
+</bookings>

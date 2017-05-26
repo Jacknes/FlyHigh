@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<users>
+    <user>
+        <userID>1</userID>
+        <email>admin1@flyhigh.com</email>
+        <name>Root Admin</name>
+        <password>password</password>
+        <dob>2002-09-24</dob>
+        <admin>true</admin>
+        <bookingID>0</bookingID>
+    </user>
+    <user>
+        <userID>2</userID>
+        <email>customer@test.com</email>
+        <name>John Smith</name>
+        <password>john</password>
+        <dob>1997-04-23</dob>
+        <admin>false</admin>
+        <bookingID>0</bookingID>  
+    </user>
+    <user>
+        <userID>3</userID>
+        <email>Shasha@test.com</email>
+        <name>Shasha Chai</name>
+        <password>shasha</password>
+        <dob>1997-10-04</dob>
+        <admin>false</admin>
+        <bookingID>0</bookingID>  
+    </user>
+    <user>
+        <userID>4</userID>
+        <email>jack@test.com</email>
+        <name>Jack Pascoe</name>
+        <password>jack</password>
+        <dob>1997-08-17</dob>
+        <admin>false</admin>
+        <bookingID>0</bookingID>  
+    </user>
+    <user>
+        <userID>5</userID>
+        <email>ryan@test.com</email>
+        <name>Ryan Mccartney</name>
+        <password>ryan</password>
+        <dob>1997-05-30</dob>
+        <admin>false</admin>
+        <bookingID>0</bookingID>  
+    </user>
+    <user>
+        <userID>6</userID>
+        <email>jill@test.com</email>
+        <name>Jill Smith</name>
+        <password>jill</password>
+        <dob>1997-11-05</dob>
+        <admin>false</admin>
+        <bookingID>0</bookingID>  
+    </user>
+</users>
