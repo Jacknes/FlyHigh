@@ -35,6 +35,10 @@ there are two options:
                 <!--        <img src="Resources/FHlogo.png" alt="FH Logo" style="width:100px;height:100px;">-->
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>Welcome to FlyHigh Airlines</h1>
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+
+                </ul>
             </div>
             <form action="registerAction.jsp" method="POST">
                 <div class="mainTable">
@@ -57,7 +61,7 @@ there are two options:
                         </tr>
                         <tr>
                             <td>Date of Birth</td>
-                            <td> <input type="date" name="dob"></td>
+                            <td> <input type="date" name="dob" value="09/09/1999"> </td>
                         </tr>
                         <!--                <tr>
                                             <td>Agree to TOS</td>
