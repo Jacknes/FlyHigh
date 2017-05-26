@@ -38,7 +38,7 @@ There are three possible scenarios for the “Main” page:
                username = user.getName();
  %>
             
-                <p>You are logged in as <%= user.getName()%> </p>
+                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
                  <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="booking.jsp">Bookings</a></li>
