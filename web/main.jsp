@@ -28,9 +28,9 @@ There are three possible scenarios for the “Main” page:
 
     <body>
         <div class="wrapper">
-            
+            <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
-<!--                <h1>FlyHigh Airlines</h1>-->
+                <h1>FlyHigh Airlines</h1>
  <%
             User user = (User)session.getAttribute("user");
             String username = "";
@@ -41,6 +41,8 @@ There are three possible scenarios for the “Main” page:
                 <p>You are logged in as <%= user.getName()%> </p>
                  <ul>
                     <li><a href="main.jsp">Home</a></li>
+                    <li><a href="booking.jsp">Bookings</a></li>
+                    <li><a href="listings.jsp">Listings</a></li>
                     
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
@@ -53,6 +55,7 @@ There are three possible scenarios for the “Main” page:
                 </ul>
                 
                       <%}%>
+            </div>
             
             <form action="loginAction.jsp" method="POST">
                 <div class="mainTable">
