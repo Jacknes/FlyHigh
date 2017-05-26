@@ -16,20 +16,20 @@ import lit.*;
 public class SOAPClient {
 
     public static void main(String[] args) {
-        SOAP_Service locator = new SOAP_Service();
-        SOAP soap = locator.getSOAPPort();
-        /**
-         * Insert your code here *
-         */
+//        SOAP_Service locator = new SOAP_Service();
+//        SOAP soap = locator.getSOAPPort();
+//        /**
+//         * Insert your code here *
+//         */
     }
     
     
-    public User getUser(String email, String password) throws JAXBException, IOException, IOException_Exception, JAXBException_Exception 
-    {
-        SOAP_Service locator = new SOAP_Service();
-        SOAP soap = locator.getSOAPPort();
-        User user = soap.login(email, password);
-        return user;
-    }
-    
+//    public User getUser(String email, String password) throws JAXBException, IOException, IOException_Exception, JAXBException_Exception 
+//    {
+//        SOAP_Service locator = new SOAP_Service();
+//        SOAP soap = locator.getSOAPPort();
+//        User user = soap.login(email, password);
+//        return user;
+//    }
+//    
 }
