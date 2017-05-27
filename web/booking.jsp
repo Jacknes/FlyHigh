@@ -21,7 +21,10 @@ Booking page: Flight customers can access this page from “Results” page or t
         <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
         <title>FlyHigh - Bookings</title>
     </head>
-
+    <%
+        String flightID = request.getParameter("flightID");
+        
+    %>
 
     <body>
         <div class="wrapper">
@@ -33,7 +36,7 @@ Booking page: Flight customers can access this page from “Results” page or t
                     if (user != null){
                         if (user.isAdmin()){
                 %>
-                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>   
+                <p>Welcome back to FlyHigh Airlines <%= user.getName()%>  flightID<%= flightID%></p>   
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="booking.jsp">Bookings</a></li>                  

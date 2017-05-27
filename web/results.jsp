@@ -99,7 +99,8 @@
                     <td> <%= flight.getReturnDate() %> </td>
                     <td> <%= flight.getSeats() %> </td>
                     <td> $<%= flight.getPrice() %> </td>
-                    <td> $<%= flight.getPrice() %> </td>
+                    <td> <a href="booking.jsp?flightID=<%= flight.getFlightID()%>">Book</a></td>
+                    
                     
                
                
