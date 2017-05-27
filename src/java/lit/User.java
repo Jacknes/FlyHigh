@@ -66,6 +66,11 @@ public class User implements Serializable
         return name;
     }
     
+
+    public boolean isAdmin () 
+    {
+        return admin;
+    }
     public String getEmail() {
         return email;
     }

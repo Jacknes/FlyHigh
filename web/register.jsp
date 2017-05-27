@@ -44,9 +44,6 @@ there are two options:
                 <div class="mainTable">
                     <h2>Register</h2>
                     <table>
-                        <!--                <tr>
-                                            <td>Register</td>
-                                        </tr>-->
                         <tr>
                             <td>Full Name</td>
                             <td><input type="text" name="name"></td>
@@ -63,17 +60,11 @@ there are two options:
                             <td>Date of Birth</td>
                             <td> <input type="date" name="dob" value="09/09/1999"> </td>
                         </tr>
-                        <!--                <tr>
-                                            <td>Agree to TOS</td>
-                                            <td><input type="checkbox" name="tos"></td>
-                                        </tr>-->
                         <tr>
                             <td></td>
                             <td><input type="submit" value="Register"></td>
                         </tr>
-
                     </table>
-
                 </div>
             </form>
         </div>
