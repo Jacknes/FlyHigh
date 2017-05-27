@@ -23,8 +23,8 @@ and open the template in the editor.
         <returnDate>2017-05-27</returnDate>
         <price>500.0</price>
         <seats>3</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Melbourne, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Melbourne</destination>
         <flightType>business</flightType>
     </flight>
     <flight>
@@ -33,8 +33,8 @@ and open the template in the editor.
         <returnDate>2017-05-30</returnDate>
         <price>300.0</price>
         <seats>4</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Hobart, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Hobart</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -43,8 +43,8 @@ and open the template in the editor.
         <returnDate>2017-05-30</returnDate>
         <price>600.0</price>
         <seats>2</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Hobart, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Hobart</destination>
         <flightType>business</flightType>
     </flight>
     <flight>
@@ -53,8 +53,8 @@ and open the template in the editor.
         <returnDate>2017-06-14</returnDate>
         <price>500.0</price>
         <seats>5</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Perth, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Perth</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -63,8 +63,8 @@ and open the template in the editor.
         <returnDate>2017-06-14</returnDate>
         <price>1000.0</price>
         <seats>3</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Perth, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Perth</destination>
         <flightType>Business</flightType>
     </flight>
     <flight>
@@ -73,8 +73,8 @@ and open the template in the editor.
         <returnDate>2017-06-14</returnDate>
         <price>700.0</price>
         <seats>2</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Darwin, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Darwin</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -83,8 +83,8 @@ and open the template in the editor.
         <returnDate>2017-06-14</returnDate>
         <price>1400.0</price>
         <seats>2</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Darwin, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Darwin</destination>
         <flightType>business</flightType>
     </flight>
     <flight>
@@ -93,8 +93,8 @@ and open the template in the editor.
         <returnDate>2017-06-14</returnDate>
         <price>500.0</price>
         <seats>3</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Adelaide, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Adelaide</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -103,8 +103,8 @@ and open the template in the editor.
         <returnDate>2017-06-14</returnDate>
         <price>700.0</price>
         <seats>2</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Adelaide, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Adelaide</destination>
         <flightType>business</flightType>
     </flight>
     <flight>
@@ -113,8 +113,8 @@ and open the template in the editor.
         <returnDate>2017-06-27</returnDate>
         <price>190.0</price>
         <seats>3</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Melbourne, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Melbourne</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -123,8 +123,8 @@ and open the template in the editor.
         <returnDate>2017-06-27</returnDate>
         <price>350.0</price>
         <seats>1</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Melbourne, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Melbourne</destination>
         <flightType>business</flightType>
     </flight>
     <flight>
@@ -133,8 +133,8 @@ and open the template in the editor.
         <returnDate>2017-06-21</returnDate>
         <price>650.0</price>
         <seats>2</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Hobart, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Hobart</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -143,8 +143,8 @@ and open the template in the editor.
         <returnDate>2017-06-21</returnDate>
         <price>800.0</price>
         <seats>1</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Hobart, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Hobart</destination>
         <flightType>business</flightType>
     </flight>
     
@@ -154,8 +154,8 @@ and open the template in the editor.
         <returnDate>2017-06-25</returnDate>
         <price>200.0</price>
         <seats>2</seats>
-        <origin>Melbourne, Australia</origin>
-        <destination>Sydney, Australia</destination>
+        <origin>Melbourne</origin>
+        <destination>Sydney</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -164,8 +164,8 @@ and open the template in the editor.
         <returnDate>2017-06-25</returnDate>
         <price>400.0</price>
         <seats>1</seats>
-        <origin>Melbourne, Australia</origin>
-        <destination>Sydney, Australia</destination>
+        <origin>Melbourne</origin>
+        <destination>Sydney</destination>
         <flightType>business</flightType>
     </flight>
     <flight>
@@ -174,8 +174,8 @@ and open the template in the editor.
         <returnDate>2017-06-25</returnDate>
         <price>400.0</price>
         <seats>1</seats>
-        <origin>Melbourne, Australia</origin>
-        <destination>Perth, Australia</destination>
+        <origin>Melbourne</origin>
+        <destination>Perth</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -184,8 +184,8 @@ and open the template in the editor.
         <returnDate>2017-06-25</returnDate>
         <price>600.0</price>
         <seats>2</seats>
-        <origin>Melbourne, Australia</origin>
-        <destination>Perth, Australia</destination>
+        <origin>Melbourne</origin>
+        <destination>Perth</destination>
         <flightType>business</flightType>
     </flight>
        <flight>
@@ -194,8 +194,8 @@ and open the template in the editor.
         <returnDate>2017-06-29</returnDate>
         <price>600.0</price>
         <seats>2</seats>
-        <origin>Darwin, Australia</origin>
-        <destination>Adelaide, Australia</destination>
+        <origin>Darwin</origin>
+        <destination>Adelaide</destination>
         <flightType>economy</flightType>
     </flight>
        <flight>
@@ -204,8 +204,8 @@ and open the template in the editor.
         <returnDate>2017-06-29</returnDate>
         <price>700.0</price>
         <seats>2</seats>
-        <origin>Hobart, Australia</origin>
-        <destination>Perth, Australia</destination>
+        <origin>Hobart</origin>
+        <destination>Perth</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
