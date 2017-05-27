@@ -52,6 +52,11 @@ public class Flight
         this.destination = destination;
         this.flightType = flightType;
     }
+
+    @Override
+    public String toString() {
+        return "Flight{" + "flightID=" + flightID + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", price=" + price + ", seats=" + seats + ", origin=" + origin + ", destination=" + destination + ", flightType=" + flightType + '}';
+    }
     
     public String getFlightID() 
     { 

@@ -15,7 +15,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
 import javax.xml.bind.Unmarshaller;
 
-
 /**
  *
  * @author jacknes
@@ -34,7 +33,7 @@ public class FlightController {
         return filePath;
     }
 
-    public Flights getBookings() 
+    public Flights getFlights() 
     {
         return flights;
     }
