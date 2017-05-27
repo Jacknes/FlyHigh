@@ -4,6 +4,7 @@
     Author     : jacknes
 --%>
 
+<%@page import="java.util.Date"%>
 <%-- 
 The registration form is processed by adding the new user to an XML. After the viewer is registered as a customer,
 there are two options:
@@ -16,12 +17,52 @@ there are two options:
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@page import="lit.*"%>
+<%@page import="java.util.*"%>
+
+ <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
+    <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
+        <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
+    </jsp:useBean>
+
+    <%
+        boolean createUserSuccess = false;
+        Users users = new Users();
+        users = userApp.getUsers();
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String dob = request.getParameter("dob");
+        
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            //invalid submission
+            createUserSuccess = false;
+        } else 
+        {
+            userApp.addUser(name, email, password, dob);
+            createUserSuccess = true;
+            User user = users.getUser(email);
+            session.setAttribute("user", user);
+        }
+         
+
+        if(createUserSuccess == false) {
+    %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registration Unsuccessful</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <p>Your registration was unsuccessful. Please click <a href="register.jsp">here</a> to try again. </p>
     </body>
 </html>
+
+
+<% } else { 
+
+    String redirectURL = "main.jsp";
+    response.sendRedirect(redirectURL);
+
+
+} %>
