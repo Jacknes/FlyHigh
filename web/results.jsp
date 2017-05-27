@@ -29,16 +29,48 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Results</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Results</h1>
+        <%
+        if (!flightList.isEmpty()) {    
+        
+        %>
+        <table>
+            <tr>
+                <th>Flight ID</th>
+                <th>Origin</th> 
+                <th>Destination</th>
+                <th>Departure Date</th>
+                <th>Return Date</th>
+                <th>Seats Left</th>
+                <th>Price</th>
+                <th>Book</th>
+            </tr>
         <%
             for (lit.Flight flight : flightList) {
                 String flightInfo = flight.toString();
                %>
-               <p> <%= flightInfo %> </p>
+                <tr> 
+                    <td> <%= flight.getFlightID() %> </td>
+                    <td> <%= flight.getOrigin()%> </td>
+                    <td> <%= flight.getDestination() %> </td>
+                    <td> <%= flight.getDepartureDate() %> </td>
+                    <td> <%= flight.getReturnDate() %> </td>
+                    <td> <%= flight.getSeats() %> </td>
+                    <td> $<%= flight.getPrice() %> </td>
+                    <td> $<%= flight.getPrice() %> </td>
+                    
+               
+               
+               
+               
+               </tr>
             <%} %>
+        </table>
+        <% } %>
+        
             
     </body>
 </html>

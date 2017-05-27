@@ -208,5 +208,15 @@ and open the template in the editor.
         <destination>Perth, Australia</destination>
         <flightType>economy</flightType>
     </flight>
+    <flight>
+        <flightID>21</flightID>
+        <departureDate>2017-05-02</departureDate>
+        <returnDate>2017-05-27</returnDate>
+        <price>270.0</price>
+        <seats>5</seats>
+        <origin>Sydney</origin>
+        <destination>Melbourne</destination>
+        <flightType>economy</flightType>
+    </flight>
     
 </flights>
