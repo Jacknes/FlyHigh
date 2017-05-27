@@ -16,9 +16,14 @@
 
 
     <%
-        Flights flights = new Flights();
-        flights = flightController.getFlights();
-        ArrayList<lit.Flight>  flightList = flights.getFlights();
+        String origin = request.getParameter("departureCity"); 
+        String destination = request.getParameter("destinationCity"); 
+        String departureDate = request.getParameter("departureDate"); 
+        String returnDate = request.getParameter("returnDate"); 
+        String type = request.getParameter("flightType"); 
+        //Flights flights = new Flights(); 
+        ArrayList<lit.Flight>  flightList = flightController.getFlightsFromParam(origin, destination, departureDate, returnDate, type); 
+        //ArrayList<lit.Flight>  flightList = flights.getFlights(); 
     %>
 <!DOCTYPE html>
 <html>

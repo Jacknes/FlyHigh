@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -42,6 +43,20 @@ public class FlightController {
     {
         this.flights = flights;
     }
+    
+     public ArrayList<Flight> getFlightsFromParam(String departure, String destination, String deptDate, String returnDate, String type)  
+    { 
+        ArrayList<Flight> allFlights = flights.getFlights(); 
+        ArrayList<Flight> matchingFlights = new ArrayList(); 
+        for (Flight flight : allFlights)  
+        { 
+            if (flight.getOrigin().toLowerCase().equals(departure.toLowerCase())&& flight.getDestination().toLowerCase().equals(destination.toLowerCase()) && flight.getDepartureDate().toLowerCase().equals(deptDate.toLowerCase()) && flight.getReturnDate().toLowerCase().equals(returnDate.toLowerCase()) && flight.getFlightType().toLowerCase().equals(type.toLowerCase()))  
+            { 
+                matchingFlights.add(flight); 
+            } 
+        } 
+        return matchingFlights; 
+    } 
     
     
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException 
