@@ -14,13 +14,49 @@ Booking page: Flight customers can access this page from “Results” page or t
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="lit.*"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
+        <title>FlyHigh - Bookings</title>
     </head>
+
+
     <body>
-        <h1>Hello World!</h1>
-    </body>
+        <div class="wrapper">
+            <div class="header">
+                <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
+                <h1>FlyHigh Airlines</h1>
+                <%
+                    User user = (User) session.getAttribute("user");
+                    if (user != null) {
+                %>
+
+                <p>These are your bookings, <%=  user.getName()%> </p>
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li><a href="booking.jsp">Bookings</a></li>
+                    <li><a href="listings.jsp">Listings</a></li>
+                    <li style="float:right"><a href="account.jsp">Account</a></li>
+                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
+                </ul>
+
+                <% // } %>
+                <% } else { %>
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li style="float:right"><a href="login.jsp">Login</a></li>
+                    <li style="float:right"><a href="register.jsp">Register</a></li>
+                </ul>
+                <% }%>
+            </div>
+
+  
+            <!--Bookings Content goes here-->
+            
+            
+        </div>
+    </div>
+</body>
 </html>
