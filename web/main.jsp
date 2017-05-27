@@ -124,7 +124,7 @@ There are three possible scenarios for the “Main” page:
                 </div>
             </form>
         </div>
-    </div>
+  
 </body>
 </html>
 
