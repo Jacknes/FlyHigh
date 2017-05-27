@@ -3,6 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+ /*
+Create a SOAP web service that allows customers to: 
+    a- Login/Logout
+    b- Create a listing
+    c- Create a booking
+    d- View a list of flights, with parameters as above (using SOAP rather than REST)
+    e- Close a listing
+    f- Cancel a booking (Additional);
+User authentication information (for flight customers) must be provided for creating and closing listings, 
+as only flight customers have permission to perform these operations. Retrieving a list of flights can be done without authentication. 
+If the username and password provided are incorrect, the operation should not be performed. If successful, the method for creating a listing 
+should return the ID number of the listing just created. For the method to close a listing, if the specified listing to be closed 
+does not belong to the authenticated person (i.e. it was a listing created by another person), then the operation should not be performed. 
+Note: for this assignment, it is adequate to pass the username and password in an unencrypted form as a SOAP message parameter.
+ */
 package lit.soap;
 
 import java.io.IOException;
@@ -20,7 +36,8 @@ import lit.*;
 public class SOAP {
     
     @WebMethod(operationName = "login")
-    public User login(@WebParam(name = "email") String email, @WebParam(name = "password") String password) throws JAXBException, IOException {
+    public User login(@WebParam(name = "email") String email, @WebParam(name = "password") String password) throws JAXBException, IOException 
+    {
         UserApplication userApp = getUserApp();
         Users users = userApp.getUsers();
         return users.login(email, password);
@@ -73,14 +90,7 @@ public class SOAP {
         Users users = userApp.getUsers();
         return users.getUser(email);
     }
-    
-    
-    @WebMethod(operationName = "createBooking")
-    public void createBooking() {
-        
-    }
-
-    
+     
     private UserApplication getUserApp() throws JAXBException, IOException 
     {
         UserApplication userApp = new UserApplication();
