@@ -39,7 +39,8 @@ there are two options:
             createUserSuccess = false;
         } else 
         {
-            userApp.addUser(name, email, password, dob);
+            users.addUser(name, email, password, dob);
+            userApp.updateXML(users);
             createUserSuccess = true;
             User user = users.getUser(email);
             session.setAttribute("user", user);

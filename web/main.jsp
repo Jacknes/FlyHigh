@@ -39,7 +39,7 @@ There are three possible scenarios for the “Main” page:
                         if (user.isAdmin()) {
                 %>
 
-                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>   
+                <p>Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="admin.jsp">Administrative</a></li>
@@ -123,18 +123,6 @@ There are three possible scenarios for the “Main” page:
             </form>
         </div>
     </div>
-
-
-    <!--    <br>
-        <div id="wrapper">
-          <div id="searchDiv">
-            <input type="text" id="queryTerm" autofocus> </input>
-            <br><br>
-            <div id="buttonWrapper">
-              <button onclick="query_btnpress()" id="queryBTN">Search</button>
-            </div>
-          </div>
-            <br>-->
 </body>
 </html>
 
