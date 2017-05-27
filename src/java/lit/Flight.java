@@ -21,9 +21,9 @@ public class Flight
     @XmlElement(name = "flightID")
     String flightID;
     @XmlElement(name = "departureDate")
-    Date departureDate;
+    String departureDate;
     @XmlElement(name = "returnDate")
-    Date returnDate;
+    String returnDate;
     @XmlElement(name = "price")
     Double price;
     @XmlElement(name = "seats")
@@ -40,7 +40,7 @@ public class Flight
         super();
     }
     
-    public Flight(String flightID, Date departureDate, Date returnDate, Double price, int seats, String origin, String destination, String flightType) 
+    public Flight(String flightID, String departureDate, String returnDate, Double price, int seats, String origin, String destination, String flightType) 
     {
         super();
         this.flightID = flightID;
@@ -51,6 +51,11 @@ public class Flight
         this.origin = origin;
         this.destination = destination;
         this.flightType = flightType;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" + "flightID=" + flightID + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", price=" + price + ", seats=" + seats + ", origin=" + origin + ", destination=" + destination + ", flightType=" + flightType + '}';
     }
     
     public String getFlightID() 
@@ -72,5 +77,35 @@ public class Flight
     {
         return flightID.equals(this.flightID);
     }
+    
+    public String getDepartureDate()  
+    { 
+        return departureDate; 
+    } 
+ 
+    public String getReturnDate()  
+    { 
+        return returnDate; 
+    } 
+ 
+    public Double getPrice()  
+    { 
+        return price; 
+    } 
+    
+    public String getOrigin()  
+    { 
+        return origin; 
+    } 
+ 
+    public String getDestination()  
+    { 
+        return destination; 
+    } 
+ 
+    public String getFlightType()  
+    { 
+        return flightType; 
+    } 
     
 }

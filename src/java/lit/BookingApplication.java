@@ -47,7 +47,7 @@ public class BookingApplication {
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException 
     {
         // Create the unmarshaller
-         JAXBContext jc = JAXBContext.newInstance(Users.class);
+         JAXBContext jc = JAXBContext.newInstance(Bookings.class);
          Unmarshaller u = jc.createUnmarshaller();
 
          // Now unmarshal the object from the file

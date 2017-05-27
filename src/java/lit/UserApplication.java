@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.*;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -53,6 +54,7 @@ public class UserApplication
 
          // Now unmarshal the object from the file
          FileInputStream fin = new FileInputStream(filePath);
+         this.filePath = filePath;
          users = (Users)u.unmarshal(fin); // This loads the "shop" object
          fin.close();    
     }
@@ -62,15 +64,21 @@ public class UserApplication
         JAXBContext jc = JAXBContext.newInstance(Users.class);
         Marshaller m = jc.createMarshaller();     
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);  
-        m.marshal(users, new FileOutputStream("WEB-INF/users.xml"));    
+        m.marshal(users, new FileOutputStream(filePath));    
     }
     
-    public void addUser(User user) throws JAXBException, PropertyException, FileNotFoundException, IOException 
+    public void addUser(String name, String email, String password, String dob) throws JAXBException, PropertyException, FileNotFoundException, IOException 
     {
-        if(user != null)
-            users.addUser(user);
-        
+        users.addUser(name, email, password, dob);
         updateXML(this.users);
     }
     
+    public void removeUser (User user) throws JAXBException, PropertyException, FileNotFoundException 
+    {
+        ArrayList<User> usersList = users.getUsers();
+        if (usersList.contains(user))
+            usersList.remove(user);
+        
+        updateXML(users);
+    }    
 }

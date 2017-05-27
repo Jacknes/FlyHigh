@@ -30,13 +30,13 @@ public class User implements Serializable
     @XmlElement(name = "password")
     String password;
     @XmlElement(name = "dob")
-    Date dob;
+    String dob;
     @XmlElement(name = "admin")
     boolean admin;
     @XmlElement(name ="bookingID")
     String bookingID;
 
-    public User(String userID, String name, String email, String password, Date dob) 
+    public User(String userID, String name, String email, String password, String dob) 
     {
         this.userID = userID;
         this.name = name;
@@ -44,7 +44,7 @@ public class User implements Serializable
         this.password = password;
         this.dob = dob;
         this.admin = false;
-        this.bookingID = "";
+        this.bookingID = "0";
     }
     public User() 
     {
@@ -66,5 +66,39 @@ public class User implements Serializable
         return name;
     }
     
+
+    public boolean isAdmin () 
+    {
+        return admin;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    
+    public String getUserID() 
+    {
+        return userID;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    private String getBookingID() {
+        return bookingID;
+    }
+    
+    @Override
+    public String toString() {
+        return name + " " + email + " " + password + " " + userID + " " + dob + " bookingID " + bookingID;
+    }
+    
+
  
 }

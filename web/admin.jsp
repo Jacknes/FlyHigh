@@ -11,6 +11,7 @@ Admin page: Only specific registered users (e.g. “airline staff”) can access
     b- View booking details
     c- Edit a booking
     d- Cancel a booking
+    e- Cancel a users membership (Additional)
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -9,12 +9,12 @@ and open the template in the editor.
 <flights>
     <flight>
         <flightID>1</flightID>
-        <departureDate>2017-05-2</departureDate>
-        <returnDate>27-05-2017</returnDate>
+        <departureDate>2017-05-02</departureDate>
+        <returnDate>2017-05-27</returnDate>
         <price>270.0</price>
         <seats>5</seats>
-        <origin>Sydney, Australia</origin>
-        <destination>Melbourne, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Melbourne</destination>
         <flightType>economy</flightType>
     </flight>
     <flight>
@@ -206,6 +206,16 @@ and open the template in the editor.
         <seats>2</seats>
         <origin>Hobart, Australia</origin>
         <destination>Perth, Australia</destination>
+        <flightType>economy</flightType>
+    </flight>
+    <flight>
+        <flightID>21</flightID>
+        <departureDate>2017-05-02</departureDate>
+        <returnDate>2017-05-27</returnDate>
+        <price>270.0</price>
+        <seats>5</seats>
+        <origin>Sydney</origin>
+        <destination>Melbourne</destination>
         <flightType>economy</flightType>
     </flight>
     
