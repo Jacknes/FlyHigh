@@ -82,8 +82,8 @@ public class Users implements Serializable {
     private boolean isEmailAlreadyUsed(String email) {
         for(User user : customers) 
             if (user.getEmail().equals(email))
-                return false;
-        return true;
+                return true;
+        return false;
     }
     
     
