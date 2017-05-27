@@ -44,7 +44,7 @@ elementFormDefault="qualified">
                             <xs:element name="userID" type="xs:integer"/>
                             <xs:element name="email" type="xs:string"/>
                             <xs:element name="name" type="name"/>
-                            <xs:element name="password" type="password"/>
+                            <xs:element name="password" type="xs:string"/>
                             <xs:element name="dob" type="dob"/>
                             <xs:element name="admin" type="xs:boolean"/>
                             <xs:element name="bookingID" type="xs:integer"/>
