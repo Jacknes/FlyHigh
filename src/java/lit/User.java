@@ -71,6 +71,7 @@ public class User implements Serializable
     {
         return admin;
     }
+    
     public String getEmail() {
         return email;
     }
@@ -86,5 +87,6 @@ public class User implements Serializable
         return name + " " + email + " " + password;
     }
     
+
  
 }
