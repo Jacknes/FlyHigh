@@ -13,8 +13,7 @@
     <jsp:useBean id="flightController" class="lit.FlightController" scope="application">
         <jsp:setProperty name="flightController" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
-
-
+<!--http://hostname.com/mywebapp/mypage.jsp?name=John+Smith-->
     <%
         String origin = request.getParameter("departureCity"); 
         String destination = request.getParameter("destinationCity"); 
@@ -29,10 +28,50 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
         <title>Results</title>
     </head>
-    <body>
-        <h1>Results</h1>
+     <body>
+        <div class="wrapper">
+            <div class="header">
+                <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
+                <h1>FlyHigh Airlines</h1>
+                <%
+                    User user = (User) session.getAttribute("user");
+                    String username = "";
+                    if (user != null) {
+                        username = user.getName();
+                        if (user.isAdmin()) {
+                %>
+
+                <p>Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li><a href="admin.jsp">Administrative</a></li>
+                    <li style="float:right"><a href="account.jsp">Account</a></li>
+                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
+                </ul>
+                <% } else {%>
+                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li><a href="booking.jsp">Bookings</a></li>
+                    <li><a href="listings.jsp">Listings</a></li>
+
+                    <li style="float:right"><a href="account.jsp">Account</a></li>
+                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
+                </ul>
+
+                <% } %>
+                <% } else { %>
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li style="float:right"><a href="login.jsp">Login</a></li>
+                    <li style="float:right"><a href="register.jsp">Register</a></li>
+                </ul>
+                <%}%>
+            </div>
+            <div>
         <%
         if (!flightList.isEmpty()) {    
         
@@ -70,7 +109,9 @@
             <%} %>
         </table>
         <% } %>
+        <p>No results found. Please refine your search history.</p>
         
-            
+            </div>
+        </div>
     </body>
 </html>
