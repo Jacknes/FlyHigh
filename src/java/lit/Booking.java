@@ -6,20 +6,34 @@
 package lit;
 
 import java.util.*;
+import javax.xml.bind.annotation.*;
 
 /**
  *
  * @author jacknes
+ * @author Ryan McCartney 12545378
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class Booking 
 {
+    @XmlElement(name = "bookingID")
     String bookingID;
+    @XmlElement(name = "userID")
     String userID;
+    @XmlElement(name = "flightID")
     String flightID;
+    @XmlElement(name = "bookingDate")
     Date bookingDate;
+    
+    public Booking()
+    {
+        super();
+    }
     
     public Booking(String bookingID, String userID, String flightID, Date bookingDate) 
     {
+        super();
         this.bookingID = bookingID;
         this.userID = userID;
         this.flightID = flightID;
@@ -28,5 +42,17 @@ public class Booking
     
     public boolean isBooking(String bookingID) {
         return this.bookingID.equals(bookingID);
+    }
+    
+    public String getBookingID() {
+        return this.bookingID;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public String getFlightID() {
+        return flightID;
     }
 }

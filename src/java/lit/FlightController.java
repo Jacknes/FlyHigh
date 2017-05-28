@@ -19,6 +19,7 @@ import javax.xml.bind.Unmarshaller;
 /**
  *
  * @author jacknes
+ * @author Ryan McCartney 12545378
  */
 public class FlightController {
     private String filePath;

@@ -7,12 +7,16 @@ package lit;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.*;
 
 /**
  *
  * @author jacknes
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "bookings")
 public class Bookings implements Serializable{
+    @XmlElement(name = "booking")
     ArrayList<Booking> bookings = new ArrayList<>();
   
     //TODO: Login functionality, return type the user or null
@@ -62,6 +66,16 @@ public class Bookings implements Serializable{
     public ArrayList<Booking> getBookings ()
     {
         return bookings;
+    }
+    
+    public Booking getBookingForUserID (String userID)
+    {
+        for (Booking booking : bookings)
+        {
+            if (booking.getUserID().equals(userID))
+                return booking;
+        }
+        return null;
     }
     
 }
