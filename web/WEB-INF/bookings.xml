@@ -10,11 +10,12 @@ and open the template in the editor.
     <booking>
         <bookingID>001</bookingID>
         <userID>4</userID>
+        <username>Jack Pascoe</username>
         <flightID>13</flightID>
         <departureDate>2017-06-10</departureDate>
         <returnDate>2017-06-21</returnDate>
-        <origin>Sydney, Australia</origin>
-        <destination>Hobart, Australia</destination>
+        <origin>Sydney</origin>
+        <destination>Hobart</destination>
         <flightType>economy</flightType>
         <price>650.0</price>
         <seat>1</seat>
