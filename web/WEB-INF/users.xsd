@@ -6,16 +6,13 @@ and open the template in the editor.
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-targetNamespace="https://www.w3schools.com"
-xmlns="https://www.w3schools.com"
 elementFormDefault="qualified">
 
-<!--    <xs:simpleType name="email">
+    <xs:simpleType name="email">
         <xs:restriction base="xs:string">
-             <xs:pattern value="(\[a-zA-z0-9\.\_\]+)@(\[a-z\-\]+)\.(\[a-z\-\]+)((\.)\[a-z\-\]+)?"/> 
-            <xs:pattern value="([a-zA-z0-9\.\_]+)@([a-z\-]+)\.([a-z\-]+)((\.)[a-z\-]+)?"/>
+             <xs:pattern value="([a-z]|[A-Z]|[0-9]\.|\_)+@(([a-z]|[A-Z])+){1}(\.([a-z]|[A-Z])+)+"/>
         </xs:restriction>
-    </xs:simpleType>-->
+    </xs:simpleType>
     
     <xs:simpleType name="name">
         <xs:restriction base="xs:string">
@@ -25,8 +22,8 @@ elementFormDefault="qualified">
     
     <xs:simpleType name="password">
         <xs:restriction base="xs:string">
-            <xs:pattern value="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm"/>
-            <!--(([0-9]+)([a-zA-Z]*)).{4,}-->
+            <xs:minLength value="6"/>
+            <xs:maxLength value="36"/>    
         </xs:restriction>
     </xs:simpleType>
     
@@ -42,13 +39,13 @@ elementFormDefault="qualified">
                 <xs:element name="user" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="userID" type="xs:integer"/>
+                            <xs:element name="userID" type="xs:string"/>
                             <xs:element name="email" type="xs:string"/>
                             <xs:element name="name" type="name"/>
                             <xs:element name="password" type="password"/>
                             <xs:element name="dob" type="dob"/>
                             <xs:element name="admin" type="xs:boolean"/>
-                            <xs:element name="bookingID" type="xs:integer"/>
+                            <xs:element name="bookingID" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

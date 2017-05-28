@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+elementFormDefault="qualified">
+
+    <xs:simpleType name="dob">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="listingType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(economy|business)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="listings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="listing" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="userID" type="xs:string"/>
+                            <xs:element name="origin" type="xs:string"/>
+                            <xs:element name="destination" type="xs:string"/>
+                            <xs:element name="departureDate" type="dob"/>
+                            <xs:element name="returnDate" type="dob"/>
+                            <xs:element name="type" type="listingType"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
