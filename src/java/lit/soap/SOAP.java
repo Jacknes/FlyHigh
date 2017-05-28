@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
- /*
+/*
 Create a SOAP web service that allows customers to: 
     a- Login/Logout
     b- Create a listing
@@ -18,7 +18,9 @@ If the username and password provided are incorrect, the operation should not be
 should return the ID number of the listing just created. For the method to close a listing, if the specified listing to be closed 
 does not belong to the authenticated person (i.e. it was a listing created by another person), then the operation should not be performed. 
 Note: for this assignment, it is adequate to pass the username and password in an unencrypted form as a SOAP message parameter.
- */
+*/
+
+
 package lit.soap;
 
 import java.io.IOException;
@@ -95,16 +97,24 @@ public class SOAP {
         //close the listing;
     }
     
+    
+// public Flights getFlightsWithQueryParam(BookingApplication bookingController, 
+//             String customerName, boolean flightStatus, int numOfFlights,
+//             ArrayList<Flight> allFlights, Flights filteredFlights
+//     )
     @WebMethod(operationName = "viewFlights")
     public ArrayList<Flight> viewFlights(@WebParam(name = "username") String username, @WebParam(name = "status") boolean status, @WebParam(name = "numofflights") int numofflights) throws JAXBException, IOException  
     {
-        ArrayList<Flight> results = new ArrayList();
+        //ArrayList<Flight> results = new ArrayList();
         FlightController flightController = getFlightController();
-        Flights flights = flightController.getFlights();
+        BookingApplication bookingApp = new BookingApplication();
+        Flights flights = flightController.getFlightsWithQueryParam(bookingApp, username, status, numofflights, null, null);
+        
+        //flights = flightController.getFlights();
         ArrayList<Flight> flightList = flights.getFlights();
         
         //return flights;
-        return null;
+        return flightList;
     }
 
  
