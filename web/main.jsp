@@ -28,43 +28,10 @@ There are three possible scenarios for the “Main” page:
 
     <body>
         <div class="wrapper">
-            <div class="header">
+            <div class='header'>
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>FlyHigh Airlines</h1>
-                <%
-                    User user = (User) session.getAttribute("user");
-                    String username = "";
-                    if (user != null) {
-                        username = user.getName();
-                        if (user.isAdmin()) {
-                %>
-
-                <p>Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
-                <ul>
-                    <li><a href="main.jsp">Home</a></li>
-                    <li><a href="admin.jsp">Administrative</a></li>
-                    <li style="float:right"><a href="account.jsp">Account</a></li>
-                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
-                </ul>
-                <% } else {%>
-                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
-                <ul>
-                    <li><a href="main.jsp">Home</a></li>
-                    <li><a href="booking.jsp">Bookings</a></li>
-                    <li><a href="listings.jsp">Listings</a></li>
-
-                    <li style="float:right"><a href="account.jsp">Account</a></li>
-                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
-                </ul>
-
-                <% } %>
-                <% } else { %>
-                <ul>
-                    <li><a href="main.jsp">Home</a></li>
-                    <li style="float:right"><a href="login.jsp">Login</a></li>
-                    <li style="float:right"><a href="register.jsp">Register</a></li>
-                </ul>
-                <%}%>
+                <%@ include file = "navbar.jsp" %>
             </div>
 
             <form action="results.jsp" method="POST">
@@ -124,7 +91,6 @@ There are three possible scenarios for the “Main” page:
                 </div>
             </form>
         </div>
-  
-</body>
+    </body>
 </html>
 

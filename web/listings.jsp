@@ -22,31 +22,8 @@
             <div class="wrapper">
                 <div class="header">
                     <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
-
-                    <%
-                        User user = (User) session.getAttribute("user");
-                        String username = "";
-                        if (user != null) {
-                            username = user.getName();
-                    %>
-
-                    <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
-                    <ul>
-                        <li><a href="main.jsp">Home</a></li>
-                        <li><a href="booking.jsp">Bookings</a></li>
-                        <li><a href="listings.jsp">Listings</a></li>
-
-                        <li style="float:right"><a href="logout.jsp">Logout</a></li>
-                    </ul>
-                    <!--                
-                    <% } else { %>
-                  <ul>
-                      <li><a href="main.jsp">Home</a></li>
-                      <li style="float:right"><a href="login.jsp">Login</a></li>
-                      <li style="float:right"><a href="register.jsp">Register</a></li>
-                  </ul>-->
-
-                    <%}%>
+                    <h1>Listings</h1>
+                    <%@include file = "navbar.jsp" %>
                 </div>
 
                 <div class="mainTable">

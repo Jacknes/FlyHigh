@@ -24,8 +24,16 @@ and open the template in the editor.
     </booking>
     <booking>
         <bookingID>2</bookingID>
+        <username>John Smith</username>
         <userID>2</userID>
         <flightID>3</flightID>
-        <bookingTime>19-05-2017</bookingTime>
+        <departureDate>2017-05-27</departureDate>
+        <returnDate>2017-05-30</returnDate>
+        <origin>Sydney</origin>
+        <destination>Hobart</destination>
+        <flightType>economy</flightType>
+        <price>300.0</price>
+        <seat>1</seat>
+        <description>Return flight from Sydney to Hobart.</description> 
     </booking>
 </bookings>
