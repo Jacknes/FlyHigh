@@ -36,16 +36,11 @@ public class Booking
         this.userID = userID;
         this.flightID = flightID;
     }
-    
-    public Booking() 
-    {
-        super();
-    }
 
     @Override
     public String toString() 
     {
-        return "Booking{" + "bookingID=" + bookingID + ", userID=" + userID + ", flightID=" + flightID + ", bookingDate=" + bookingDate + '}';
+        return "Booking{" + "bookingID=" + bookingID + ", userID=" + userID + ", flightID=" + flightID + '}';
     }
     
     public boolean isBooking(String bookingID) 
@@ -61,6 +56,7 @@ public class Booking
     public String getFlightID() 
     {
         return flightID;
+    }
       
     public boolean bookedByUser(String userID) 
     {

@@ -77,7 +77,7 @@ public class FlightController {
             ArrayList<Flight> filteredFlightList = new ArrayList<>();
             Booking ourUserBooking = null;
             if (customerName != null)
-                ourUserBooking = bookingController.getBookings().getBookingForUserID(customerName);   
+                ourUserBooking = bookingController.getBookings().getUserBooking(customerName);   
             
             
             for (Flight flight : allFlights)
