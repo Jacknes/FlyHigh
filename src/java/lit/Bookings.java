@@ -8,6 +8,7 @@ package lit;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.*;
+import java.util.Random;
 
 /**
  *
@@ -30,16 +31,6 @@ public class Bookings implements Serializable{
         super();
     }
     
-//    
-//    public User login (String email, String password)
-//    {
-//        for (User customer : customers) 
-//        {
-//            if (customer.login(email,password))
-//                return customer;   
-//        }
-//        return null;
-//    }
     
     public void removeBooking (String bookingID) 
     {
@@ -67,15 +58,33 @@ public class Bookings implements Serializable{
     {
         return bookings;
     }
-    
-    public Booking getBookingForUserID (String userID)
+  
+    public Booking getUserBooking(String userID) 
     {
         for (Booking booking : bookings)
-        {
-            if (booking.getUserID().equals(userID))
+            if (booking.bookedByUser(userID))
                 return booking;
-        }
         return null;
     }
     
+    public String getRandomBookingIDUnique() 
+    {
+        Random randomGenerator = new Random(); 
+        boolean isUnique = false;
+        int randomID = randomGenerator.nextInt(999);
+        String id = "" + randomID;;
+        while(isUnique == false) 
+        {
+            isUnique = true;   
+            randomID = randomGenerator.nextInt(999);
+            id = "" + randomID;
+            for (Booking booking : bookings) 
+            {
+                if (id.equals(booking.getBookingID()))
+                    isUnique = false;
+            }
+       } 
+       
+       return id;
+    }
 }
