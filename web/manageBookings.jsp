@@ -22,7 +22,7 @@
             <div class='header'>
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>Bookings</h1>
-        
+
                 <%
                     User user = (User) session.getAttribute("user");
                     String username = "";
@@ -30,16 +30,33 @@
                         username = user.getName();
                         if (user.isAdmin()) {
                 %>
+
+                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>   
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li><a href="manageBookings.jsp">Manage Bookings</a></li>
+                    <li><a href="manageUsers.jsp">Manage Users</a></li>
+                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
+                </ul>
+
+                <div class='mainTable'>
+                    <c:import url="WEB-INF/bookings.xml" var="inputDoc" />
+
+                    <c:import url="WEB-INF/bookings.xsl" var="stylesheet"/>
+
+                    <x:transform xml = "${inputDoc}"
+                                 xslt = "${stylesheet}" />
+                </div>
+                <% } else { %>
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li style="float:right"><a href="login.jsp">Login</a></li>
+                    <li style="float:right"><a href="register.jsp">Register</a></li>
+                </ul>
+                <p>You are not authorised to view this page</p>
+                <% }%>
             </div>
-
-            <div class='mainTable'>
-                <c:import url="WEB-INF/bookings.xml" var="inputDoc" />
-
-                <c:import url="WEB-INF/bookings.xsl" var="stylesheet"/>
-
-                <x:transform xml = "${inputDoc}"
-                             xslt = "${stylesheet}" />
-            </div>
+            <% } %>
         </div>
     </body>
 </html>
