@@ -29,7 +29,9 @@ should take them to the “Booking” page)
             <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>Login</h1>
+                <%@include file = "navbar.jsp" %>
             </div>
+
             <form action="loginAction.jsp" method="POST">
                 <div class="mainTable">
                     <table>

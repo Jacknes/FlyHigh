@@ -31,14 +31,10 @@ there are two options:
     
     <body>
         <div class="wrapper">
-            <div id="registerHeader">
-                <!--        <img src="Resources/FHlogo.png" alt="FH Logo" style="width:100px;height:100px;">-->
+            <div class='header'>
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>Welcome to FlyHigh Airlines</h1>
-                <ul>
-                    <li><a href="main.jsp">Home</a></li>
-
-                </ul>
+                <%@include file="navbar.jsp" %>
             </div>
             <form action="registerAction.jsp" method="POST">
                 <div class="mainTable">

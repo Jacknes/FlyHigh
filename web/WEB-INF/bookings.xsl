@@ -17,6 +17,7 @@
     <xsl:template match="bookings">
         <html>
             <head>
+                <h1>Bookings</h1>
             </head> 
             <body>
                 <table>
@@ -44,12 +45,16 @@
         </html>
     </xsl:template>
     
+     <xsl:template match="booking">
+        <tr>
+            <xsl:apply-templates/>
+        </tr>
+    </xsl:template>
+    
     <xsl:template match="bookingID|username|userID|flightID|departureDate|returnDate|origin|destination|flightType|price|seat|description">
         <td>
             <xsl:apply-templates/>
         </td>
     </xsl:template>
     
-
-
 </xsl:stylesheet>
