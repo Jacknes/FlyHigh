@@ -32,17 +32,23 @@ there are two options:
     <body>
         <div class="wrapper">
             <div class='header'>
+                <%
+                    String returnToResults = request.getParameter("returnToResults");
+                    if (returnToResults == null) {
+                        returnToResults = "0";
+                    }
+                %>
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>Welcome to FlyHigh Airlines</h1>
                 <%@include file="navbar.jsp" %>
             </div>
             <form action="registerAction.jsp" method="POST">
                 <div class="mainTable">
-                    <h2>Register</h2>
+                    <h2>Register <%= returnToResults %></h2>
                     <table>
                         <tr>
                             <td>Full Name</td>
-                            <td><input type="text" name="name"></td>
+                            <td><input type="text" name="name"> <input type="hidden" name="returnToResults" value="<%= returnToResults%>"></td>
                         </tr>
                         <tr>
                             <td>Email</td>
