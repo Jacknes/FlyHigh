@@ -29,6 +29,11 @@ should take them to the “Booking” page)
             <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>Login</h1>
+<!--                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li style="float:right"><a href="login.jsp">Login</a></li>
+                    <li style="float:right"><a href="register.jsp">Register</a></li>
+                </ul>-->
                 <%@include file = "navbar.jsp" %>
             </div>
 

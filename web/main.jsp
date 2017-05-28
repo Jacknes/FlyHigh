@@ -25,7 +25,6 @@ There are three possible scenarios for the “Main” page:
         <title>FlyHigh - Main</title>
     </head>
 
-
     <body>
         <div class="wrapper">
             <div class='header'>

@@ -7,12 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="lit.*"%>
 <!DOCTYPE html>
-<!--<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>-->
+
                 
                 <%
                     User user = (User) session.getAttribute("user");
@@ -30,6 +25,7 @@
                     <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
+<!--                <p>Case 1</p>-->
                 <% } else {%>
                 <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
                 <ul>
@@ -40,7 +36,7 @@
                     <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
-
+<!--                <p>Case 2</p>-->
                 <% } %>
                 <% } else { %>
                 <ul>
@@ -48,6 +44,6 @@
                     <li style="float:right"><a href="login.jsp">Login</a></li>
                     <li style="float:right"><a href="register.jsp">Register</a></li>
                 </ul>
+<!--                <p>case 3</p>-->
                 <%}%>
-<!--    </body>
-</html>-->
+

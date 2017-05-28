@@ -19,9 +19,9 @@ Booking page: Flight customers can access this page from “Results” page or t
 <!DOCTYPE html>
 
 <% String filePath = application.getRealPath("WEB-INF/flights.xml");%>
-    <jsp:useBean id="flightController" class="lit.FlightController" scope="application">
-        <jsp:setProperty name="flightController" property="filePath" value="<%=filePath%>"/>
-    </jsp:useBean>
+<jsp:useBean id="flightController" class="lit.FlightController" scope="application">
+    <jsp:setProperty name="flightController" property="filePath" value="<%=filePath%>"/>
+</jsp:useBean>
 <html>
     <head>
         <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
@@ -29,8 +29,7 @@ Booking page: Flight customers can access this page from “Results” page or t
     </head>
     <%
         String flightID = request.getParameter("flightID");
-        if (flightID == null)
-        {
+        if (flightID == null) {
             flightID = "0";
         }
     %>
@@ -39,6 +38,7 @@ Booking page: Flight customers can access this page from “Results” page or t
             <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>FlyHigh Airlines</h1>
+
                 <%@include file="navbar.jsp"%>
                 
                 <% 
@@ -47,9 +47,9 @@ Booking page: Flight customers can access this page from “Results” page or t
                         
                                          
                     //Check if user booked on this flight already, through the user instance and a bookingController instance. 
-                    
                     //if the user is already booked on this flight, allow to edit or cancel, 
                     //if not book. 
+
                     if (flight != null) {
                 %>
                 <table>
@@ -64,33 +64,36 @@ Booking page: Flight customers can access this page from “Results” page or t
                         <th>Book</th>
                     </tr>
                     <tr> 
-                        <td> <%= flight.getFlightID() %> </td>
+                        <td> <%= flight.getFlightID()%> </td>
                         <td> <%= flight.getOrigin()%> </td>
-                        <td> <%= flight.getDestination() %> </td>
-                        <td> <%= flight.getDepartureDate() %> </td>
-                        <td> <%= flight.getReturnDate() %> </td>
-                        <td> <%= flight.getSeats() %> </td>
-                        <td> $<%= flight.getPrice() %> </td>
+                        <td> <%= flight.getDestination()%> </td>
+                        <td> <%= flight.getDepartureDate()%> </td>
+                        <td> <%= flight.getReturnDate()%> </td>
+                        <td> <%= flight.getSeats()%> </td>
+                        <td> $<%= flight.getPrice()%> </td>
                         <td> <a href="bookingAction.jsp?flightID=<%= flight.getFlightID()%>&userID=<%= user.getUserID()%>">Book</a></td>
                     </tr>
-              </table>
+                </table>
                 <!--Implement booking options logic here-->
-                
-                
-                
-                
-                
-                
-                
-                <% } else { %>
-                <p>You must be logged in to view this page! Click <a href="login.jsp">here</a> to login into your FlyHigh account or click <a href="main.jsp">here</a>to return to the home page.</p>
+
+
+
+
+
+
+
+                <% } else {
+
+            String redirectURL = "404.jsp";
+            response.sendRedirect(redirectURL);
+                %>
                 <% }%>
             </div>
 
-  
+
             <!--Bookings Content goes here-->
-                
-            
+
+
         </div>
     </div>
 </body>
