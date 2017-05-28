@@ -29,7 +29,10 @@ Booking page: Flight customers can access this page from “Results” page or t
     </head>
     <%
         String flightID = request.getParameter("flightID");
-        
+        if (flightID == null)
+        {
+            flightID = "0";
+        }
     %>
 
     <%
@@ -59,7 +62,7 @@ Booking page: Flight customers can access this page from “Results” page or t
                 </ul>               
                 <% } else { %>
                 
-                <p><%=  user.getName()%>'s Bookings </p>
+                <p><%=  user.getName()%>'s Bookings</p>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="booking.jsp">Bookings</a></li>                  

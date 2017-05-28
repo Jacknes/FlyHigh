@@ -25,7 +25,8 @@ elementFormDefault="qualified">
     
     <xs:simpleType name="password">
         <xs:restriction base="xs:string">
-            <xs:pattern value=""/>
+            <xs:pattern value="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm"/>
+            <!--(([0-9]+)([a-zA-Z]*)).{4,}-->
         </xs:restriction>
     </xs:simpleType>
     
@@ -44,7 +45,7 @@ elementFormDefault="qualified">
                             <xs:element name="userID" type="xs:integer"/>
                             <xs:element name="email" type="xs:string"/>
                             <xs:element name="name" type="name"/>
-                            <xs:element name="password" type="xs:string"/>
+                            <xs:element name="password" type="password"/>
                             <xs:element name="dob" type="dob"/>
                             <xs:element name="admin" type="xs:boolean"/>
                             <xs:element name="bookingID" type="xs:integer"/>

@@ -14,8 +14,6 @@ import javax.xml.bind.JAXBException;
 import lit.FlightController;
 import lit.Flight;
 import lit.Flights;
-import lit.Booking;
-import lit.Bookings;
 import lit.BookingApplication;
 
 /**

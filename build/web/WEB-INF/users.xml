@@ -1,21 +1,16 @@
-<<<<<<< Updated upstream
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<!--<users xmlns="https://www.w3schools.com"
+<users xmlns="https://www.w3schools.com"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
-=======
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
->>>>>>> Stashed changes
-<users>
+xsi:schemaLocation="https://www.w3schools.com users.xsd">
     <user>
         <userID>1</userID>
-        <name>Root Admin</name>
         <email>admin1@flyhigh.com</email>
+        <name>Root Admin</name>
         <password>password</password>
         <dob>2002-09-24</dob>
         <admin>true</admin>
@@ -23,147 +18,48 @@ xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
     </user>
     <user>
         <userID>2</userID>
-        <name>John Smith</name>
         <email>customer@test.com</email>
+        <name>John Smith</name>
         <password>john</password>
         <dob>1997-04-23</dob>
         <admin>false</admin>
-        <bookingID>0</bookingID>
+        <bookingID>0</bookingID>  
     </user>
     <user>
         <userID>3</userID>
-        <name>Shasha Chai</name>
         <email>Shasha@test.com</email>
+        <name>Shasha Chai</name>
         <password>shasha</password>
         <dob>1997-10-04</dob>
         <admin>false</admin>
-        <bookingID>0</bookingID>
+        <bookingID>0</bookingID>  
     </user>
     <user>
         <userID>4</userID>
-        <name>Jack Pascoe</name>
         <email>jack@test.com</email>
+        <name>Jack Pascoe</name>
         <password>jack</password>
         <dob>1997-08-17</dob>
         <admin>false</admin>
-        <bookingID>0</bookingID>
+        <bookingID>0</bookingID>  
     </user>
     <user>
         <userID>5</userID>
-        <name>Ryan Mccartney</name>
         <email>ryan@test.com</email>
+        <name>Ryan Mccartney</name>
         <password>ryan</password>
         <dob>1997-05-30</dob>
         <admin>false</admin>
-        <bookingID>0</bookingID>
+        <bookingID>0</bookingID>  
     </user>
     <user>
         <userID>6</userID>
-        <name>Jill Smith</name>
         <email>jill@test.com</email>
+        <name>Jill Smith</name>
         <password>jill</password>
         <dob>1997-11-05</dob>
         <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>7</userID>
-        <name>Admin Two</name>
-        <email>admin2@flyhigh.com</email>
-        <password>admin2</password>
-        <dob>2000-07-07</dob>
-        <admin>true</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>788</userID>
-        <name>Test</name>
-        <email>Test@gmail.com</email>
-        <password>test</password>
-        <dob>2017-05-16</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>20</userID>
-        <name>TestBooking</name>
-        <email>testman</email>
-        <password>test</password>
-        <dob>2017-05-16</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>453</userID>
-        <name>BookingTest2</name>
-        <email>test2</email>
-        <password>test</password>
-        <dob>2017-05-17</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>665</userID>
-        <name>test3</name>
-        <email>test3</email>
-        <password>test</password>
-        <dob>2017-05-11</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>686</userID>
-        <name>testFinal</name>
-        <email>testfinal</email>
-        <password>test</password>
-        <dob>2017-05-19</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>640</userID>
-        <name>Jack</name>
-        <email>jacknes</email>
-        <password>test</password>
-        <dob>2017-05-16</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>855</userID>
-        <name>Shasha</name>
-        <email>s.chai</email>
-        <password>chai</password>
-        <dob>2017-05-09</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>928</userID>
-        <name>Jak</name>
-        <email>jack</email>
-        <password>test</password>
-        <dob>2017-05-15</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>41</userID>
-        <name>a</name>
-        <email>a</email>
-        <password>a</password>
-        <dob>2017-05-09</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
-    </user>
-    <user>
-        <userID>782</userID>
-        <name>b</name>
-        <email>b</email>
-        <password>b</password>
-        <dob>2017-05-03</dob>
-        <admin>false</admin>
-        <bookingID>0</bookingID>
+        <bookingID>0</bookingID>  
     </user>
         <user>
         <userID>7</userID>
