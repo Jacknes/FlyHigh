@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.*;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -72,4 +73,12 @@ public class UserApplication
         updateXML(this.users);
     }
     
+    public void removeUser (User user) throws JAXBException, PropertyException, FileNotFoundException 
+    {
+        ArrayList<User> usersList = users.getUsers();
+        if (usersList.contains(user))
+            usersList.remove(user);
+        
+        updateXML(users);
+    }    
 }

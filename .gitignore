@@ -5,3 +5,15 @@ nbproject/private/
 /build/
 /dist/
 web/WEB-INF/web\.xml
+
+nbproject/ant-deploy\.xml
+
+nbproject/build-impl\.xml
+
+nbproject/project\.properties
+
+nbproject/rest-build\.xml
+
+nbproject/genfiles\.properties
+
+nbproject/project\.xml

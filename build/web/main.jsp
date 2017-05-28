@@ -28,33 +28,46 @@ There are three possible scenarios for the “Main” page:
 
     <body>
         <div class="wrapper">
-            
+            <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
-<!--                <h1>FlyHigh Airlines</h1>-->
- <%
-            User user = (User)session.getAttribute("user");
-            String username = "";
-            if(user != null){ 
-               username = user.getName();
- %>
-            
-                <p>You are logged in as <%= user.getName()%> </p>
-                 <ul>
+                <h1>FlyHigh Airlines</h1>
+                <%
+                    User user = (User) session.getAttribute("user");
+                    String username = "";
+                    if (user != null) {
+                        username = user.getName();
+                        if (user.isAdmin()) {
+                %>
+
+                <p>Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
+                <ul>
                     <li><a href="main.jsp">Home</a></li>
-                    
+                    <li><a href="admin.jsp">Administrative</a></li>
+                    <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
-                
-                  <% } else { %>
+                <% } else {%>
+                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li><a href="booking.jsp">Bookings</a></li>
+                    <li><a href="listings.jsp">Listings</a></li>
+
+                    <li style="float:right"><a href="account.jsp">Account</a></li>
+                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
+                </ul>
+
+                <% } %>
+                <% } else { %>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li style="float:right"><a href="login.jsp">Login</a></li>
                     <li style="float:right"><a href="register.jsp">Register</a></li>
                 </ul>
-                
-                      <%}%>
-            
-            <form action="loginAction.jsp" method="POST">
+                <%}%>
+            </div>
+
+            <form action="results.jsp" method="POST">
                 <div class="mainTable">
                     <h2>Search Flights</h2>
                     <table>
@@ -111,19 +124,7 @@ There are three possible scenarios for the “Main” page:
                 </div>
             </form>
         </div>
-    </div>
-
-
-    <!--    <br>
-        <div id="wrapper">
-          <div id="searchDiv">
-            <input type="text" id="queryTerm" autofocus> </input>
-            <br><br>
-            <div id="buttonWrapper">
-              <button onclick="query_btnpress()" id="queryBTN">Search</button>
-            </div>
-          </div>
-            <br>-->
+  
 </body>
 </html>
 

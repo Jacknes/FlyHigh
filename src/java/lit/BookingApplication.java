@@ -47,7 +47,7 @@ public class BookingApplication {
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException 
     {
         // Create the unmarshaller
-         JAXBContext jc = JAXBContext.newInstance(Users.class);
+         JAXBContext jc = JAXBContext.newInstance(Bookings.class);
          Unmarshaller u = jc.createUnmarshaller();
 
          // Now unmarshal the object from the file
@@ -61,14 +61,15 @@ public class BookingApplication {
         JAXBContext jc = JAXBContext.newInstance(Bookings.class);
         Marshaller m = jc.createMarshaller();     
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);  
-        m.marshal(bookings, new FileOutputStream("WEB-INF/bookings.xml"));    
+        m.marshal(bookings, new FileOutputStream(filePath));    
     }
     
-    public void addBooking(Booking booking) throws JAXBException, PropertyException, FileNotFoundException, IOException 
+    //public Booking(String bookingID, String userID, String flightID, Date bookingDate) 
+    public void addBooking(String userID, String flightID) throws JAXBException, PropertyException, FileNotFoundException, IOException 
     {
-        if(booking != null)
-            bookings.addBooking(booking);
-        
-        updateXML(this.bookings);
+        String bookingID = bookings.getRandomBookingIDUnique();
+        Booking booking = new Booking(bookingID, userID, flightID);
+        bookings.addBooking(booking);
+        //updateXML(bookings);
     }
 }

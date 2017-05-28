@@ -5,13 +5,59 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="lit.*"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        <h1>Hello World!</h1>
+    <html>
+        <head>
+            <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
+            <title>FlyHigh - Listings</title>
+        </head>
+
+        <body>
+            <div class="wrapper">
+                <div class="header">
+                    <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
+
+                    <%
+                        User user = (User) session.getAttribute("user");
+                        String username = "";
+                        if (user != null) {
+                            username = user.getName();
+                    %>
+
+                    <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
+                    <ul>
+                        <li><a href="main.jsp">Home</a></li>
+                        <li><a href="booking.jsp">Bookings</a></li>
+                        <li><a href="listings.jsp">Listings</a></li>
+
+                        <li style="float:right"><a href="logout.jsp">Logout</a></li>
+                    </ul>
+                    <!--                
+                    <% } else { %>
+                  <ul>
+                      <li><a href="main.jsp">Home</a></li>
+                      <li style="float:right"><a href="login.jsp">Login</a></li>
+                      <li style="float:right"><a href="register.jsp">Register</a></li>
+                  </ul>-->
+
+                    <%}%>
+                </div>
+
+                <div class="mainTable">
+                    <h2>Your Listings</h2>
+                    <table id="listingsTable">
+                        <tr>
+                            <td>Listing 1</td>
+                            <td><a href="results.jsp">View</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
     </body>
 </html>

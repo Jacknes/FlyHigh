@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="results.xsl"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -8,7 +9,7 @@ and open the template in the editor.
 
 <bookings>
     <booking>
-        <bookingID>001</bookingID>
+        <bookingID>1</bookingID>
         <username>Jack Pascoe</username>
         <userID>4</userID>
         <flightID>13</flightID>
@@ -19,6 +20,12 @@ and open the template in the editor.
         <flightType>economy</flightType>
         <price>650.0</price>
         <seat>1</seat>
-        <description>Return flight from Sydney to Hobart.</description>
+        <description>Return flight from Sydney to Hobart.</description>    
+    </booking>
+    <booking>
+        <bookingID>2</bookingID>
+        <userID>2</userID>
+        <flightID>3</flightID>
+        <bookingTime>19-05-2017</bookingTime>
     </booking>
 </bookings>

@@ -25,7 +25,7 @@ public class Flights implements Serializable {
         super();
     }
     
-    private Flight getFlight(String flightID)
+    public Flight getFlight(String flightID)
     {
         for (Flight flight : flights)
             if (flight.isFlight(flightID))
@@ -36,6 +36,11 @@ public class Flights implements Serializable {
     public ArrayList<Flight> getFlights() 
     { 
         return flights; 
+    }
+    
+    public void addFlight(Flight flight)
+    {
+        flights.add(flight);
     }
     
 }

@@ -39,10 +39,11 @@ There are three possible scenarios for the “Main” page:
                         if (user.isAdmin()) {
                 %>
 
-                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>   
+                <p>Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="admin.jsp">Administrative</a></li>
+                    <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
                 <% } else {%>
@@ -52,6 +53,7 @@ There are three possible scenarios for the “Main” page:
                     <li><a href="booking.jsp">Bookings</a></li>
                     <li><a href="listings.jsp">Listings</a></li>
 
+                    <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
 
@@ -65,7 +67,7 @@ There are three possible scenarios for the “Main” page:
                 <%}%>
             </div>
 
-            <form action="loginAction.jsp" method="POST">
+            <form action="results.jsp" method="POST">
                 <div class="mainTable">
                     <h2>Search Flights</h2>
                     <table>
@@ -122,19 +124,7 @@ There are three possible scenarios for the “Main” page:
                 </div>
             </form>
         </div>
-    </div>
-
-
-    <!--    <br>
-        <div id="wrapper">
-          <div id="searchDiv">
-            <input type="text" id="queryTerm" autofocus> </input>
-            <br><br>
-            <div id="buttonWrapper">
-              <button onclick="query_btnpress()" id="queryBTN">Search</button>
-            </div>
-          </div>
-            <br>-->
+  
 </body>
 </html>
 

@@ -44,7 +44,7 @@ public class User implements Serializable
         this.password = password;
         this.dob = dob;
         this.admin = false;
-        this.bookingID = "";
+        this.bookingID = "0";
     }
     public User() 
     {
@@ -71,7 +71,7 @@ public class User implements Serializable
     {
         return admin;
     }
-
+    
     public String getEmail() {
         return email;
     }
@@ -82,9 +82,21 @@ public class User implements Serializable
         return userID;
     }
     
+    public String getPassword() {
+        return password;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    private String getBookingID() {
+        return bookingID;
+    }
+    
     @Override
     public String toString() {
-        return name + " " + email + " " + password;
+        return name + " " + email + " " + password + " " + userID + " " + dob + " bookingID " + bookingID;
     }
     
 
