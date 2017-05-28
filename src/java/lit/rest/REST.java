@@ -1,19 +1,19 @@
 package lit.rest;
-//import javax.ws.rs.*;
-//import javax.ws.rs.core.*;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
 import lit.Flight;
 
 /**
  *
  * @author Ryan McCartney 12545378
  */
-//@Path("/")
+@Path("/")
 public class REST 
 {
     
-//    @Path("hello")
-//    @GET
-//    @Produces(MediaType.TEXT_PLAIN)
+    @Path("hello")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
     public String hello()
     {
         return "Hello, world!";

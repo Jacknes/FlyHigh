@@ -8,9 +8,15 @@ and open the template in the editor.
 
 <bookings>
     <booking>
-        <bookingID>378345</bookingID>
-        <userID>456453</userID>
-        <flightID>845454</flightID>
+        <bookingID>1</bookingID>
+        <userID>4</userID>
+        <flightID>5</flightID>
+        <bookingTime>19-05-2017</bookingTime>
+    </booking>
+    <booking>
+        <bookingID>2</bookingID>
+        <userID>2</userID>
+        <flightID>3</flightID>
         <bookingTime>19-05-2017</bookingTime>
     </booking>
 </bookings>

@@ -56,23 +56,7 @@ public class FlightController {
             } 
         } 
         return matchingFlights; 
-    } 
-    
-    
-    public ArrayList<Flight> getFlightsFromParam(String departure, String destination, String deptDate, String returnDate, String type) 
-    {
-        ArrayList<Flight> allFlights = flights.getFlights();
-        ArrayList<Flight> matchingFlights = new ArrayList();
-        for (Flight flight : allFlights) 
-        {
-            if (flight.getOrigin().toLowerCase().equals(departure.toLowerCase())&& flight.getDestination().toLowerCase().equals(destination.toLowerCase()) && flight.getDepartureDate().toLowerCase().equals(deptDate.toLowerCase()) && flight.getReturnDate().toLowerCase().equals(returnDate.toLowerCase()) && flight.getFlightType().toLowerCase().equals(type.toLowerCase())) 
-            {
-                matchingFlights.add(flight);
-            }
-        }
-        return matchingFlights;
     }
-    
     
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException 
     {
@@ -93,12 +77,12 @@ public class FlightController {
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);  
         m.marshal(flights, new FileOutputStream("WEB-INF/flights.xml"));    
     }
-//    
-//    public void addFlight(Booking booking) throws JAXBException, PropertyException, FileNotFoundException, IOException 
-//    {
-//        if(booking != null)
-//            bookings.addBooking(booking);
-//        
-//        updateXML(this.bookings);
-//    }
+    
+    public void addFlight(Flight flight) throws JAXBException, PropertyException, FileNotFoundException, IOException 
+    {
+        if(flight != null)
+            flights.addFlight(flight);
+        
+        updateXML(this.flights);
+    }
 }

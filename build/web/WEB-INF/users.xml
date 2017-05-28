@@ -4,6 +4,9 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!--<users xmlns="https://www.w3schools.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
 <users>
     <user>
         <userID>1</userID>
@@ -58,5 +61,14 @@ and open the template in the editor.
         <dob>1997-11-05</dob>
         <admin>false</admin>
         <bookingID>0</bookingID>  
+    </user>
+        <user>
+        <userID>7</userID>
+        <email>admin2@flyhigh.com</email>
+        <name>Admin Two</name>
+        <password>admin2</password>
+        <dob>2000-07-07</dob>
+        <admin>true</admin>
+        <bookingID>0</bookingID>
     </user>
 </users>

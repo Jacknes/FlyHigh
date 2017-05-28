@@ -38,4 +38,9 @@ public class Flights implements Serializable {
         return flights; 
     }
     
+    public void addFlight(Flight flight)
+    {
+        flights.add(flight);
+    }
+    
 }
