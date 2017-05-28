@@ -29,7 +29,10 @@ Booking page: Flight customers can access this page from “Results” page or t
     </head>
     <%
         String flightID = request.getParameter("flightID");
-        
+        if (flightID == null)
+        {
+            flightID = "0";
+        }
     %>
     <body>
         <div class="wrapper">
@@ -41,7 +44,7 @@ Booking page: Flight customers can access this page from “Results” page or t
                     if (user != null){
                         if (user.isAdmin()){
                 %>
-                <p>Welcome back to FlyHigh Airlines <%= user.getName()%>  flightID<%= flightID%></p>   
+                <p>Welcome back to FlyHigh Airlines <%= user.getName()%></p>   
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="booking.jsp">Bookings</a></li>                  
@@ -50,7 +53,7 @@ Booking page: Flight customers can access this page from “Results” page or t
                 </ul>               
                 <% } else { %>
                 
-                <p><%=  user.getName()%>'s Bookings  flightID<%= flightID%></p>
+                <p><%=  user.getName()%>'s Bookings</p>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="booking.jsp">Bookings</a></li>
@@ -62,7 +65,9 @@ Booking page: Flight customers can access this page from “Results” page or t
                 <% } %>
                 
                 <% 
+                    
                     lit.Flight flight = flightController.getFlights().getFlight(flightID);
+                    
                     //Check if user booked on this flight already, through the user instance and a bookingController instance. 
                     
                     //if the user is already booked on this flight, allow to edit or cancel, 
