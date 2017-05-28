@@ -20,45 +20,29 @@
                 <h1>Bookings</h1>
             </head> 
             <body>
-                <xsl:apply-templates/>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>BookingID</th>
+                            <th>Full Name</th>
+                            <th>UserID</th>
+                            <th>FlightID</th>
+                            <th>Departure</th>
+                            <th>Return</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Flight Type</th>
+                            <th>Price</th>
+                            <th>Seat</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <xsl:apply-templates/>
+                    </tbody>
+                </table>       
             </body>
         </html>
-    </xsl:template>
-    
-<!--    <xsl:template match="bookings/booking/bookingID">
-        <h1>
-            Booking ID: <xsl:apply-templates/>
-        </h1>
-    </xsl:template>
-    
-    <xsl:template match="bookings/booking/username">
-        <h2>
-            Full Name: <xsl:apply-templates/>
-        </h2>
-    </xsl:template>-->
-    
-    <xsl:template match="booking">
-        <table>
-            <thead>
-                <tr>
-                    <th>BookingID</th>
-                    <th>Full Name</th>
-                    <th>UserID</th>
-                    <th>FlightID</th>
-                    <th>Departure</th>
-                    <th>Return</th>
-                    <th>Origin</th>
-                    <th>Destination</th>
-                    <th>Flight Type</th>
-                    <th>Price</th>
-                    <th>Seat</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <xsl:apply-templates/>
-            </tbody>
-        </table>       
     </xsl:template>
     
     <xsl:template match="bookingID|username|userID|flightID|departureDate|returnDate|origin|destination|flightType|price|seat|description">
