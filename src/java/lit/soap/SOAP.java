@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
- /*
+/*
 Create a SOAP web service that allows customers to: 
     a- Login/Logout
     b- Create a listing
@@ -18,11 +18,14 @@ If the username and password provided are incorrect, the operation should not be
 should return the ID number of the listing just created. For the method to close a listing, if the specified listing to be closed 
 does not belong to the authenticated person (i.e. it was a listing created by another person), then the operation should not be performed. 
 Note: for this assignment, it is adequate to pass the username and password in an unencrypted form as a SOAP message parameter.
- */
+*/
+
+
 package lit.soap;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -37,7 +40,7 @@ import lit.*;
 @WebService(serviceName = "SOAP")
 public class SOAP {
     
-    @WebMethod(operationName = "login")
+    @WebMethod(operationName = "login") //done
     public User login(@WebParam(name = "email") String email, @WebParam(name = "password") String password) throws JAXBException, IOException 
     {
         UserApplication userApp = getUserApp();
@@ -46,7 +49,7 @@ public class SOAP {
     }
     
     
-    @WebMethod(operationName = "createBooking")
+    @WebMethod(operationName = "createBooking") //check that the user doesn't already have a booking. 
     public void createBooking(@WebParam(name = "email") String email, @WebParam(name = "password") String password, @WebParam(name = "userID") String userID, @WebParam(name = "flightID") String flightID) throws JAXBException, IOException 
     {   
         User user = login(email, password);
@@ -62,7 +65,7 @@ public class SOAP {
         }
     }
     
-    @WebMethod(operationName = "cancelBooking")
+    @WebMethod(operationName = "cancelBooking") //done
     public void cancelBooking(@WebParam(name = "email") String email, @WebParam(name = "password") String password, @WebParam(name = "userID") String userID, @WebParam(name = "bookingID") String bookingID) throws JAXBException, IOException 
     {
         User user = login(email, password);
@@ -75,12 +78,10 @@ public class SOAP {
                 bookings.removeBooking(bookingID);
                 bookingApp.setBookings(bookings);
             }
-        }
-        //cancel booking;
-        
+        }        
     }
     
-    @WebMethod(operationName = "createListing")
+    @WebMethod(operationName = "createListing") 
     public String createListing(@WebParam(name = "userID") String userID, @WebParam(name = "flightID") String flightID) 
     {
         //TODO: Finalise parameters of this method and write it. Add authentication. 
@@ -96,10 +97,24 @@ public class SOAP {
         //close the listing;
     }
     
+    
+// public Flights getFlightsWithQueryParam(BookingApplication bookingController, 
+//             String customerName, boolean flightStatus, int numOfFlights,
+//             ArrayList<Flight> allFlights, Flights filteredFlights
+//     )
     @WebMethod(operationName = "viewFlights")
-    public void viewFlights(@WebParam(name = "username") String username, @WebParam(name = "status") boolean status, @WebParam(name = "numofflights") int numofflights)  
+    public ArrayList<Flight> viewFlights(@WebParam(name = "username") String username, @WebParam(name = "status") boolean status, @WebParam(name = "numofflights") int numofflights) throws JAXBException, IOException  
     {
+        //ArrayList<Flight> results = new ArrayList();
+        FlightController flightController = getFlightController();
+        BookingApplication bookingApp = new BookingApplication();
+        Flights flights = flightController.getFlightsWithQueryParam(bookingApp, username, status, numofflights, null, null);
+        
+        //flights = flightController.getFlights();
+        ArrayList<Flight> flightList = flights.getFlights();
+        
         //return flights;
+        return flightList;
     }
 
  

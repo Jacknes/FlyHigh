@@ -38,39 +38,20 @@ Booking page: Flight customers can access this page from “Results” page or t
             <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>FlyHigh Airlines</h1>
-                <%
-                    User user = (User) session.getAttribute("user");
-                    if (user != null) {
-                        if (user.isAdmin()) {
-                %>
-                <p>Welcome back to FlyHigh Airlines <%= user.getName()%></p>   
-                <ul>
-                    <li><a href="main.jsp">Home</a></li>
-                    <li><a href="booking.jsp">Bookings</a></li>                  
-                    <li><a href="admin.jsp">Administrative</a></li>
-                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
-                </ul>               
-                <% } else {%>
 
-                <p><%=  user.getName()%>'s Bookings</p>
-                <ul>
-                    <li><a href="main.jsp">Home</a></li>
-                    <li><a href="booking.jsp">Bookings</a></li>
-                    <li><a href="listings.jsp">Listings</a></li>
-                    <li style="float:right"><a href="account.jsp">Account</a></li>
-                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
-                </ul>
-
-                <% } %>
-
-                <%
-
-                    lit.Flight flight = flightController.getFlights().getFlight(flightID);
-
+                <%@include file="navbar.jsp"%>
+                
+                <% 
+                 
+                    Flight flight = flightController.getFlights().getFlight(flightID);
+                        
+                                         
                     //Check if user booked on this flight already, through the user instance and a bookingController instance. 
                     //if the user is already booked on this flight, allow to edit or cancel, 
                     //if not book. 
-%>
+
+                    if (flight != null) {
+                %>
                 <table>
                     <tr>
                         <th>Flight ID</th>

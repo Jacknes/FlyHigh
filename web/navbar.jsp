@@ -30,7 +30,7 @@
                 <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
-                    <li><a href="booking.jsp">Bookings</a></li>
+                    <li><a href="MyBookings.jsp">Bookings</a></li>
                     <li><a href="listings.jsp">Listings</a></li>
 
                     <li style="float:right"><a href="account.jsp">Account</a></li>

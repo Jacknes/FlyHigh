@@ -42,5 +42,14 @@ public class Flights implements Serializable {
     {
         flights.add(flight);
     }
+   
+    public void changeSeats (String flightID, int change) 
+    {
+        for (Flight flight : flights)
+            if (flight.isFlight(flightID)) 
+            {
+                flight.changeSeats(change);
+            }
+    }
     
 }

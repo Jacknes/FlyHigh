@@ -4,9 +4,8 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<!--<users xmlns="https://www.w3schools.com"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
+<!--<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="users.xsd">-->
 <users>
     <user>
         <userID>1</userID>
@@ -21,7 +20,7 @@ xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
         <userID>2</userID>
         <email>customer@test.com</email>
         <name>John Smith</name>
-        <password>john</password>
+        <password>johnnyboy</password>
         <dob>1997-04-23</dob>
         <admin>false</admin>
         <bookingID>0</bookingID>  
@@ -30,7 +29,7 @@ xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
         <userID>3</userID>
         <email>Shasha@test.com</email>
         <name>Shasha Chai</name>
-        <password>shasha</password>
+        <password>shashashashasha</password>
         <dob>1997-10-04</dob>
         <admin>false</admin>
         <bookingID>0</bookingID>  
@@ -39,7 +38,7 @@ xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
         <userID>4</userID>
         <email>jack@test.com</email>
         <name>Jack Pascoe</name>
-        <password>jack</password>
+        <password>jacknesss</password>
         <dob>1997-08-17</dob>
         <admin>false</admin>
         <bookingID>0</bookingID>  
@@ -48,7 +47,7 @@ xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
         <userID>5</userID>
         <email>ryan@test.com</email>
         <name>Ryan Mccartney</name>
-        <password>ryan</password>
+        <password>ryanmcca</password>
         <dob>1997-05-30</dob>
         <admin>false</admin>
         <bookingID>0</bookingID>  
@@ -57,7 +56,7 @@ xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
         <userID>6</userID>
         <email>jill@test.com</email>
         <name>Jill Smith</name>
-        <password>jill</password>
+        <password>jillygirl</password>
         <dob>1997-11-05</dob>
         <admin>false</admin>
         <bookingID>0</bookingID>  
@@ -66,7 +65,7 @@ xsi:schemaLocation="https://www.w3schools.com users.xsd">-->
         <userID>7</userID>
         <email>admin2@flyhigh.com</email>
         <name>Admin Two</name>
-        <password>admin2</password>
+        <password>administrator2</password>
         <dob>2000-07-07</dob>
         <admin>true</admin>
         <bookingID>0</bookingID>

@@ -59,6 +59,11 @@ public class Flight
         return "Flight{" + "flightID=" + flightID + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", price=" + price + ", seats=" + seats + ", origin=" + origin + ", destination=" + destination + ", flightType=" + flightType + '}';
     }
     
+    public void changeSeats(int change) 
+    {
+        seats += change;
+    }
+    
     public String getFlightID() 
     { 
         return flightID;

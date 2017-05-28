@@ -3,6 +3,7 @@
     Created on : 24/05/2017, 4:59:44 PM
     Author     : Owner
 --%>
+
 <%@page import="lit.*"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -62,11 +63,13 @@
                 </ul>
 
                 <% } %>
-                <% } else { %>
+                <% } else { 
+                String returnTo = (String)request.getAttribute("javax.servlet.forward.request_uri");
+                %>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li style="float:right"><a href="login.jsp">Login</a></li>
-                    <li style="float:right"><a href="register.jsp">Register</a></li>
+                    <li style="float:right"><a href="register.jsp?returnToResults=<%= returnTo%>">Register</a></li>
                 </ul>
                 <%}%>
             </div>

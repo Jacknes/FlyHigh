@@ -14,6 +14,11 @@
         <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
     
+    <% String filePathFlight = application.getRealPath("WEB-INF/flights.xml");%>
+    <jsp:useBean id="flightController" class="lit.FlightController" scope="application">
+        <jsp:setProperty name="flightController" property="filePathFlight" value="<%=filePath%>"/>
+    </jsp:useBean>
+    
      <%
         //Check if the user is already booked on a flight. 
         //if they are, show an error and let them view their booking booking?flightID=
@@ -27,10 +32,13 @@
         Booking currentBooking = bookings.getUserBooking(userID);
         if (currentBooking == null)
         {
-            String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-            bookingApp.addBooking(userID, flightID, date);
+            bookingApp.addBooking(userID, flightID);
             bookings = bookingApp.getBookings();
             bookingApp.setBookings(bookings);
+            Flights flights = flightController.getFlights();
+            flights.changeSeats(flightID, -1);
+            flightController.setFlights(flights);
+            
             //bookings = bookingApp.getBookings();
             //bookingApp.setBookings(bookings);
     %>

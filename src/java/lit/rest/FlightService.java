@@ -14,14 +14,14 @@ import javax.xml.bind.JAXBException;
 import lit.FlightController;
 import lit.Flight;
 import lit.Flights;
-import lit.Booking;
-import lit.Bookings;
 import lit.BookingApplication;
 
 /**
  *
  * @author Ryan McCartney 12545378
  */
+
+//To use: http://localhost:8080/FlyHigh/rest/flightService/flights
 @Path("/flightService")
 public class FlightService 
 {
