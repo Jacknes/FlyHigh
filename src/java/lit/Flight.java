@@ -7,6 +7,7 @@ package lit;
 
 import java.util.Date;
 import javax.xml.bind.annotation.*;
+import lit.Bookings;
 
 /**
  *
@@ -106,6 +107,6 @@ public class Flight
     public String getFlightType()  
     { 
         return flightType; 
-    } 
+    }
     
 }

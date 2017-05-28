@@ -56,8 +56,7 @@ public class SOAP {
             if (user.getUserID().equals(userID) && !flightID.equals("0")) 
             {
                 BookingApplication bookingApp = getBookingApp();
-                String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-                bookingApp.addBooking(userID, flightID, date);
+                bookingApp.addBooking(userID, flightID);
                 Bookings bookings = bookingApp.getBookings();
                 bookingApp.setBookings(bookings);
             }

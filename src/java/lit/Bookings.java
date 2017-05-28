@@ -7,11 +7,8 @@ package lit;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.*;
 import java.util.Random;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -61,7 +58,7 @@ public class Bookings implements Serializable{
     {
         return bookings;
     }
-    
+  
     public Booking getUserBooking(String userID) 
     {
         for (Booking booking : bookings)
@@ -90,5 +87,4 @@ public class Bookings implements Serializable{
        
        return id;
     }
-    
 }

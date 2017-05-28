@@ -65,10 +65,10 @@ public class BookingApplication {
     }
     
     //public Booking(String bookingID, String userID, String flightID, Date bookingDate) 
-    public void addBooking(String userID, String flightID, String date) throws JAXBException, PropertyException, FileNotFoundException, IOException 
+    public void addBooking(String userID, String flightID) throws JAXBException, PropertyException, FileNotFoundException, IOException 
     {
         String bookingID = bookings.getRandomBookingIDUnique();
-        Booking booking = new Booking(bookingID, userID, flightID, date);
+        Booking booking = new Booking(bookingID, userID, flightID);
         bookings.addBooking(booking);
         //updateXML(bookings);
     }

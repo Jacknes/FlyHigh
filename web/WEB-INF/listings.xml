@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<listings>
+    <listing>
+        <userID>4</userID>
+        <origin>Sydney</origin>
+        <destination>Melbourne</destination>
+        <departureDate>2017-06-02</departureDate>
+        <returnDate>2017-06-27</returnDate>
+        <type>economy</type>
+    </listing>
+</listings>

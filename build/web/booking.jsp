@@ -21,7 +21,10 @@ Booking page: Flight customers can access this page from “Results” page or t
         <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
         <title>FlyHigh - Bookings</title>
     </head>
-
+    <%
+        String flightID = request.getParameter("flightID");
+        
+    %>
 
     <body>
         <div class="wrapper">
@@ -30,10 +33,19 @@ Booking page: Flight customers can access this page from “Results” page or t
                 <h1>FlyHigh Airlines</h1>
                 <%
                     User user = (User) session.getAttribute("user");
-                    if (user != null) {
+                    if (user != null){
+                        if (user.isAdmin()){
                 %>
-
-                <p>These are your bookings, <%=  user.getName()%> </p>
+                <p>Welcome back to FlyHigh Airlines <%= user.getName()%>  flightID<%= flightID%></p>   
+                <ul>
+                    <li><a href="main.jsp">Home</a></li>
+                    <li><a href="booking.jsp">Bookings</a></li>                  
+                    <li><a href="admin.jsp">Administrative</a></li>
+                    <li style="float:right"><a href="logout.jsp">Logout</a></li>
+                </ul>               
+                <% } else { %>
+                
+                <p><%=  user.getName()%>'s Bookings </p>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="booking.jsp">Bookings</a></li>
@@ -41,20 +53,16 @@ Booking page: Flight customers can access this page from “Results” page or t
                     <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
-
-                <% // } %>
+                
+                <% } %>
                 <% } else { %>
-                <ul>
-                    <li><a href="main.jsp">Home</a></li>
-                    <li style="float:right"><a href="login.jsp">Login</a></li>
-                    <li style="float:right"><a href="register.jsp">Register</a></li>
-                </ul>
+                <p>You must be logged in to view this page! Click <a href="login.jsp">here</a> to login into your FlyHigh account or click <a href="main.jsp">here</a>to return to the home page.</p>
                 <% }%>
             </div>
 
   
             <!--Bookings Content goes here-->
-            
+                
             
         </div>
     </div>
