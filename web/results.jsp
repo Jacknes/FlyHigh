@@ -74,7 +74,7 @@
             <div>
         <%
         if (!flightList.isEmpty()) {    
-        
+            if (user != null) {
         %>
         <table>
             <tr>
@@ -88,9 +88,10 @@
                 <th>Book</th>
             </tr>
         <%
-            for (lit.Flight flight : flightList) {
-                String flightInfo = flight.toString();
-               %>
+            for (lit.Flight flight : flightList) 
+            {
+                //String flightInfo = flight.toString();
+        %>
                 <tr> 
                     <td> <%= flight.getFlightID() %> </td>
                     <td> <%= flight.getOrigin()%> </td>
@@ -100,18 +101,47 @@
                     <td> <%= flight.getSeats() %> </td>
                     <td> $<%= flight.getPrice() %> </td>
                     <td> <a href="booking.jsp?flightID=<%= flight.getFlightID()%>">Book</a></td>
-                    
-                    
-               
-               
-               
-               
-               </tr>
+                </tr>
+       
             <%} %>
-        </table>
-        <% } %>
-        <p>No results found. Please refine your search history.</p>
+       
+          </table>
+            <%
+                } else { %>
+                <table>
+            <tr>
+                <th>Flight ID</th>
+                <th>Origin</th> 
+                <th>Destination</th>
+                <th>Departure Date</th>
+                <th>Return Date</th>
+                <th>Seats Left</th>
+                <th>Price</th>
+            </tr>
+        <%
+            for (lit.Flight flight : flightList) {
+                //String flightInfo = flight.toString();
+        %>
+                <tr> 
+                    <td> <%= flight.getFlightID() %> </td>
+                    <td> <%= flight.getOrigin()%> </td>
+                    <td> <%= flight.getDestination() %> </td>
+                    <td> <%= flight.getDepartureDate() %> </td>
+                    <td> <%= flight.getReturnDate() %> </td>
+                    <td> <%= flight.getSeats() %> </td>
+                    <td> $<%= flight.getPrice() %> </td>
+                </tr>
+       
+            <%} %>
+       
+          </table>
+                
+                <% }
+
         
+        } else { %>
+        <p>No results found. Please refine your search history. Click <a href="main.jsp">here</a> to return to the main menu</p>
+        <% } %>
             </div>
         </div>
     </body>

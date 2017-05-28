@@ -25,7 +25,7 @@ public class Flights implements Serializable {
         super();
     }
     
-    private Flight getFlight(String flightID)
+    public Flight getFlight(String flightID)
     {
         for (Flight flight : flights)
             if (flight.isFlight(flightID))

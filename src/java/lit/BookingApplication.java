@@ -61,14 +61,15 @@ public class BookingApplication {
         JAXBContext jc = JAXBContext.newInstance(Bookings.class);
         Marshaller m = jc.createMarshaller();     
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);  
-        m.marshal(bookings, new FileOutputStream("WEB-INF/bookings.xml"));    
+        m.marshal(bookings, new FileOutputStream(filePath));    
     }
     
-    public void addBooking(Booking booking) throws JAXBException, PropertyException, FileNotFoundException, IOException 
+    //public Booking(String bookingID, String userID, String flightID, Date bookingDate) 
+    public void addBooking(String userID, String flightID, String date) throws JAXBException, PropertyException, FileNotFoundException, IOException 
     {
-        if(booking != null)
-            bookings.addBooking(booking);
-        
-        updateXML(this.bookings);
+        String bookingID = bookings.getRandomBookingIDUnique();
+        Booking booking = new Booking(bookingID, userID, flightID, date);
+        bookings.addBooking(booking);
+        //updateXML(bookings);
     }
 }
