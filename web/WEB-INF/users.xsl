@@ -20,26 +20,27 @@
                 <h1>Users</h1>
             </head> 
             <body>
-                <xsl:apply-templates/>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>UserID</th>
+                            <th>Email</th>
+                            <th>Full Name</th>
+                            <th>Date of Birth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <xsl:apply-templates/>
+                    </tbody>
+                </table>       
             </body>
         </html>
     </xsl:template>
     
-    <xsl:template match="booking">
-        <table>
-            <thead>
-                <tr>
-                    <th>UserID</th>
-                    <th>Email</th>
-                    <th>Full Name</th>
-                    <th>Date of Birth</th>
-                    <th>Departure</th>
-                </tr>
-            </thead>
-            <tbody>
-                <xsl:apply-templates/>
-            </tbody>
-        </table>       
+    <xsl:template match="user">
+        <tr>
+            <xsl:apply-templates/>
+        </tr>
     </xsl:template>
     
     <xsl:template match="userID|email|name|dob">
