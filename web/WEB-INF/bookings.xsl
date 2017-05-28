@@ -14,24 +14,45 @@
     <!-- TODO customize transformation rules 
          syntax recommendation http://www.w3.org/TR/xslt 
     -->
-    <xsl:template match="booking/bookings/bookingID">
+    <xsl:template match="bookings">
+        <html>
+            <head>
+                <h1>Bookings</h1>
+            </head> 
+            <body>
+                <xsl:apply-templates/>
+            </body>
+        </html>
+    </xsl:template>
+    
+<!--    <xsl:template match="bookings/booking/bookingID">
         <h1>
-            <xsl:apply-templates/>
+            Booking ID: <xsl:apply-templates/>
         </h1>
     </xsl:template>
-    <xsl:template match="booking/bookings/username">
+    
+    <xsl:template match="bookings/booking/username">
         <h2>
-            <xsl:apply-templates/>
+            Full Name: <xsl:apply-templates/>
         </h2>
-    </xsl:template>
+    </xsl:template>-->
     
     <xsl:template match="booking">
         <table>
             <thead>
                 <tr>
-                    <th>
-                        Your Flight Details
-                    </th>
+                    <th>BookingID</th>
+                    <th>Full Name</th>
+                    <th>UserID</th>
+                    <th>FlightID</th>
+                    <th>Departure</th>
+                    <th>Return</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Flight Type</th>
+                    <th>Price</th>
+                    <th>Seat</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,16 +61,12 @@
         </table>       
     </xsl:template>
     
-    <xsl:template match="booking">
-        <tr>
-            <xsl:apply-templates/>
-        </tr>      
-    </xsl:template>
-    
-    <xsl:template match="">
+    <xsl:template match="bookingID|username|userID|flightID|departureDate|returnDate|origin|destination|flightType|price|seat|description">
         <td>
             <xsl:apply-templates/>
         </td>
     </xsl:template>
+    
+
 
 </xsl:stylesheet>

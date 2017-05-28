@@ -9,8 +9,8 @@ and open the template in the editor.
 <bookings>
     <booking>
         <bookingID>001</bookingID>
-        <userID>4</userID>
         <username>Jack Pascoe</username>
+        <userID>4</userID>
         <flightID>13</flightID>
         <departureDate>2017-06-10</departureDate>
         <returnDate>2017-06-21</returnDate>
