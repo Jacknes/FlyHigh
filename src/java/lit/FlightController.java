@@ -58,6 +58,65 @@ public class FlightController {
         } 
         return matchingFlights; 
     }
+     
+     public Flights getFlightsWithQueryParam(BookingApplication bookingController, 
+             String customerName, boolean flightStatus, int numOfFlights,
+             ArrayList<Flight> allFlights, Flights filteredFlights
+     ) throws JAXBException, IOException
+     {
+        // If no queries are specified 
+        //ie. all are null/false/0 for respective types of string/boolean/int
+        if (customerName == null
+                && flightStatus == false
+                && numOfFlights == 0)
+        {
+            return this.getFlights();
+        }
+        else
+        {
+            ArrayList<Flight> filteredFlightList = new ArrayList<>();
+            Booking ourUserBooking = null;
+            if (customerName != null)
+                ourUserBooking = bookingController.getBookings().getBookingForUserID(customerName);   
+            
+            
+            for (Flight flight : allFlights)
+            {
+                if (flight.getSeats() > 0 && flightStatus)
+                {
+                    if (ourUserBooking != null)
+                        if (flight.getFlightID().equals(ourUserBooking.getFlightID()))
+                            filteredFlightList.add(flight);
+                }
+                else if (flight.getSeats() == 0 && !flightStatus)
+                {
+                    if (ourUserBooking != null)
+                        if (flight.getFlightID().equals(ourUserBooking.getFlightID()))
+                            filteredFlightList.add(flight);
+                }
+                
+                if (ourUserBooking == null)
+                    filteredFlightList.add(flight);
+            }
+            
+            if (numOfFlights != 0)
+            {
+                if (numOfFlights <= filteredFlightList.size())
+                    for (Flight flight : filteredFlightList.subList(0, numOfFlights))
+                        filteredFlights.addFlight(flight);
+                else
+                    for (Flight flight : filteredFlightList)
+                        filteredFlights.addFlight(flight);
+            }
+            else
+                if (!filteredFlightList.isEmpty())
+                {
+                    for (Flight flight : filteredFlightList)
+                        filteredFlights.addFlight(flight);
+                }
+        }
+        return filteredFlights;
+     }
     
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException 
     {

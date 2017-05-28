@@ -193,7 +193,7 @@ and open the template in the editor.
         <departureDate>2017-06-20</departureDate>
         <returnDate>2017-06-29</returnDate>
         <price>600.0</price>
-        <seats>2</seats>
+        <seats>0</seats>
         <origin>Darwin</origin>
         <destination>Adelaide</destination>
         <flightType>economy</flightType>
@@ -203,7 +203,7 @@ and open the template in the editor.
         <departureDate>2017-06-24</departureDate>
         <returnDate>2017-06-29</returnDate>
         <price>700.0</price>
-        <seats>2</seats>
+        <seats>0</seats>
         <origin>Hobart</origin>
         <destination>Perth</destination>
         <flightType>economy</flightType>

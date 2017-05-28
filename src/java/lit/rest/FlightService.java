@@ -61,40 +61,18 @@ public class FlightService
     @Path("flights")
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    public Flights getFlights() throws JAXBException, IOException
-    {
-        FlightController flightController = getFlightController();
-        return flightController.getFlights();
-    }
-    
-    @Path("flights/{userID}")
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public Flight getFlight(@PathParam("userID") String userID) throws JAXBException, IOException
+    public Flights getFilteredFlights(@QueryParam("customerName") String customerName, 
+            @QueryParam("flightStatus") boolean flightStatus, 
+            @QueryParam("numOfFlights") int numOfFlights) throws JAXBException, IOException
     {
         FlightController flightController = getFlightController();
         ArrayList<Flight> allFlights = flightController.getFlights().getFlights();
         BookingApplication bookingController = getBookingController();
         
-//        ArrayList<Booking> allBookings = bookingController.getBookings().getBookings();
-        Booking ourUserBooking = bookingController.getBookings().getBookingForUserID(userID);
+        Flights filteredFlights = new Flights();
         
-        for (Flight flight : allFlights)
-        {
-            if (flight.getFlightID().equals(ourUserBooking.getFlightID()))
-                return flight;
-        }
-        return null;
+        filteredFlights = flightController.getFlightsWithQueryParam(bookingController, customerName, flightStatus, numOfFlights, allFlights, filteredFlights);
+        
+        return filteredFlights;
     }
-      
-//    @Path("flights/filterFlights")
-//    @GET
-//    @Produces(MediaType.APPLICATION_XML)
-//    public Flights getFilteredFlights(/*QueryParams*/) throws JAXBException, IOException
-//    {
-//        // Return the flights according to filters (the QueryParams).
-//        // Need to access multiple different classes to do so - use of helper methods required
-//        
-//    }
-    
 }
