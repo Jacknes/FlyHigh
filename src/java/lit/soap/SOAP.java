@@ -22,6 +22,9 @@ Note: for this assignment, it is adequate to pass the username and password in a
 package lit.soap;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -35,7 +38,7 @@ import lit.*;
 @WebService(serviceName = "SOAP")
 public class SOAP {
     
-    @WebMethod(operationName = "login")
+    @WebMethod(operationName = "login") //done
     public User login(@WebParam(name = "email") String email, @WebParam(name = "password") String password) throws JAXBException, IOException 
     {
         UserApplication userApp = getUserApp();
@@ -44,23 +47,40 @@ public class SOAP {
     }
     
     
-    @WebMethod(operationName = "createBooking")
-    public String createBooking(@WebParam(name = "userID") String userID, @WebParam(name = "flightID") String flightID) 
-    {
-        //TODO: Finalise parameters of this method and write it. Add authentication.
-        
-        String bookingID = "0";
-        return bookingID;       
+    @WebMethod(operationName = "createBooking") //check that the user doesn't already have a booking. 
+    public void createBooking(@WebParam(name = "email") String email, @WebParam(name = "password") String password, @WebParam(name = "userID") String userID, @WebParam(name = "flightID") String flightID) throws JAXBException, IOException 
+    {   
+        User user = login(email, password);
+        if (user != null) 
+        {
+            if (user.getUserID().equals(userID) && !flightID.equals("0")) 
+            {
+                BookingApplication bookingApp = getBookingApp();
+                String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+                bookingApp.addBooking(userID, flightID, date);
+                Bookings bookings = bookingApp.getBookings();
+                bookingApp.setBookings(bookings);
+            }
+        }
     }
     
-    @WebMethod(operationName = "cancelBooking")
-    public void cancelBooking(@WebParam(name = "userID") String userID, @WebParam(name = "bookingID") String bookingID) 
+    @WebMethod(operationName = "cancelBooking") //done
+    public void cancelBooking(@WebParam(name = "email") String email, @WebParam(name = "password") String password, @WebParam(name = "userID") String userID, @WebParam(name = "bookingID") String bookingID) throws JAXBException, IOException 
     {
-        //cancel flight;
-        
+        User user = login(email, password);
+        if (user != null) 
+        {
+            if (user.getUserID().equals(userID)) 
+            {
+                BookingApplication bookingApp = getBookingApp();
+                Bookings bookings = bookingApp.getBookings();
+                bookings.removeBooking(bookingID);
+                bookingApp.setBookings(bookings);
+            }
+        }        
     }
     
-    @WebMethod(operationName = "createListing")
+    @WebMethod(operationName = "createListing") 
     public String createListing(@WebParam(name = "userID") String userID, @WebParam(name = "flightID") String flightID) 
     {
         //TODO: Finalise parameters of this method and write it. Add authentication. 
@@ -77,9 +97,15 @@ public class SOAP {
     }
     
     @WebMethod(operationName = "viewFlights")
-    public void viewFlights(@WebParam(name = "username") String username, @WebParam(name = "status") boolean status, @WebParam(name = "numofflights") int numofflights)  
+    public ArrayList<Flight> viewFlights(@WebParam(name = "username") String username, @WebParam(name = "status") boolean status, @WebParam(name = "numofflights") int numofflights) throws JAXBException, IOException  
     {
+        ArrayList<Flight> results = new ArrayList();
+        FlightController flightController = getFlightController();
+        Flights flights = flightController.getFlights();
+        ArrayList<Flight> flightList = flights.getFlights();
+        
         //return flights;
+        return null;
     }
 
  
@@ -96,5 +122,19 @@ public class SOAP {
         UserApplication userApp = new UserApplication();
         userApp.setFilePath("WEB-INF/users.xml");
         return userApp;
+    }
+    
+    private BookingApplication getBookingApp() throws JAXBException, IOException 
+    {
+        BookingApplication bookingApp = new BookingApplication();
+        bookingApp.setFilePath("WEB-INF/bookings.xml");
+        return bookingApp;
+    }
+    
+    private FlightController getFlightController() throws JAXBException, IOException 
+    {
+        FlightController flightController = new FlightController();
+        flightController.setFilePath("WEB-INF/flights.xml");
+        return flightController;
     }
 }
