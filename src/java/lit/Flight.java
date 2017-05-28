@@ -78,34 +78,34 @@ public class Flight
         return flightID.equals(this.flightID);
     }
     
-    public String getDepartureDate() 
-    {
-        return departureDate;
-    }
-
-    public String getReturnDate() 
-    {
-        return returnDate;
-    }
-
-    public Double getPrice() 
-    {
-        return price;
-    }
-
-    public String getOrigin() 
-    {
-        return origin;
-    }
-
-    public String getDestination() 
-    {
-        return destination;
-    }
-
-    public String getFlightType() 
-    {
-        return flightType;
-    }
+    public String getDepartureDate()  
+    { 
+        return departureDate; 
+    } 
+ 
+    public String getReturnDate()  
+    { 
+        return returnDate; 
+    } 
+ 
+    public Double getPrice()  
+    { 
+        return price; 
+    } 
+    
+    public String getOrigin()  
+    { 
+        return origin; 
+    } 
+ 
+    public String getDestination()  
+    { 
+        return destination; 
+    } 
+ 
+    public String getFlightType()  
+    { 
+        return flightType; 
+    } 
     
 }
