@@ -8,13 +8,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
-         <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
-        <h1>FlyHigh Airlines</h1>
+        <div class="wrapper">
+            <div class="header">
+            <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
+            <h1>FlyHigh Airlines</h1>
+            <%@include file="navbar.jsp" %>
+            </div>
         
-        <p>You are not authorised to view this page or we could not find the page you were looking for.</P>
+        <p>Your request could not be completed. Please refer to the menu to return to the home page, register or login to FlyHigh Airlines.</P>
+        </div>
+         
     </body>
 </html>

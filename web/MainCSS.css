@@ -86,12 +86,13 @@ ul {
 li {
     display: inline;
     float: left;
+    background-color: white;
 }
 
 a {
     display: block;
     padding: 8px;
-    background-color: white;
+    
 }
 
 li a {

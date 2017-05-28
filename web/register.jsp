@@ -57,7 +57,6 @@ there are two options:
                             <td> <input type="date" name="dob" value="09/09/1999"> </td>
                         </tr>
                         <tr>
-                            <td></td>
                             <td><input type="submit" value="Register"></td>
                         </tr>
                     </table>
