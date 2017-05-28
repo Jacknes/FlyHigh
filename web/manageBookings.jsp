@@ -39,11 +39,13 @@
 
                     <x:transform xml = "${inputDoc}"
                                  xslt = "${stylesheet}" />
-                </div>
-                <% } else { %>
-                <p>You are not authorised to view this page</p>
-                <% }%> 
-                <% }%>
-            </div>               
+                </div> 
+                
+                <% } else {
+            String redirectURL = "404.jsp";
+            response.sendRedirect(redirectURL); }%>
+                <% } %> 
+                
+        </div>
     </body>
 </html>
