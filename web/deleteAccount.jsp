@@ -17,24 +17,36 @@
         <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
     <% 
-    User userToDelete = (User)session.getAttribute("userToDelete");
-    if (userToDelete == null) 
-    {
-        userToDelete = (User)session.getAttribute("user");
-        userApp.removeUser(userToDelete);
-        Users users = userApp.getUsers();
-        userApp.updateXML(users);
-        session.setAttribute("user", null);
-    } else {
-        userApp.removeUser(userToDelete);
-        Users users = userApp.getUsers();
-        userApp.updateXML(users);
-        session.setAttribute("userToDelete", null);
+    String userID = request.getParameter("userID");
+    User userToDelete = null;
+    User authorisingUser = (User)session.getAttribute("user");
+    if (userID != null && authorisingUser != null){
+        userToDelete = userApp.getUsers().getUserByID(userID);
     }
     
-    %>
+    //User userToDelete = (User)session.getAttribute("userToDelete");
+    if (userToDelete == null) 
+    { %>
+    <!--User Not found for ID-->
+    <body>
+        <p>User to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
+    </body>
+    
+
+    <%} else if (userID.equals(authorisingUser.getUserID()) || userApp.getUsers().isAdmin(authorisingUser.getUserID())) {
+        userApp.removeUser(userToDelete);
+        Users users = userApp.getUsers();
+        userApp.updateXML(users);
+        if(userID.equals(authorisingUser.getUserID()))
+            session.setAttribute("user", null);
+  %>  
     
     <body>
         <p>Account deleted. Click <a href="main.jsp">here</a> to return home</p>
     </body>
+
+<%}
+    
+    %>
+
 </html>
