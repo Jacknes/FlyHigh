@@ -16,6 +16,11 @@
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
         <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
+    
+    <% String filePath2 = application.getRealPath("WEB-INF/bookings.xml");%>
+    <jsp:useBean id="bookingApp" class="lit.BookingApplication" scope="application">
+        <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath2%>"/>
+    </jsp:useBean>
     <% 
     String userID = request.getParameter("userID");
     User userToDelete = null;
@@ -37,16 +42,21 @@
         userApp.removeUser(userToDelete);
         Users users = userApp.getUsers();
         userApp.updateXML(users);
-        if(userID.equals(authorisingUser.getUserID()))
-            session.setAttribute("user", null);
+        Bookings bookings = bookingApp.getBookings();
+        bookings.deleteBookingsForUser(userID);
+        bookingApp.setBookings(bookings);
+        //bookingApp.removeBookingForUser(userID);
+//        bookingApp.updateXML(bookingApp.getBookings());
+//        if(userID.equals(authorisingUser.getUserID()))
+//            session.setAttribute("user", null);
   %>  
     
     <body>
         <p>Account deleted. Click <a href="main.jsp">here</a> to return home</p>
     </body>
 
-<%}
-    
+<%
+    }  
     %>
 
 </html>
