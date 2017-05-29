@@ -5,6 +5,7 @@
  */
 package lit;
 
+import java.io.Serializable;
 import java.util.*;
 import javax.xml.bind.annotation.*;
 
@@ -15,7 +16,7 @@ import javax.xml.bind.annotation.*;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "booking")
-public class Booking 
+public class Booking implements Serializable
 {
     @XmlElement(name = "bookingID")
     String bookingID;
@@ -72,10 +73,11 @@ public class Booking
     }
 
     @Override
-    public String toString() 
-    {
-        return "Booking{" + "bookingID=" + bookingID + ", userID=" + userID + ", flightID=" + flightID + '}';
+    public String toString() {
+        return "Booking{" + "bookingID=" + bookingID + ", username=" + username + ", userID=" + userID + ", flightID=" + flightID + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", origin=" + origin + ", destination=" + destination + ", flightType=" + flightType + ", price=" + price + ", seat=" + seat + ", description=" + description + '}';
     }
+
+   
     
     public boolean isBooking(String bookingID) 
     {
@@ -105,4 +107,42 @@ public class Booking
     {
         return bookingID;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getDepartureDate() {
+        return departureDate;
+    }
+
+    public String getReturnDate() {
+        return returnDate;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getFlightType() {
+        return flightType;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getSeat() {
+        return seat;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    
+    
 }

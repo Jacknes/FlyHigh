@@ -33,6 +33,7 @@
             </div>
               
                 <div class="mainTable">
+                    <%String filePath = application.getRealPath("WEB-INF/bookings.xml");%>
                     <c:import url="WEB-INF/bookings.xml" var="inputDoc" />
 
                     <c:import url="WEB-INF/bookings.xsl" var="stylesheet"/>

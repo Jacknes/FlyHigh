@@ -20,7 +20,7 @@
                 <p>Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
-                    <li><a href="manageBookings.jsp">Manage Bookings</a></li>
+                    <li><a href="ViewBookings.jsp">Manage Bookings</a></li>
                     <li><a href="manageUsers.jsp">Manage Users</a></li>
                     <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>

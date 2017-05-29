@@ -4,4 +4,6 @@
     <system systemId="http://localhost:8080/WebServicesAssignment1/LitAir?xsd=1" uri="wsdl/localhost_8080/WebServicesAssignment1/LitAir.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WebServicesAssignment1/SOAP?wsdl" uri="wsdl/localhost_8080/WebServicesAssignment1/SOAP.wsdl"/>
     <system systemId="http://localhost:8080/WebServicesAssignment1/SOAP?xsd=1" uri="wsdl/localhost_8080/WebServicesAssignment1/SOAP.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/FlyHigh/SOAP?wsdl" uri="wsdl/localhost_8080/FlyHigh/SOAP.wsdl"/>
+    <system systemId="http://localhost:8080/FlyHigh/SOAP?xsd=1" uri="wsdl/localhost_8080/FlyHigh/SOAP.xsd_1.xsd"/>
 </catalog>
