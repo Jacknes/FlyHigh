@@ -35,6 +35,8 @@
                             <th>Price</th>
                             <th>Seat</th>
                             <th>Description</th>
+                            <th>Edit</th>
+                            <th>Cancel</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +50,12 @@
      <xsl:template match="booking">
         <tr>
             <xsl:apply-templates/>
+            <td>
+                <a href="editBooking.jsp?bookingID={bookingID}">Edit Booking</a>
+            </td>
+            <td>
+                <a href="deleteBooking.jsp?bookingID={bookingID}">Cancel Booking</a>
+            </td>
         </tr>
     </xsl:template>
     
