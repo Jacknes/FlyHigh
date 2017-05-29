@@ -10,18 +10,22 @@ and open the template in the editor.
            xmln:empns="http://www.FlyHigh.com/register"
            elementFormDefault="qualified">
     
+    <!--Defines an email to be in the format webservices@uts.com-->
     <xs:simpleType name="email">
         <xs:restriction base="xs:string">
              <xs:pattern value="([a-z]|[A-Z]|[0-9]\.|\_)+@(([a-z]|[A-Z])+){1}(\.([a-z]|[A-Z])+)+"/>
         </xs:restriction>
     </xs:simpleType>
     
+     <!--Defines the name as a string in the format of John Smith (case senstive)-->
     <xs:simpleType name="name">
         <xs:restriction base="xs:string">
             <xs:pattern value="[a-zA-z]+ [a-zA-z]+"/>
         </xs:restriction>
     </xs:simpleType>
     
+    <!--Defines a password to have a minimum length of 6 characters
+    and maximum length of 36 characters-->
     <xs:simpleType name="password">
         <xs:restriction base="xs:string">
             <xs:minLength value="6"/>
@@ -29,12 +33,14 @@ and open the template in the editor.
         </xs:restriction>
     </xs:simpleType>
     
+    <!--Defines the date to be in the format XXXX-XX-XX--> 
     <xs:simpleType name="dob">
         <xs:restriction base="xs:string">
             <xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
         </xs:restriction>
     </xs:simpleType>
     
+    <!--Defining structure of the parameters for a registration form-->
     <xs:complexType name="register">
         <xs:sequence>
             <xs:element name="fullName" type="name"/>

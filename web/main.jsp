@@ -28,11 +28,14 @@ There are three possible scenarios for the “Main” page:
     <body>
         <div class="wrapper">
             <div class='header'>
+                <!--Imported the FlyHigh logo, this is also used in all other JSPs-->
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>FlyHigh Airlines</h1>
+                <!--include directive for the navbar-->
                 <%@ include file = "navbar.jsp" %>
             </div>
 
+            <!--creates a form with the post methods that takes the user to results.jsp when submitted-->
             <form action="results.jsp" method="POST">
                 <div class="mainTable">
                     <h2>Search Flights</h2>

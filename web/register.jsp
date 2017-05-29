@@ -33,6 +33,7 @@ there are two options:
         <div class="wrapper">
             <div class='header'>
                 <%
+                    //After registration return to the result page 
                     String returnToResults = request.getParameter("returnToResults");
                     if (returnToResults == null) {
                         returnToResults = "0";
@@ -42,6 +43,7 @@ there are two options:
                 <h1>Welcome to FlyHigh Airlines</h1>
                 <%@include file="navbar.jsp" %>
             </div>
+            <!--Registration form with a POST method that directs to registerAction.jsp-->
             <form action="registerAction.jsp" method="POST">
                 <div class="mainTable">
                     <h2>Register</h2>
