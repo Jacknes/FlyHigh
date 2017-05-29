@@ -43,7 +43,7 @@
             <xsl:apply-templates/>
             <td>
                 <!--{user/userID}-->
-                            <a href="localhost:8080/FlyHigh/deleteAccount.jsp?userID={userID}"> Edit User</a>
+                            <a href="deleteAccount.jsp?userID={userID}"> Delete User</a>
             </td>
         </tr>
     </xsl:template>
