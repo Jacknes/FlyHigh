@@ -19,6 +19,19 @@
         <jsp:setProperty name="flightController" property="filePathFlight" value="<%=filePath%>"/>
     </jsp:useBean>
     
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+             <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
+            <title>Booking Confirmed!</title>
+        </head>
+        <body>
+            <div class="wrapper">
+                <div class="header">
+                    <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
+                    <h1>Booking Confirmation</h1>
+                    <%@include file="navbar.jsp"%>
+                </div>
      <%
         //Check if the user is already booked on a flight. 
         //if they are, show an error and let them view their booking booking?flightID=
@@ -42,17 +55,16 @@
             //bookings = bookingApp.getBookings();
             //bookingApp.setBookings(bookings);
     %>
-    <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Booking Confirmed!</title>
-        </head>
-        <body>
-            <h1>Flight Booked!</h1>
-        </body>
-    </html>
+    
+   
+            <p>Your flight has been successfully booked!</p>
+ 
 
     <% } else { %>
-
+    <p>It appears you already have a booking! Click <a href="MyBookings.jsp">here</a> to view your current booking.</p>
     <!--User already has a booking, let them click through to it-->
     <% } %>
+             </div>
+             
+                    </body>
+    </html>
