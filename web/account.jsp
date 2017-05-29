@@ -27,7 +27,7 @@
             }
            
             User user = (User)session.getAttribute("user");
-            
+            String userID = user.getUserID();
             
         %>
 
@@ -79,7 +79,7 @@
             </table>
         </form>
                 
-                <form action="deleteAccount.jsp" method="POST">
+                <form action="deleteAccount.jsp?userID=<%= userID%>" method="POST">
                     <input type="submit" value="Delete Account">
                 </form>        
                 
