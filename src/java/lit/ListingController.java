@@ -40,6 +40,20 @@ public class ListingController
         return listings;
     }
     
+    public ArrayList<Listing> getListingsList(String userID) 
+    {
+        ArrayList<Listing> returnList = new ArrayList();
+        ArrayList<Listing> listingsList = listings.getListings();
+        for (Listing listing : listingsList) 
+        {
+            if (listing.getUserID().equals(userID))
+                returnList.add(listing);
+        }
+        return listingsList;
+        
+    }
+    
+    
     public void setListings(Listings listings)
     {
         this.listings = listings;

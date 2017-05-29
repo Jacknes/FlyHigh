@@ -18,11 +18,12 @@
     </jsp:useBean>
     
     <% 
-    String userID = request.getParameter("userID");
+    String listingID = request.getParameter("listingID");
     Listing listingToDelete = null;
     User authorisingUser = (User)session.getAttribute("user");
+    String userID = authorisingUser.getUserID();
     if (userID != null && authorisingUser != null){
-        listingToDelete = listingApp.getListings().getListing(userID);
+        listingToDelete = listingApp.getListings().getListing(listingID);
     }
     
     if (listingToDelete == null) 
@@ -32,12 +33,12 @@
         <p>Listing to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
     </body>
     
-    <%} else if (userID.equals(authorisingUser.getUserID()) || authorisingUser.isAdmin()) {
+    <%} else if (userID.equals(authorisingUser.getUserID())) {
         listingApp.removeListing(listingToDelete);
         Listings listings = listingApp.getListings();
         listingApp.updateXML(listings);
-        if(userID.equals(authorisingUser.getUserID()))
-            session.setAttribute("user", null);
+//        if(userID.equals(authorisingUser.getUserID()))
+//            session.setAttribute("user", null);
   %>  
     
     <body>

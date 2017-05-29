@@ -8,11 +8,12 @@ and open the template in the editor.
 <listings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="listings.xsd">
     <listing>
+        <listingID>1</listingID>
         <userID>4</userID>
         <origin>Sydney</origin>
         <destination>Melbourne</destination>
-        <departureDate>2017-06-02</departureDate>
-        <returnDate>2017-06-27</returnDate>
+        <departureDate>2017-05-02</departureDate>
+        <returnDate>2017-05-27</returnDate>
         <type>economy</type>
     </listing>
 </listings>

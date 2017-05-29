@@ -5,6 +5,7 @@
  */
 package lit;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -13,8 +14,10 @@ import javax.xml.bind.annotation.*;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class Listing 
+public class Listing implements Serializable
 {
+    @XmlElement(name = "listingID")
+    String listingID;
     @XmlElement(name = "userID")
     String userID;
     @XmlElement(name = "origin")
@@ -25,7 +28,7 @@ public class Listing
     String departureDate;
     @XmlElement(name = "returnDate")
     String returnDate;
-    @XmlElement(name = "flightType")
+    @XmlElement(name = "type")
     String flightType;
     
     public Listing()
@@ -80,8 +83,13 @@ public class Listing
         return flightType;
     }
     
-    public boolean isListing (String userID)
+    public String getListingID() 
     {
-        return userID.equals(this.userID);
+        return listingID;
+    }
+    
+    public boolean isListing (String listingID)
+    {
+        return listingID.equals(this.listingID);
     }
 }
