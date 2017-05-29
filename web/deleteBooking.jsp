@@ -9,9 +9,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Booking deleted</title>
     </head>
+    <div class="wrapper">
+    <div class="header">
+        <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
     <%@include file="navbar.jsp" %>
     <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
@@ -26,7 +30,10 @@
     String bookingID = request.getParameter("bookingID");
     Booking bookingToDelete = null;
     User authorisingUser = (User)session.getAttribute("user");
-    String userID = authorisingUser.getUserID();
+    String userID = "0";
+    if (authorisingUser != null) {
+        userID = authorisingUser.getUserID();
+    }
     if (userID != null && authorisingUser != null){
         bookingToDelete = bookingApp.getBookings().getBookingByID(bookingID);
     }
@@ -34,6 +41,9 @@
     //User userToDelete = (User)session.getAttribute("userToDelete");
     if (bookingToDelete == null) 
     { %>
+    
+    </div>
+    
     <!--Booking Not found for ID-->
     <body>
         <p>Booking to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
@@ -44,7 +54,7 @@
         {   
         Bookings bookings = bookingApp.getBookings();
         bookings.removeBooking(bookingID);
-        bookingApp.updateXML(bookings);
+        //bookingApp.updateXML(bookings);
         
 //        userApp.removeUser(userToDelete);
 //        Users users = userApp.getUsers();
@@ -63,5 +73,5 @@
 <%
     }  
     %>
-
+    </div>
 </html>
