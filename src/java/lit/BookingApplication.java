@@ -71,7 +71,7 @@ public class BookingApplication {
         String bookingID = bookings.getRandomBookingIDUnique();
         Booking booking = new Booking(bookingID, "username" , userID, flightID, "departureDate", "returnDate", "origin", "destination", "flightType", 0.0, 1, "desc");
         bookings.addBooking(booking);
-        updateXML(bookings);
+        //updateXML(bookings);
     }
     
     public void removeBookingForUser(String userID) throws JAXBException, PropertyException, FileNotFoundException 
