@@ -18,8 +18,12 @@ there are two options:
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date"%>
 <%@page import="lit.*"%>
+<%@page import="java.io.*"%>
 <%@page import="java.util.*"%>
-<%@page import="javax.xml.validation.*;"%>
+<%@page import="javax.xml.validation.*"%>
+<%@page import="javax.xml.transform.Source"%>
+<%@page import="javax.xml.transform.stream.StreamSource"%>
+<%@page import="org.xml.sax.SAXException"%>
 
  <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
