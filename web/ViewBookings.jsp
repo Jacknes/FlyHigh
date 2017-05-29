@@ -55,6 +55,8 @@
                     <th>Price</th>
                     <th>Seat</th>
                     <th>Description</th>
+                    <th>Edit Booking</th>
+                    <th>Cancel Booking</th>
                 
                 </tr>
                       <%
@@ -75,6 +77,10 @@
                     <td><%= booking.getPrice()%></td>
                     <td><%= booking.getSeat()%></td>
                     <td><%= booking.getDescription()%></td>   
+                    <td><a href="editBooking.jsp?bookingID=<%= booking.getBookingID()%>">Edit Booking</a></td>  
+                    <td><a href="deleteBooking.jsp?bookingID=<%= booking.getBookingID()%>">Delete Booking</a></td>   
+                    <!--http://localhost:8080/FlyHigh/deleteBooking.jsp-->
+                     
                 </tr>
                
             <%} %>
