@@ -24,31 +24,11 @@ package lit.soap.client;
 import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import javax.xml.bind.JAXBException;
 import lit.*;
 
-//public static void main(String[] args) 
-//    {
-//        DiaryApp diaryApp = new DiaryApp();
-//        DiarySOAP diarySOAP = diaryApp.getDiarySOAPPort();
-//        String email;
-//        User user;
-//        boolean found = true;
-//        do {
-//            email = readEmail();
-//            user = diarySOAP.fetchUser(email);
-//            if (user != null){
-//                System.out.println("Found " + user.getName());
-//            } else {
-//                found = false;
-//                System.out.println("No such user found.");
-//            }  
-//         
-//        } while(found == true);
-//        
-//        
-//    }
 
 /**
  *
@@ -180,7 +160,8 @@ public class SOAPClient
     private void displayFlights(Flights flights) 
     {
         System.out.println("The flights found are: ");
-        ArrayList<Flight> flightsList = (ArrayList<Flight>) flights.getFlight(); // fix
+        List<Flight> flightsList = new ArrayList();
+        flightsList = flights.getFlight();
         for (Flight flight : flightsList) {
             System.out.println(flight.toString());
         }
