@@ -47,12 +47,12 @@
         bookingApp.setBookings(bookings);
         //bookingApp.removeBookingForUser(userID);
 //        bookingApp.updateXML(bookingApp.getBookings());
-//        if(userID.equals(authorisingUser.getUserID()))
-//            session.setAttribute("user", null);
+        if(userID.equals(authorisingUser.getUserID()))
+            session.setAttribute("user", null);
   %>  
     
     <body>
-        <p>Account deleted. Click <a href="main.jsp">here</a> to return home</p>
+        <p>Membership canceled. Click <a href="main.jsp">here</a> to return home</p>
     </body>
 
 <%

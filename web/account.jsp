@@ -80,7 +80,7 @@
         </form>
                 
                 <form action="deleteAccount.jsp?userID=<%= userID%>" method="POST">
-                    <input type="submit" value="Delete Account">
+                    <input type="submit" value="Cancel Membership">
                 </form>        
                 
                 
