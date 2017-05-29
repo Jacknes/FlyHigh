@@ -47,8 +47,8 @@
         bookingApp.setBookings(bookings);
         //bookingApp.removeBookingForUser(userID);
 //        bookingApp.updateXML(bookingApp.getBookings());
-//        if(userID.equals(authorisingUser.getUserID()))
-//            session.setAttribute("user", null);
+        if(userID.equals(authorisingUser.getUserID()))
+            session.setAttribute("user", null);
   %>  
     
     <body>
