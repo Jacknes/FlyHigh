@@ -18,8 +18,12 @@ there are two options:
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date"%>
 <%@page import="lit.*"%>
+<%@page import="java.io.*"%>
 <%@page import="java.util.*"%>
-<%@page import="javax.xml.validation.*;"%>
+<%@page import="javax.xml.validation.*"%>
+<%@page import="javax.xml.transform.Source"%>
+<%@page import="javax.xml.transform.stream.StreamSource"%>
+<%@page import="org.xml.sax.SAXException"%>
 
  <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
@@ -27,6 +31,23 @@ there are two options:
     </jsp:useBean>
 
     <%
+        SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+        
+        File schemaFile = new File("WEB-INF/registration.xsd");
+        Schema schemaValidation = factory.newSchema(schemaFile);
+        
+        Validator xmlValidator = schemaValidation.newValidator();
+        
+        // Replace "inputs" with parameters
+        Source streamSource = new StreamSource("inputs");
+         
+        try {
+            xmlValidator.validate(streamSource);
+        }
+        catch (SAXException ex) {
+            System.out.println(ex.getMessage());
+        }  
+        
         boolean createUserSuccess = false;
         Users users = new Users();
         users = userApp.getUsers();
