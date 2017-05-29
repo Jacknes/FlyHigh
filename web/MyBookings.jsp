@@ -20,6 +20,7 @@
             <div class="wrapper">
             <div class='header'>
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
+                <h1>My Bookings</h1>
             <%@include file="navbar.jsp"%>
             <%
             user = (User)session.getAttribute("user");
@@ -39,9 +40,10 @@
                 {
             %>
             <body>
-                <h1>This is your current booking, <%= user.getName() %></h1>
+                
                 <!--Insert booking information-->
                  <div class="mainTable">
+                     <h2>This is your current booking, <%= user.getName() %></h2>
                 <table>
                 <tr>
                     <th>Booking ID</th>
@@ -77,7 +79,7 @@
                     <td><%= booking.getSeat()%></td>
                     <td><%= booking.getDescription()%></td>   
                     <td><a href="editBooking.jsp?bookingID=<%= booking.getBookingID()%>">Edit Booking</a></td>  
-                    <td><a href="deleteBooking.jsp?bookingID=<%= booking.getBookingID()%>">Delete Booking</a></td>   
+                    <td><a href="deleteBooking.jsp?bookingID=<%= booking.getBookingID()%>">Cancel Booking</a></td>   
                     <!--http://localhost:8080/FlyHigh/deleteBooking.jsp-->
                      
                 </tr>

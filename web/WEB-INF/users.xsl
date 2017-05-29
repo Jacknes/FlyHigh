@@ -17,9 +17,10 @@
     <xsl:template match="users">
         <html>
             <head>
-                <h1>Users</h1>
+<!--                <h1>Users</h1>-->
             </head> 
             <body>
+                <h2>Manage Users</h2>
                 <table>
                     <thead>
                         <tr>

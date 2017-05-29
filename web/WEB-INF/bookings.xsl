@@ -17,9 +17,9 @@
     <xsl:template match="bookings">
         <html>
             <head>
-                <h1>Bookings</h1>
             </head> 
             <body>
+                <h2>Bookings</h2>
                 <table>
                     <thead>
                         <tr>

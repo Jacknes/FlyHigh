@@ -41,6 +41,7 @@
                 %>
             </div>
             <div class="mainTable">
+                <h2>Manage Bookings</h2>
                 <table>
                 <tr>
                     <th>Booking ID</th>
