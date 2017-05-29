@@ -39,7 +39,7 @@ public class Bookings implements Serializable{
         if (bookingToRemove !=  null) 
         {
             bookings.remove(bookingToRemove);
-            addSeatBackToFlight(bookingToRemove.getFlightID());
+            //addSeatBackToFlight(bookingToRemove.getFlightID());
             
         }
     }
