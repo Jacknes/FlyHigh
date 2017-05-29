@@ -51,6 +51,12 @@ public class User implements Serializable
         super();
     }
     
+    public void updateUser(String name, String email, String password) 
+    {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
     
     public boolean login(String email, String password) 
     {
