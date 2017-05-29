@@ -42,8 +42,7 @@
         <tr>
             <xsl:apply-templates/>
             <td>
-                <!--{user/userID}-->
-                            <a href="localhost:8080/FlyHigh/deleteAccount.jsp?userID={userID}"> Edit User</a>
+                <a href="localhost:8080/FlyHigh/deleteAccount.jsp?userID={userID}"> Edit User</a>
             </td>
         </tr>
     </xsl:template>
@@ -53,12 +52,6 @@
             <xsl:apply-templates/>
         </td>
     </xsl:template>
-    
-<!--    <xsl:template match="userID">
-        <td>
-            <xsl:apply-templates/>
-        </td>
-    </xsl:template>-->
     
     <xsl:template match="password|admin|bookingID">
     </xsl:template>
