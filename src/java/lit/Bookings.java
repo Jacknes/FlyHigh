@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.*;
 import java.util.Random;
+import lit.*;
 
 /**
  *
@@ -38,6 +39,8 @@ public class Bookings implements Serializable{
         if (bookingToRemove !=  null) 
         {
             bookings.remove(bookingToRemove);
+            addSeatBackToFlight(bookingToRemove.getFlightID());
+            
         }
     }
     
@@ -67,6 +70,14 @@ public class Bookings implements Serializable{
         return null;
     }
     
+    public Booking getBookingByID(String bookingID) 
+    {
+        for (Booking booking : bookings)
+            if (booking.isBooking(bookingID))
+                return booking;
+        return null;
+    }
+    
     public String getRandomBookingIDUnique() 
     {
         Random randomGenerator = new Random(); 
@@ -91,6 +102,24 @@ public class Bookings implements Serializable{
     public void deleteBookingsForUser(String userID) 
     {
         Booking bookingToDelete = getUserBooking(userID);
-        bookings.remove(bookingToDelete);
+        if (bookingToDelete != null) 
+        {
+            bookings.remove(bookingToDelete);
+            addSeatBackToFlight(bookingToDelete.getFlightID());
+        }
+
+    }
+    
+    private void addSeatBackToFlight(String flightID) 
+    {
+        FlightController flightController = new FlightController();
+        Flights flights = flightController.getFlights();
+        Flight flightToAddSeat = flights.getFlight(flightID);
+        if (flightToAddSeat != null) 
+        {
+            flightToAddSeat.changeSeats(1);
+            flightController.setFlights(flights);
+        }
+        
     }
 }
