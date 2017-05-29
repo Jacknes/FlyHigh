@@ -52,7 +52,7 @@
   %>  
     
     <body>
-        <p>Account deleted. Click <a href="main.jsp">here</a> to return home</p>
+        <p>Membership canceled. Click <a href="main.jsp">here</a> to return home</p>
     </body>
 
 <%

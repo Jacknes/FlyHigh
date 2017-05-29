@@ -42,7 +42,7 @@
         <tr>
             <xsl:apply-templates/>
             <td>
-                    <a href="deleteAccount.jsp?userID={userID}"> Delete User</a>
+                    <a href="deleteAccount.jsp?userID={userID}"> Cancel Membership</a>
             </td>
         </tr>
     </xsl:template>
