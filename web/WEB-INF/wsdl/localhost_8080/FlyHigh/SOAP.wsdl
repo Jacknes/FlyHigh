@@ -46,17 +46,17 @@
 <message name="viewFlightsResponse">
 <part name="parameters" element="tns:viewFlightsResponse"/>
 </message>
-<message name="fetchUser">
-<part name="parameters" element="tns:fetchUser"/>
-</message>
-<message name="fetchUserResponse">
-<part name="parameters" element="tns:fetchUserResponse"/>
-</message>
 <message name="searchForFlights">
 <part name="parameters" element="tns:searchForFlights"/>
 </message>
 <message name="searchForFlightsResponse">
 <part name="parameters" element="tns:searchForFlightsResponse"/>
+</message>
+<message name="fetchUser">
+<part name="parameters" element="tns:fetchUser"/>
+</message>
+<message name="fetchUserResponse">
+<part name="parameters" element="tns:fetchUserResponse"/>
 </message>
 <portType name="SOAP">
 <operation name="login">
@@ -91,17 +91,17 @@
 <fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.lit/SOAP/viewFlights/Fault/JAXBException"/>
 <fault message="tns:IOException" name="IOException" wsam:Action="http://soap.lit/SOAP/viewFlights/Fault/IOException"/>
 </operation>
-<operation name="fetchUser">
-<input wsam:Action="http://soap.lit/SOAP/fetchUserRequest" message="tns:fetchUser"/>
-<output wsam:Action="http://soap.lit/SOAP/fetchUserResponse" message="tns:fetchUserResponse"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.lit/SOAP/fetchUser/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.lit/SOAP/fetchUser/Fault/IOException"/>
-</operation>
 <operation name="searchForFlights">
 <input wsam:Action="http://soap.lit/SOAP/searchForFlightsRequest" message="tns:searchForFlights"/>
 <output wsam:Action="http://soap.lit/SOAP/searchForFlightsResponse" message="tns:searchForFlightsResponse"/>
 <fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.lit/SOAP/searchForFlights/Fault/JAXBException"/>
 <fault message="tns:IOException" name="IOException" wsam:Action="http://soap.lit/SOAP/searchForFlights/Fault/IOException"/>
+</operation>
+<operation name="fetchUser">
+<input wsam:Action="http://soap.lit/SOAP/fetchUserRequest" message="tns:fetchUser"/>
+<output wsam:Action="http://soap.lit/SOAP/fetchUserResponse" message="tns:fetchUserResponse"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.lit/SOAP/fetchUser/Fault/JAXBException"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.lit/SOAP/fetchUser/Fault/IOException"/>
 </operation>
 </portType>
 <binding name="SOAPPortBinding" type="tns:SOAP">
@@ -184,7 +184,7 @@
 <soap:fault name="IOException" use="literal"/>
 </fault>
 </operation>
-<operation name="fetchUser">
+<operation name="searchForFlights">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -199,7 +199,7 @@
 <soap:fault name="IOException" use="literal"/>
 </fault>
 </operation>
-<operation name="searchForFlights">
+<operation name="fetchUser">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
