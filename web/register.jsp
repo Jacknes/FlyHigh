@@ -44,7 +44,7 @@ there are two options:
             </div>
             <form action="registerAction.jsp" method="POST">
                 <div class="mainTable">
-                    <h2>Register <%= returnToResults %></h2>
+                    <h2>Register</h2>
                     <table>
                         <tr>
                             <td>Full Name</td>
