@@ -28,6 +28,7 @@ public class FlightService
     @Context
     private ServletContext application;
     
+    // Controller for Flights
     private FlightController getFlightController() throws JAXBException, IOException
     {
         synchronized (application)
@@ -43,6 +44,7 @@ public class FlightService
         }
     }
     
+    // Controller for Bookings
     private BookingApplication getBookingController() throws JAXBException, IOException
     {
         synchronized (application)
@@ -65,14 +67,19 @@ public class FlightService
             @QueryParam("flightStatus") boolean flightStatus, 
             @QueryParam("numOfFlights") int numOfFlights) throws JAXBException, IOException
     {
+        // Create instances of Flight/Booking controllers and get an ArrayList of all flights
+        // This list is used to filter down depending on our QueryParams
         FlightController flightController = getFlightController();
         ArrayList<Flight> allFlights = flightController.getFlights().getFlights();
         BookingApplication bookingController = getBookingController();
         
+        // Create a new Flights object that will be populated with the filtered results
         Flights filteredFlights = new Flights();
         
+        // Filter
         filteredFlights = flightController.getFlightsWithQueryParam(bookingController, customerName, flightStatus, numOfFlights, allFlights, filteredFlights);
         
+        // Return as APPLICATION_XML
         return filteredFlights;
     }
 }

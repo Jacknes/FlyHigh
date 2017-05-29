@@ -4,7 +4,7 @@
     Author     : jacknes
 --%>
 
-<%@page import="java.util.Date"%>
+
 <%-- 
 The registration form is processed by adding the new user to an XML. After the viewer is registered as a customer,
 there are two options:
@@ -14,11 +14,12 @@ there are two options:
     - Second option: The customer has not performed a search on the “Main” page. In this
         case, the registration process takes the customer to the “Main” page at the Second Scenario.
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.Date"%>
 <%@page import="lit.*"%>
 <%@page import="java.util.*"%>
+<%@page import="javax.xml.validation.*;"%>
 
  <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">

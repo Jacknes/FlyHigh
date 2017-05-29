@@ -74,20 +74,24 @@ public class FlightController {
         }
         else
         {
+            // List to put filtered results in
             ArrayList<Flight> filteredFlightList = new ArrayList<>();
             Booking ourUserBooking = null;
             if (customerName != null)
+                // If we have a customer name specified, get the booking for that user (contains flightID)
                 ourUserBooking = bookingController.getBookings().getUserBooking(customerName);   
             
             
             for (Flight flight : allFlights)
             {
+                // Flight has available seats and specified flightStatus = available
                 if (flight.getSeats() > 0 && flightStatus)
                 {
                     if (ourUserBooking != null)
                         if (flight.getFlightID().equals(ourUserBooking.getFlightID()))
                             filteredFlightList.add(flight);
                 }
+                // Flight has no available seats and specified flightStatus = unavailable
                 else if (flight.getSeats() == 0 && !flightStatus)
                 {
                     if (ourUserBooking != null)
@@ -95,19 +99,24 @@ public class FlightController {
                             filteredFlightList.add(flight);
                 }
                 
+                // No customer specified? Add the flight
                 if (ourUserBooking == null)
                     filteredFlightList.add(flight);
             }
             
+            // Requested a constrained list size
             if (numOfFlights != 0)
             {
+                // Size constraint is smaller than our full list
                 if (numOfFlights <= filteredFlightList.size())
                     for (Flight flight : filteredFlightList.subList(0, numOfFlights))
                         filteredFlights.addFlight(flight);
+                // Size constraint is larger
                 else
                     for (Flight flight : filteredFlightList)
                         filteredFlights.addFlight(flight);
             }
+            // No requested list size constraint
             else
                 if (!filteredFlightList.isEmpty())
                 {
