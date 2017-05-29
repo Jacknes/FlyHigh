@@ -48,9 +48,9 @@
             bookingApp.addBooking(userID, flightID);
             bookings = bookingApp.getBookings();
             bookingApp.setBookings(bookings);
-            Flights flights = flightController.getFlights();
-            flights.changeSeats(flightID, -1);
-            flightController.setFlights(flights);
+//            Flights flights = flightController.getFlights();
+//            flights.changeSeats(flightID, -1);
+//            flightController.setFlights(flights);
             
             //bookings = bookingApp.getBookings();
             //bookingApp.setBookings(bookings);
