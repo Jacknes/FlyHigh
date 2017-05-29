@@ -22,42 +22,70 @@
             <div class="wrapper">
                 <div class="header">
                     <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
-
-                    <%
-                        User user = (User) session.getAttribute("user");
-                        String username = "";
-                        if (user != null) {
-                            username = user.getName();
-                    %>
-
-                    <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
-                    <ul>
-                        <li><a href="main.jsp">Home</a></li>
-                        <li><a href="booking.jsp">Bookings</a></li>
-                        <li><a href="listings.jsp">Listings</a></li>
-
-                        <li style="float:right"><a href="logout.jsp">Logout</a></li>
-                    </ul>
-                    <!--                
-                    <% } else { %>
-                  <ul>
-                      <li><a href="main.jsp">Home</a></li>
-                      <li style="float:right"><a href="login.jsp">Login</a></li>
-                      <li style="float:right"><a href="register.jsp">Register</a></li>
-                  </ul>-->
-
-                    <%}%>
+                    <h1>Listings</h1>
+                    <%@include file = "navbar.jsp" %>
                 </div>
 
+                <form action="listingsResults.jsp" method="POST">
                 <div class="mainTable">
-                    <h2>Your Listings</h2>
-                    <table id="listingsTable">
+                    <h2>Search Listings</h2>
+                    <table>
                         <tr>
-                            <td>Listing 1</td>
-                            <td><a href="results.jsp">View</a></td>
+                            <td>User ID</td>
+                            <td><input type="text" name="userID"></td>
+                        </tr>
+                        <tr>
+                            <td>Origin</td>
+                            <td>
+                                <select name='origin'>
+                                    <option value='Sydney'>Sydney</option>   
+                                    <option value='Adelaide'>Adelaide</option>
+                                    <option value='Melbourne'>Melbourne</option>  
+                                    <option value='Brisbane'>Brisbane</option>
+                                    <option value='Darwin'>Darwin</option>
+                                    <option value='Perth'>Perth</option>
+                                    <option value='Hobart'>Hobart</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Destination</td>
+                            <td>
+                                <select name='destination'>
+                                    <option value='Sydney'>Sydney</option>   
+                                    <option value='Adelaide'>Adelaide</option>
+                                    <option value='Melbourne'>Melbourne</option>  
+                                    <option value='Brisbane'>Brisbane</option>
+                                    <option value='Darwin'>Darwin</option>
+                                    <option value='Perth'>Perth</option>
+                                    <option value='Hobart'>Hobart</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Departure Date</td>
+                            <td><input type="date" name="departureDate"></td>
+                        </tr>
+                        <tr>
+                            <td>Return Date</td>
+                            <td><input type="date" name="returnDate"></td>
+                        </tr>
+                        <tr>
+                            <td>Type of Flight</td>
+                            <td>
+                                <select name='flightType'>
+                                    <option value='Economy'>Economy</option>   
+                                    <option value='Business'>Business</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Search"></td>
                         </tr>
                     </table>
                 </div>
+            </form>
             </div>
     </body>
 </html>

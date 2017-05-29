@@ -45,7 +45,7 @@ public class FlightController {
         this.flights = flights;
     }
     
-     public ArrayList<Flight> getFlightsFromParam(String departure, String destination, String deptDate, String returnDate, String type)  
+    public ArrayList<Flight> getFlightsFromParam(String departure, String destination, String deptDate, String returnDate, String type)  
     { 
         ArrayList<Flight> allFlights = flights.getFlights(); 
         ArrayList<Flight> matchingFlights = new ArrayList(); 

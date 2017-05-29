@@ -31,23 +31,6 @@ there are two options:
     </jsp:useBean>
 
     <%
-        SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-        
-        File schemaFile = new File("WEB-INF/registration.xsd");
-        Schema schemaValidation = factory.newSchema(schemaFile);
-        
-        Validator xmlValidator = schemaValidation.newValidator();
-        
-        // Replace "inputs" with parameters
-        Source streamSource = new StreamSource("inputs");
-         
-        try {
-            xmlValidator.validate(streamSource);
-        }
-        catch (SAXException ex) {
-            System.out.println(ex.getMessage());
-        }  
-        
         boolean createUserSuccess = false;
         Users users = new Users();
         users = userApp.getUsers();
