@@ -25,10 +25,10 @@ public class Listings implements Serializable
         super();
     }
     
-    public Listing getListing(String userID)
+    public Listing getListing(String listingID)
     {
         for (Listing listing : listings)
-            if (listing.isListing(userID))
+            if (listing.isListing(listingID))
                 return listing;
         return null;
     }
@@ -41,5 +41,37 @@ public class Listings implements Serializable
     public void addListing(Listing listing)
     {
         listings.add(listing);
+    }
+    
+    public ArrayList<Listing> getListingsForUserID(String userID) 
+    {
+        ArrayList<Listing> results = new ArrayList();
+        for (Listing listing : listings) 
+        {   
+            if(listing.getUserID().equals(userID))
+                    results.add(listing);
+        }
+        return results;
+    }
+    
+    public String getRandomListingIDUnique() 
+    {
+        Random randomGenerator = new Random(); 
+        boolean isUnique = false;
+        int randomID = randomGenerator.nextInt(999);
+        String id = "" + randomID;;
+        while(isUnique == false) 
+        {
+            isUnique = true;   
+            randomID = randomGenerator.nextInt(999);
+            id = "" + randomID;
+            for (Listing listing : listings) 
+            {
+                if (id.equals(listing.getListingID()))
+                    isUnique = false;
+            }
+       } 
+       
+       return id;
     }
 }

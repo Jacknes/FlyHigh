@@ -4,8 +4,13 @@
     Author     : Owner
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="lit.*"%>
+<% String filePath = application.getRealPath("WEB-INF/listings.xml");%>
+<jsp:useBean id="listingController" class="lit.ListingController" scope="application">
+    <jsp:setProperty name="listingController" property="filePath" value="<%=filePath%>"/>
+</jsp:useBean>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,66 +31,68 @@
                     <%@include file = "navbar.jsp" %>
                 </div>
 
-                <form action="listingsResults.jsp" method="POST">
+
+
                 <div class="mainTable">
-                    <h2>Search Listings</h2>
+                    <% if (user != null) { %>
+                    <h2>Manage Listings</h2>
+
+                    <%
+                        String userID = user.getUserID();
+                        String path = listingController.getFilePath();
+                        //Listings listings = listingController.getListings();
+                        //String test = listingController.getFilePath();
+                        ArrayList<Listing> listingsList = listingController.getListingsList(userID);
+                        //ArrayList<Listing> listingsList = new ArrayList();
+                        if (!listingsList.isEmpty()) {
+
+                    %>
                     <table>
                         <tr>
-                            <td>User ID</td>
-                            <td><input type="text" name="userID"></td>
+                            <th>Departure City</th>
+                            <th>Destination City</th>
+                            <th>Departure Date</th>
+                            <th>Return Date</th>
+                            <th>Type of Flight</th>
+                            <th>Open Listing</th>
+                            <th>Close Listing</th>
                         </tr>
+                        <% for (Listing listing : listingsList) {%>
+                        <!--Show listings-->
                         <tr>
-                            <td>Origin</td>
-                            <td>
-                                <select name='origin'>
-                                    <option value='Sydney'>Sydney</option>   
-                                    <option value='Adelaide'>Adelaide</option>
-                                    <option value='Melbourne'>Melbourne</option>  
-                                    <option value='Brisbane'>Brisbane</option>
-                                    <option value='Darwin'>Darwin</option>
-                                    <option value='Perth'>Perth</option>
-                                    <option value='Hobart'>Hobart</option>
-                                </select>
-                            </td>
+
+                            <td><%= listing.getOrigin()%></td>
+                            <td><%= listing.getDestination()%></td>
+                            <td><%= listing.getDepartureDate()%></td>
+                            <td><%= listing.getReturnDate()%></td>
+                            <td><%= listing.getFlightType()%></td>
+                            <!--http://localhost:8080/FlyHigh/results.jsp-->
+<!--                            String origin = request.getParameter("departureCity"); 
+                                String destination = request.getParameter("destinationCity"); 
+                                String departureDate = request.getParameter("departureDate"); 
+                                String returnDate = request.getParameter("returnDate"); 
+                                String type = request.getParameter("flightType"); -->
+                                <% String resultString = "?departureCity=" + listing.getOrigin() + "&destinationCity=" + listing.getDestination()
+                                        + "&departureDate=" + listing.getDepartureDate() + "&returnDate=" + listing.getReturnDate() + "&flightType=" + listing.getFlightType(); %>
+
+                            <td><a href="results.jsp<%= resultString%>">View Listing</a></td>  
+                            <td><a href="deleteListing.jsp?listingID=<%= listing.getListingID()%>">Close Listing</a></td>     
                         </tr>
-                        <tr>
-                            <td>Destination</td>
-                            <td>
-                                <select name='destination'>
-                                    <option value='Sydney'>Sydney</option>   
-                                    <option value='Adelaide'>Adelaide</option>
-                                    <option value='Melbourne'>Melbourne</option>  
-                                    <option value='Brisbane'>Brisbane</option>
-                                    <option value='Darwin'>Darwin</option>
-                                    <option value='Perth'>Perth</option>
-                                    <option value='Hobart'>Hobart</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Departure Date</td>
-                            <td><input type="date" name="departureDate"></td>
-                        </tr>
-                        <tr>
-                            <td>Return Date</td>
-                            <td><input type="date" name="returnDate"></td>
-                        </tr>
-                        <tr>
-                            <td>Type of Flight</td>
-                            <td>
-                                <select name='flightType'>
-                                    <option value='Economy'>Economy</option>   
-                                    <option value='Business'>Business</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="submit" value="Search"></td>
-                        </tr>
+
+                        <% } %>
                     </table>
+                    <% } else { %>
+                    <!--No listings-->
+                    <h2> No listings!</h2>
+
+                    <% } %>
+
+                    <% } else {
+                            String redirectURL = "404.jsp";
+                            response.sendRedirect(redirectURL);
+                        }%>
+
                 </div>
-            </form>
             </div>
-    </body>
-</html>
+        </body>
+    </html>
