@@ -54,12 +54,29 @@ public class Users implements Serializable {
             
     }
     
-    public User getUser (String email) 
+    public User getUser(String email) 
     {
         for (User user : customers)
             if (user.isUser(email))
                 return user;
         return null;
+    }
+    
+    public boolean isAdmin(String userID) 
+    {
+        for (User user : customers)
+            if (user.getUserID().equals(userID))
+                if (user.isAdmin())
+                    return true;
+        return false;
+    }
+    
+    public User getUserByID(String userID) 
+    {
+       for (User user : customers)
+            if (user.getUserID().equals(userID))
+                return user;
+        return null; 
     }
     
     public boolean addUser(String name, String email, String password, String dob) 

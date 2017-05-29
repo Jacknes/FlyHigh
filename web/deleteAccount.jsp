@@ -16,25 +16,47 @@
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
         <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
+    
+    <% String filePath2 = application.getRealPath("WEB-INF/bookings.xml");%>
+    <jsp:useBean id="bookingApp" class="lit.BookingApplication" scope="application">
+        <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath2%>"/>
+    </jsp:useBean>
     <% 
-    User userToDelete = (User)session.getAttribute("userToDelete");
-    if (userToDelete == null) 
-    {
-        userToDelete = (User)session.getAttribute("user");
-        userApp.removeUser(userToDelete);
-        Users users = userApp.getUsers();
-        userApp.updateXML(users);
-        session.setAttribute("user", null);
-    } else {
-        userApp.removeUser(userToDelete);
-        Users users = userApp.getUsers();
-        userApp.updateXML(users);
-        session.setAttribute("userToDelete", null);
+    String userID = request.getParameter("userID");
+    User userToDelete = null;
+    User authorisingUser = (User)session.getAttribute("user");
+    if (userID != null && authorisingUser != null){
+        userToDelete = userApp.getUsers().getUserByID(userID);
     }
     
-    %>
+    //User userToDelete = (User)session.getAttribute("userToDelete");
+    if (userToDelete == null) 
+    { %>
+    <!--User Not found for ID-->
+    <body>
+        <p>User to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
+    </body>
+    
+
+    <%} else if (userID.equals(authorisingUser.getUserID()) || userApp.getUsers().isAdmin(authorisingUser.getUserID())) {
+        userApp.removeUser(userToDelete);
+        Users users = userApp.getUsers();
+        userApp.updateXML(users);
+        Bookings bookings = bookingApp.getBookings();
+        bookings.deleteBookingsForUser(userID);
+        bookingApp.setBookings(bookings);
+        //bookingApp.removeBookingForUser(userID);
+//        bookingApp.updateXML(bookingApp.getBookings());
+//        if(userID.equals(authorisingUser.getUserID()))
+//            session.setAttribute("user", null);
+  %>  
     
     <body>
         <p>Account deleted. Click <a href="main.jsp">here</a> to return home</p>
     </body>
+
+<%
+    }  
+    %>
+
 </html>

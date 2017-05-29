@@ -87,4 +87,10 @@ public class Bookings implements Serializable{
        
        return id;
     }
+    
+    public void deleteBookingsForUser(String userID) 
+    {
+        Booking bookingToDelete = getUserBooking(userID);
+        bookings.remove(bookingToDelete);
+    }
 }

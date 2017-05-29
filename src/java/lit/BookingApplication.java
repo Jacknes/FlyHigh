@@ -72,4 +72,10 @@ public class BookingApplication {
         bookings.addBooking(booking);
         //updateXML(bookings);
     }
+    
+    public void removeBookingForUser(String userID) throws JAXBException, PropertyException, FileNotFoundException 
+    {
+        bookings.removeBooking(userID);
+        updateXML(bookings);
+    }
 }
