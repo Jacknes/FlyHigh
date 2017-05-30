@@ -18,6 +18,7 @@ Booking page: Flight customers can access this page from “Results” page or t
 <%@page import="java.util.*"%>
 <!DOCTYPE html>
 
+<!--Use of javabean to allow access to flights.xml through flightController-->
 <% String filePath = application.getRealPath("WEB-INF/flights.xml");%>
 <jsp:useBean id="flightController" class="lit.FlightController" scope="application">
     <jsp:setProperty name="flightController" property="filePath" value="<%=filePath%>"/>
@@ -38,18 +39,16 @@ Booking page: Flight customers can access this page from “Results” page or t
             <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>FlyHigh Airlines</h1>
-
                 <%@include file="navbar.jsp"%>
-                
+                </div>
                 <% 
-                 
+                    //retrieves flights from XML through flightController
+                    //through using the flightID parameter that is passed in
                     Flight flight = flightController.getFlights().getFlight(flightID);
-                        
-                                         
+                              
                     //Check if user booked on this flight already, through the user instance and a bookingController instance. 
                     //if the user is already booked on this flight, allow to edit or cancel, 
-                    //if not book. 
-
+                    //if not allow customer to make a booking 
                     if (flight != null) {
                 %>
                 <table>
@@ -77,23 +76,13 @@ Booking page: Flight customers can access this page from “Results” page or t
                 <!--Implement booking options logic here-->
 
 
-
-
-
-
-
                 <% } else {
-
             String redirectURL = "404.jsp";
             response.sendRedirect(redirectURL);
                 %>
                 <% }%>
-            </div>
-
-
+           
             <!--Bookings Content goes here-->
-
-
         </div>
     </div>
 </body>

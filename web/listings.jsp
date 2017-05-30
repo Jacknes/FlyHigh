@@ -7,6 +7,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="lit.*"%>
+
+<!--Uses a bean to allow access to listings.xml through listing controller-->
 <% String filePath = application.getRealPath("WEB-INF/listings.xml");%>
 <jsp:useBean id="listingController" class="lit.ListingController" scope="application">
     <jsp:setProperty name="listingController" property="filePath" value="<%=filePath%>"/>
@@ -22,7 +24,6 @@
             <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
             <title>FlyHigh - Listings</title>
         </head>
-
         <body>
             <div class="wrapper">
                 <div class="header">
@@ -30,9 +31,6 @@
                     <h1>Listings</h1>
                     <%@include file = "navbar.jsp" %>
                 </div>
-
-
-
                 <div class="mainTable">
                     <% if (user != null) { %>
                     <h2>Manage Listings</h2>
@@ -67,13 +65,13 @@
                             <td><%= listing.getReturnDate()%></td>
                             <td><%= listing.getFlightType()%></td>
                             <!--http://localhost:8080/FlyHigh/results.jsp-->
-<!--                            String origin = request.getParameter("departureCity"); 
-                                String destination = request.getParameter("destinationCity"); 
-                                String departureDate = request.getParameter("departureDate"); 
-                                String returnDate = request.getParameter("returnDate"); 
-                                String type = request.getParameter("flightType"); -->
-                                <% String resultString = "?departureCity=" + listing.getOrigin() + "&destinationCity=" + listing.getDestination()
-                                        + "&departureDate=" + listing.getDepartureDate() + "&returnDate=" + listing.getReturnDate() + "&flightType=" + listing.getFlightType(); %>
+                            <!--                            String origin = request.getParameter("departureCity"); 
+                                                            String destination = request.getParameter("destinationCity"); 
+                                                            String departureDate = request.getParameter("departureDate"); 
+                                                            String returnDate = request.getParameter("returnDate"); 
+                                                            String type = request.getParameter("flightType"); -->
+                            <% String resultString = "?departureCity=" + listing.getOrigin() + "&destinationCity=" + listing.getDestination()
+                                            + "&departureDate=" + listing.getDepartureDate() + "&returnDate=" + listing.getReturnDate() + "&flightType=" + listing.getFlightType();%>
 
                             <td><a href="results.jsp<%= resultString%>">View Listing</a></td>  
                             <td><a href="deleteListing.jsp?listingID=<%= listing.getListingID()%>">Close Listing</a></td>     
@@ -82,16 +80,13 @@
                         <% } %>
                     </table>
                     <% } else { %>
-                    <!--No listings-->
-                    <h2> No listings!</h2>
-
+                    <!--Display this message when a user does not have a listing-->
+                    <h2> You currently do not have any listings!</h2>
                     <% } %>
-
                     <% } else {
                             String redirectURL = "404.jsp";
                             response.sendRedirect(redirectURL);
                         }%>
-
                 </div>
             </div>
         </body>

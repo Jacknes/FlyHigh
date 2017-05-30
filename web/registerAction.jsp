@@ -25,6 +25,7 @@ there are two options:
 <%@page import="javax.xml.transform.stream.StreamSource"%>
 <%@page import="org.xml.sax.SAXException"%>
 
+<!--Uses bean to allow access to users.xml through userApplication-->
  <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
         <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
@@ -50,8 +51,6 @@ there are two options:
             User user = users.getUser(email);
             session.setAttribute("user", user);
         }
-         
-
         if(createUserSuccess == false) {
     %>
 <html>
@@ -63,12 +62,8 @@ there are two options:
         <p>Your registration was unsuccessful. Please click <a href="register.jsp">here</a> to try again. </p>
     </body>
 </html>
-
-
 <% } else { 
-
+    //redirects user to main.jsp if their registration was successful
     String redirectURL = "main.jsp";
     response.sendRedirect(redirectURL);
-
-
 } %>

@@ -7,8 +7,8 @@
 <%@page import="lit.*"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!--<?xml-stylesheet type="text/xsl" href="results.xsl"?>-->
 
+<!--Uses bean to allow access to flights.xml through flightController-->
 <% String filePath = application.getRealPath("WEB-INF/flights.xml");%>
 <jsp:useBean id="flightController" class="lit.FlightController" scope="application">
     <jsp:setProperty name="flightController" property="filePath" value="<%=filePath%>"/>

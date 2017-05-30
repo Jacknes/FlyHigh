@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listing deleted</title>
     </head>
+
+    <!--Use of bean to allow access to listings.xml through listingController-->
     <% String filePath = application.getRealPath("WEB-INF/listings.xml");%>
     <jsp:useBean id="listingController" class="lit.ListingController" scope="application">
         <jsp:setProperty name="listingController" property="filePath" value="<%=filePath%>"/>

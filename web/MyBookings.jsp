@@ -4,10 +4,13 @@
     Author     : jacknes
 --%>
 <%@page import="lit.*"%>
+
+<!--Use of bean to allow access to bookings.xml through bookingApplication-->
 <% String filePath = application.getRealPath("WEB-INF/bookings.xml");%>
 <jsp:useBean id="bookingApp" class="lit.BookingApplication" scope="application">
     <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath%>"/>
 </jsp:useBean>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +18,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>My Bookings</title>
         <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
-
     </head>
     <body>
         <div class="wrapper">
@@ -23,16 +25,20 @@
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>My Bookings</h1>
                 <%@include file="navbar.jsp"%>
+                <!--Obtains the session with the user attribute-->
                 <%
                     user = (User) session.getAttribute("user");
                     Booking booking = null;
                     String userID = "";
+                    //If a user is logged in, retrieve their ID
+                    //and retrieve their booking through passing in the userID as a parameter 
                     if (user != null) {
                         userID = user.getUserID();
                         Bookings bookings = bookingApp.getBookings();
                         booking = bookings.getUserBooking(userID);
                 %>
             </div>
+            <!--If the user has a booking, display the booking-->
             <%                if (booking != null) {
             %>
 
@@ -75,7 +81,6 @@
                         <td><a href="editBooking.jsp?bookingID=<%= booking.getBookingID()%>">Edit Booking</a></td>  
                         <td><a href="deleteBooking.jsp?bookingID=<%= booking.getBookingID()%>">Cancel Booking</a></td>   
                     </tr>
-
                 </table>
             </div> 
 
@@ -87,6 +92,7 @@
             <% }
 
             } else {%>
+            <!--This displays when a user is not logged in, thus they do not have authority to view this page-->
             <h1>You are not authorised to view this page</h1>
             <p>Click <a href="login.jsp">here</a> to login!</p>
         </div>

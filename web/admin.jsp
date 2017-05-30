@@ -14,6 +14,8 @@ Admin page: Only specific registered users (e.g. “airline staff”) can access
     e- Cancel a users membership (Additional)
 --%>
 
+<!--Admin.jsp is currently not in use -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

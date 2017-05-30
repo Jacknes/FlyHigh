@@ -8,6 +8,7 @@
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<!--Uses bean to allow access to listings.xml through listingController-->
 <% String filePath = application.getRealPath("WEB-INF/listings.xml");%>
     <jsp:useBean id="listingController" class="lit.ListingController" scope="application">
         <jsp:setProperty name="listingController" property="filePath" value="<%=filePath%>"/>
