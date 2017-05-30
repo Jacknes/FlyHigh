@@ -40,17 +40,18 @@ Booking page: Flight customers can access this page from “Results” page or t
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>FlyHigh Airlines</h1>
                 <%@include file="navbar.jsp"%>
-                </div>
-                <% 
-                    //retrieves flights from XML through flightController
-                    //through using the flightID parameter that is passed in
-                    Flight flight = flightController.getFlights().getFlight(flightID);
-                              
-                    //Check if user booked on this flight already, through the user instance and a bookingController instance. 
-                    //if the user is already booked on this flight, allow to edit or cancel, 
-                    //if not allow customer to make a booking 
-                    if (flight != null) {
-                %>
+            </div>
+            <%
+                //retrieves flights from XML through flightController
+                //through using the flightID parameter that is passed in
+                Flight flight = flightController.getFlights().getFlight(flightID);
+
+                //Check if user booked on this flight already, through the user instance and a bookingController instance. 
+                //if the user is already booked on this flight, allow to edit or cancel, 
+                //if not allow customer to make a booking 
+                if (flight != null) {
+            %>
+            <div class="mainTable">
                 <table>
                     <tr>
                         <th>Flight ID</th>
@@ -73,15 +74,16 @@ Booking page: Flight customers can access this page from “Results” page or t
                         <td> <a href="bookingAction.jsp?flightID=<%= flight.getFlightID()%>&userID=<%= user.getUserID()%>">Book</a></td>
                     </tr>
                 </table>
-                <!--Implement booking options logic here-->
+            </div>
+            <!--Implement booking options logic here-->
 
 
-                <% } else {
-            String redirectURL = "404.jsp";
-            response.sendRedirect(redirectURL);
-                %>
-                <% }%>
-           
+            <% } else {
+                String redirectURL = "404.jsp";
+                response.sendRedirect(redirectURL);
+            %>
+            <% }%>
+
             <!--Bookings Content goes here-->
         </div>
     </div>

@@ -144,5 +144,10 @@ public class Booking implements Serializable
         return description;
     }
     
+    public void changeType(String type) 
+    {
+        flightType = type;
+    }
+    
     
 }

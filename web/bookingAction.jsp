@@ -21,6 +21,11 @@
     <jsp:setProperty name="flightController" property="filePathFlight" value="<%=filePath%>"/>
 </jsp:useBean>
 
+<% String filePathUser = application.getRealPath("WEB-INF/users.xml");%>
+<jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
+    <jsp:setProperty name="userApp" property="filePathUser" value="<%=filePath%>"/>
+</jsp:useBean>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -45,7 +50,7 @@
                 Bookings bookings = bookingApp.getBookings();
                 Booking currentBooking = bookings.getUserBooking(userID);
                 if (currentBooking == null) {
-                    bookingApp.addBooking(userID, flightID);
+                    bookingApp.addBooking(userID, flightID, flightController, userApp);
                     bookings = bookingApp.getBookings();
                     bookingApp.setBookings(bookings);
        //            Flights flights = flightController.getFlights();

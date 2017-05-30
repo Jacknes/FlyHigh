@@ -47,7 +47,7 @@
                     userApp.setUsers(users);
                 }
             %>
-            
+
             <% if (user != null) {%>
             <!--Display information below when a user is logged in-->
             <div class="mainTable">
@@ -73,7 +73,7 @@
 
                     </table>
                 </form>
-                        <!--Button below allows user to cancel their membership-->
+                <!--Button below allows user to cancel their membership-->
                 <div class="deleteAccount">
                     <form action="deleteAccount.jsp?userID=<%= userID%>" method="POST">
                         <table>

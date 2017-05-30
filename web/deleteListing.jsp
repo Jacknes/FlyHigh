@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listing deleted</title>
+        <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
     </head>
 
     <!--Use of bean to allow access to listings.xml through listingController-->
@@ -18,7 +19,15 @@
     <jsp:useBean id="listingController" class="lit.ListingController" scope="application">
         <jsp:setProperty name="listingController" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
+    
+    <div class="wrapper">
+        <div class="header">
+            <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
+                <h1>Deleted Listing</h1>
+                <%@include file="navbar.jsp" %>
+        </div>
     <body>
+        <div class="mainTable">
     <% 
     String listingID = request.getParameter("listingID");
     Listing listingToDelete = null;
@@ -55,5 +64,7 @@
 <%
     }  
     %>
+        </div>
     </body>
+    </div>
 </html>

@@ -30,6 +30,8 @@
                 <jsp:useBean id="bookingApp" class="lit.BookingApplication" scope="application">
                     <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath2%>"/>
                 </jsp:useBean>
+                 </div>
+                <div class="mainTable">
                 <%
                     String bookingID = request.getParameter("bookingID");
                     Booking bookingToDelete = null;
@@ -44,7 +46,7 @@
 
                     //User userToDelete = (User)session.getAttribute("userToDelete");
                     if (bookingToDelete == null) { %>
-            </div>
+           
             <!--Booking Not found for ID-->
             <p>Booking to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
 
@@ -66,6 +68,7 @@
             %>  
             <p>Booking deleted. Click <a href="main.jsp">here</a> to return home</p>
             <%}%>
+                </div>
         </div>
     </body>
 </html>

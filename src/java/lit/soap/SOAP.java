@@ -65,7 +65,7 @@ public class SOAP {
             if (user.getUserID().equals(userID) && !flightID.equals("0")) 
             {
                 BookingApplication bookingApp = getBookingApp();
-                bookingApp.addBooking(userID, flightID);
+                //bookingApp.addBooking(userID, flightID);
                 Bookings bookings = bookingApp.getBookings();
                 bookingApp.setBookings(bookings);
             }

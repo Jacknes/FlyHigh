@@ -43,12 +43,12 @@
     
     
 
-        <h1>Listing Created!</h1>
+        <h2>Listing Created!</h2>
         <p>Click <a href="listings.jsp">here</a> to go to your listings. </p>
         
            <%    } else {
     %>
-        <h1>Could not complete request</h1>
+        <h2>Could not complete request</h2>
         <p>Click <a href="main.jsp">here</a> to go home. </p>
  
        <%    }
