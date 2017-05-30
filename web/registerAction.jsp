@@ -41,15 +41,15 @@ there are two options:
         String dob = request.getParameter("dob");
         
         if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            //invalid submission
-            createUserSuccess = false;
+            //invalid submission, field is empty
+            createUserSuccess = false; 
         } else 
-        {
-            users.addUser(name, email, password, dob);
-            userApp.updateXML(users);
+        { //if all fields are valid
+            users.addUser(name, email, password, dob); //create the user
+            userApp.updateXML(users); //update the xml
             createUserSuccess = true;
-            User user = users.getUser(email);
-            session.setAttribute("user", user);
+            User user = users.getUser(email); //login 
+            session.setAttribute("user", user); //set the user in the session
         }
         if(createUserSuccess == false) {
     %>

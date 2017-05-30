@@ -25,7 +25,7 @@ public class Listings implements Serializable
         super();
     }
     
-    public Listing getListing(String listingID)
+    public Listing getListing(String listingID) //gets a listing for a listingID
     {
         for (Listing listing : listings)
             if (listing.isListing(listingID))
@@ -33,17 +33,17 @@ public class Listings implements Serializable
         return null;
     }
     
-    public ArrayList<Listing> getListings()
+    public ArrayList<Listing> getListings() //returns the arraylist of listings
     {
         return listings;
     }
     
-    public void addListing(Listing listing)
+    public void addListing(Listing listing) //adds a listing to the listings
     {
         listings.add(listing);
     }
     
-    public ArrayList<Listing> getListingsForUserID(String userID) 
+    public ArrayList<Listing> getListingsForUserID(String userID) //gets all listings for a specific user
     {
         ArrayList<Listing> results = new ArrayList();
         for (Listing listing : listings) 
@@ -54,7 +54,7 @@ public class Listings implements Serializable
         return results;
     }
     
-    public String getRandomListingIDUnique() 
+    public String getRandomListingIDUnique() //generates a new listingID based on all other listings
     {
         Random randomGenerator = new Random(); 
         boolean isUnique = false;

@@ -18,7 +18,7 @@
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>FlyHigh Airlines</h1>
                 <%@include file="navbar.jsp" %>
-                
+
                 <!--Use of javabean to allow access to users.xml through userApplication-->
                 <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
                 <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">

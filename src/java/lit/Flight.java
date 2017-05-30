@@ -55,11 +55,11 @@ public class Flight
     }
 
     @Override
-    public String toString() {
+    public String toString() { //debug toString
         return "Flight{" + "flightID=" + flightID + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", price=" + price + ", seats=" + seats + ", origin=" + origin + ", destination=" + destination + ", flightType=" + flightType + '}';
     }
     
-    public void changeSeats(int change) 
+    public void changeSeats(int change)  //modifies the number of seats remaining
     {
         seats += change;
     }
@@ -74,7 +74,7 @@ public class Flight
         return seats; 
     }
     
-    public boolean flightStatus() 
+    public boolean flightStatus() //checks the flight still has seats available
     {
         return seats > 0;
     }

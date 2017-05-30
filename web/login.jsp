@@ -26,21 +26,20 @@ should take them to the “Booking” page)
     </head>
     <body>
         <div class="wrapper">
-        
-                <div class="header">
+
+            <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>Login</h1>
                 <%@include file = "navbar.jsp" %>
             </div>
-            
-                <%
-                    String email = request.getParameter("email");
-                    String emailText = "";
-                    if (email != null) 
-                    {    
-                        emailText = email;
-                    }
-                %>
+
+            <%
+                String email = request.getParameter("email"); //gets the breadcrumb email and restores it
+                String emailText = "";
+                if (email != null) {
+                    emailText = email;
+                }
+            %>
 
             <form action="loginAction.jsp" method="POST">
                 <div class="mainTable">

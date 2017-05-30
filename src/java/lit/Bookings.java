@@ -20,12 +20,6 @@ import lit.*;
 public class Bookings implements Serializable{
     @XmlElement(name = "booking")
     ArrayList<Booking> bookings = new ArrayList<>();
-  
-    //TODO: Login functionality, return type the user or null
-    //      Does the user exist
-    //      Add user
-    //      Remove user
-    
     
     public Bookings() 
     {
@@ -33,18 +27,17 @@ public class Bookings implements Serializable{
     }
     
     
-    public void removeBooking (String bookingID) 
+    public void removeBooking (String bookingID)  //removes a booking based on id
     {
         Booking bookingToRemove = getBooking(bookingID);
         if (bookingToRemove !=  null) 
         {
             bookings.remove(bookingToRemove);
-            //addSeatBackToFlight(bookingToRemove.getFlightID());
             
         }
     }
     
-    private Booking getBooking (String bookingID) 
+    private Booking getBooking (String bookingID) //gets booking based on ID
     {
         for (Booking booking : bookings)
             if (booking.isBooking(bookingID))
@@ -52,17 +45,17 @@ public class Bookings implements Serializable{
         return null;
     }
     
-    public void addBooking(Booking booking) 
+    public void addBooking(Booking booking) //adds a booking
     {
         bookings.add(booking);
     }
     
-    public ArrayList<Booking> getBookings ()
+    public ArrayList<Booking> getBookings () //returns a list of bookings
     {
         return bookings;
     }
   
-    public Booking getUserBooking(String userID) 
+    public Booking getUserBooking(String userID) //gets a users booking
     {
         for (Booking booking : bookings)
             if (booking.bookedByUser(userID))
@@ -78,7 +71,7 @@ public class Bookings implements Serializable{
         return null;
     }
     
-    public String getRandomBookingIDUnique() 
+    public String getRandomBookingIDUnique() //generates a unique booking ID
     {
         Random randomGenerator = new Random(); 
         boolean isUnique = false;
@@ -99,7 +92,7 @@ public class Bookings implements Serializable{
        return id;
     }
     
-    public void deleteBookingsForUser(String userID) 
+    public void deleteBookingsForUser(String userID) //deletes a users booking
     {
         Booking bookingToDelete = getUserBooking(userID);
         if (bookingToDelete != null) 
@@ -110,7 +103,7 @@ public class Bookings implements Serializable{
 
     }
     
-    private void addSeatBackToFlight(String flightID) 
+    private void addSeatBackToFlight(String flightID) ///adds seats back to a flight
     {
         FlightController flightController = new FlightController();
         Flights flights = flightController.getFlights();

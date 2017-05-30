@@ -13,16 +13,14 @@
 <jsp:useBean id="flightController" class="lit.FlightController" scope="application">
     <jsp:setProperty name="flightController" property="filePath" value="<%=filePath%>"/>
 </jsp:useBean>
-<!--http://hostname.com/mywebapp/mypage.jsp?name=John+Smith-->
+
 <%
     String origin = request.getParameter("departureCity");
     String destination = request.getParameter("destinationCity");
     String departureDate = request.getParameter("departureDate");
     String returnDate = request.getParameter("returnDate");
     String type = request.getParameter("flightType");
-    //Flights flights = new Flights(); 
-    ArrayList<lit.Flight> flightList = flightController.getFlightsFromParam(origin, destination, departureDate, returnDate, type);
-    //ArrayList<lit.Flight>  flightList = flights.getFlights(); 
+    ArrayList<lit.Flight> flightList = flightController.getFlightsFromParam(origin, destination, departureDate, returnDate, type); //gets the appropriate flights from the flights xml
 %>
 <!DOCTYPE html>
 <html>
@@ -78,7 +76,7 @@
                 <div class="mainTable">
                     <h2>Results</h2>
                     <%
-                        if (!flightList.isEmpty()) {
+                        if (!flightList.isEmpty()) { //if flights are returned
                             if (user != null) {
                     %>
                     <table>
@@ -93,8 +91,7 @@
                             <th>Book</th>
                         </tr>
                         <%
-                            for (lit.Flight flight : flightList) {
-                                //String flightInfo = flight.toString();
+                            for (lit.Flight flight : flightList) { //display all flights
 %>
                         <tr> 
                             <td> <%= flight.getFlightID()%> </td>
@@ -111,12 +108,13 @@
 
                     </table>
 
+                        <!--allow the user to create a listing from the search-->
                     <div class="createListing">
                         <form action="createListing.jsp?departureCity=<%= origin%>&destinationCity=<%= destination%>&departureDate=<%= departureDate%>&returnDate=<%= returnDate%>&flightType=<%= type%>" method="POST">
                             <table>
                                 <tr>
                                     <td>Create Listing?</td>
-                                    <td><input type="submit" value="Create Listing"></td>
+                                    <td><input type="submit" value="Create Listing"></td> 
                                 </tr>
                             </table>
                         </form>  

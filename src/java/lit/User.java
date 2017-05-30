@@ -37,7 +37,7 @@ public class User implements Serializable
     String bookingID;
 
     public User(String userID, String name, String email, String password, String dob) 
-    {
+    { //constructor for a new user
         this.userID = userID;
         this.name = name;
         this.email = email;
@@ -48,63 +48,66 @@ public class User implements Serializable
     }
     public User() 
     {
-        super();
+        super(); //empty constructor for xml
     }
     
-    public void updateUser(String name, String email, String password) 
+    public void updateUser(String name, String email, String password) //update a users details
     {
         this.name = name;
         this.email = email;
         this.password = password;
     }
     
-    public boolean login(String email, String password) 
+    public boolean login(String email, String password) //validates a users information
     {
         return this.email.equals(email) && this.password.equals(password);
     }
     
-    public boolean isUser (String email) 
+    public boolean isUser (String email) //checks if the users email matches the param
     {
         return email.equals(this.email);
     }
     
-    public String getName() {
+    public String getName()  //returns name
+    {
         return name;
     }
     
 
-    public boolean isAdmin () 
+    public boolean isAdmin () //checks if admin
     {
         return admin;
     }
     
-    public String getEmail() {
+    public String getEmail() //returns email
+    {
         return email;
     }
     
     
-    public String getUserID() 
+    public String getUserID() //returns the userID
     {
         return userID;
     }
     
-    public String getPassword() {
+    public String getPassword() //returns the password
+    {
         return password;
     }
 
-    public String getDob() {
+    public String getDob() //returns the DOB
+    {
         return dob;
     }
 
-    private String getBookingID() {
+    private String getBookingID() //returns the bookingID
+    {
         return bookingID;
     }
     
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return name + " " + email + " " + password + " " + userID + " " + dob + " bookingID " + bookingID;
     }
-    
-
- 
 }

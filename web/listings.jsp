@@ -36,14 +36,11 @@
                     <h2>Manage Listings</h2>
 
                     <%
-                        String userID = user.getUserID();
-                        String path = listingController.getFilePath();
-                        //Listings listings = listingController.getListings();
-                        //String test = listingController.getFilePath();
-                        ArrayList<Listing> listingsList = listingController.getListingsList(userID);
-                        //ArrayList<Listing> listingsList = new ArrayList();
-                        if (!listingsList.isEmpty()) {
+                        String userID = user.getUserID(); //gets the userID from request.
 
+                        ArrayList<Listing> listingsList = listingController.getListingsList(userID); //gets all the users lists
+
+                        if (!listingsList.isEmpty()) {
                     %>
                     <table>
                         <tr>
@@ -64,14 +61,8 @@
                             <td><%= listing.getDepartureDate()%></td>
                             <td><%= listing.getReturnDate()%></td>
                             <td><%= listing.getFlightType()%></td>
-                            <!--http://localhost:8080/FlyHigh/results.jsp-->
-                            <!--                            String origin = request.getParameter("departureCity"); 
-                                                            String destination = request.getParameter("destinationCity"); 
-                                                            String departureDate = request.getParameter("departureDate"); 
-                                                            String returnDate = request.getParameter("returnDate"); 
-                                                            String type = request.getParameter("flightType"); -->
                             <% String resultString = "?departureCity=" + listing.getOrigin() + "&destinationCity=" + listing.getDestination()
-                                            + "&departureDate=" + listing.getDepartureDate() + "&returnDate=" + listing.getReturnDate() + "&flightType=" + listing.getFlightType();%>
+                                        + "&departureDate=" + listing.getDepartureDate() + "&returnDate=" + listing.getReturnDate() + "&flightType=" + listing.getFlightType();%>
 
                             <td><a href="results.jsp<%= resultString%>">View Listing</a></td>  
                             <td><a href="deleteListing.jsp?listingID=<%= listing.getListingID()%>">Close Listing</a></td>     

@@ -22,7 +22,7 @@
                 <h1>Manage Users</h1>
                 <%@include file="navbar.jsp" %>
                 <%
-                    user = (User) session.getAttribute("user");
+                    user = (User) session.getAttribute("user"); //checvks the user is an admin
                     username = "";
                     if (user != null) {
                         username = user.getName();
@@ -35,8 +35,9 @@
 
                     <c:import url="WEB-INF/users.xsl" var="stylesheet"/>
 
-                    <x:transform xml = "${inputDoc}"
+                    <x:transform xml = "${inputDoc}" 
                                  xslt = "${stylesheet}" />
+                    <!--uses xslt to get all users-->
                 </div>
                 <% } else { %>
                 <p>You are not authorised to view this page</p>

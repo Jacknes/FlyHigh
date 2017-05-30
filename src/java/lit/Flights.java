@@ -23,10 +23,10 @@ public class Flights implements Serializable
     
     public Flights()
     {
-        super();
+        super(); //empty constructor for xml
     }
     
-    public Flight getFlight(String flightID)
+    public Flight getFlight(String flightID) //gets a flight for a flightID
     {
         for (Flight flight : flights)
             if (flight.isFlight(flightID))
@@ -34,17 +34,17 @@ public class Flights implements Serializable
         return null;
     }
     
-    public ArrayList<Flight> getFlights() 
+    public ArrayList<Flight> getFlights()  //gets all flights in an arraylist
     { 
         return flights; 
     }
     
-    public void addFlight(Flight flight)
+    public void addFlight(Flight flight) //adds a flight to the flights
     {
         flights.add(flight);
     }
    
-    public void changeSeats (String flightID, int change) 
+    public void changeSeats (String flightID, int change) //changes the number of seats of a flight
     {
         for (Flight flight : flights)
             if (flight.isFlight(flightID)) 

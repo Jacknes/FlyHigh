@@ -17,6 +17,7 @@ should take them to the “Booking” page)
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <!--Get the user bean-->
     <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
         <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
@@ -35,21 +36,21 @@ should take them to the “Booking” page)
 
         <%
             Users users = new Users();
-            users = userApp.getUsers();
+            users = userApp.getUsers(); //gets the current system users
             User loginUser = null;
             String email = "";
             if (users != null) {
                 email = request.getParameter("email");
                 String password = request.getParameter("password");
-                loginUser = users.login(email, password);
-                if (loginUser != null) {
+                loginUser = users.login(email, password); //attempts to login
+                if (loginUser != null) { //if the login is successful
                     session.setAttribute("user", loginUser);
                 }
             }
-            if (loginUser != null) {
+            if (loginUser != null) { //if login is success, send user to main page. 
                 String redirectURL = "main.jsp";
                 response.sendRedirect(redirectURL);
-            } else {
+            } else { //else print error. 
         %>
         <div class="mainTable">
             <body>

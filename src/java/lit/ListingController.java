@@ -30,17 +30,17 @@ public class ListingController
         super();
     }
 
-    public String getFilePath() 
+    public String getFilePath() //returns the filepath
     {
-        return filePath;
+        return filePath; 
     }
 
-    public Listings getListings() 
+    public Listings getListings() //returns the listings
     {
         return listings;
     }
     
-    public ArrayList<Listing> getListingsList(String userID) 
+    public ArrayList<Listing> getListingsList(String userID) //returns the listings for a user
     {
         ArrayList<Listing> returnList = new ArrayList();
         ArrayList<Listing> listingsList = listings.getListings();
@@ -53,7 +53,7 @@ public class ListingController
         
     }
     
-    public Listing getListingForID(String listingID) 
+    public Listing getListingForID(String listingID) //returns a listing based on id
     {
         ArrayList<Listing> listingsList = listings.getListings();
         for (Listing listing : listingsList) 
@@ -64,22 +64,20 @@ public class ListingController
         return null;
     }
     
-    
-    public void setListings(Listings listings)
+    public void setListings(Listings listings) //setter for the listings
     {
         this.listings = listings;
     }
     
-    public void removeListing(Listing listing) throws JAXBException, PropertyException, FileNotFoundException 
+    public void removeListing(Listing listing) throws JAXBException, PropertyException, FileNotFoundException //removes a listing
     {
         ArrayList<Listing> listingsList = listings.getListings();
         if (listingsList.contains(listing))
             listingsList.remove(listing);
-        
-        //updateXML(listings);
+
     }
     
-    public boolean canUserRemoveListing(String userID, String listingID) 
+    public boolean canUserRemoveListing(String userID, String listingID) //checks if a user is authorised to remove a listing
     {
         ArrayList<Listing> listingsList = listings.getListings();
         Listing listing = null;
@@ -122,7 +120,7 @@ public class ListingController
          fin.close();    
     }
     
-    public void updateXML() throws PropertyException, JAXBException, FileNotFoundException 
+    public void updateXML() throws PropertyException, JAXBException, FileNotFoundException //marshalls the data back in xml
     {
         JAXBContext jc = JAXBContext.newInstance(Listings.class);
         Marshaller m = jc.createMarshaller();     
@@ -130,13 +128,10 @@ public class ListingController
         m.marshal(listings, new FileOutputStream("WEB-INF/listings.xml"));    
     }
     
-    public void addListings(Listing listing) throws JAXBException, PropertyException, FileNotFoundException, IOException 
+    public void addListings(Listing listing) throws JAXBException, PropertyException, FileNotFoundException, IOException //adds a listing
     {
         if(listing != null)
             listings.addListing(listing);
         
-        //updateXML(this.listings);
     }
-    
-    
 }

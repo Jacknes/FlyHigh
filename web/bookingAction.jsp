@@ -53,12 +53,6 @@
                     bookingApp.addBooking(userID, flightID, flightController, userApp);
                     bookings = bookingApp.getBookings();
                     bookingApp.setBookings(bookings);
-       //            Flights flights = flightController.getFlights();
-       //            flights.changeSeats(flightID, -1);
-       //            flightController.setFlights(flights);
-
-                    //bookings = bookingApp.getBookings();
-                    //bookingApp.setBookings(bookings);
             %>
             <!--display message below if booking is successful-->
             <p>Your flight has been successfully booked!</p>
@@ -66,7 +60,7 @@
             <% } else { %>
             <!--User already has a booking, insert a link to redirect them to it-->
             <p>It appears you already have a booking! Click <a href="MyBookings.jsp">here</a> to view your current booking.</p>
-            <% } %>
+            <% }%>
         </div>
     </body>
 </html>

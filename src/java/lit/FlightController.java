@@ -18,16 +18,16 @@ import javax.xml.bind.Unmarshaller;
 
 /**
  *
- * @author jacknes
- * @author Ryan McCartney 12545378
+ * @author Jack Pascoe
  */
-public class FlightController {
-    private String filePath;
-    private Flights flights;
+public class FlightController 
+{
+    private String filePath; //file path to xml
+    private Flights flights; //flights object
     
     public FlightController() 
     {
-        super();
+        super(); 
     }
     
     public String getFilePath() 
@@ -46,7 +46,7 @@ public class FlightController {
     }
     
     public ArrayList<Flight> getFlightsFromParam(String departure, String destination, String deptDate, String returnDate, String type)  
-    { 
+    { //returns flights based on params
         ArrayList<Flight> allFlights = flights.getFlights(); 
         ArrayList<Flight> matchingFlights = new ArrayList(); 
         for (Flight flight : allFlights)  
@@ -59,7 +59,7 @@ public class FlightController {
         return matchingFlights; 
     }
      
-     public Flights getFlightsWithQueryParam(BookingApplication bookingController, 
+     public Flights getFlightsWithQueryParam(BookingApplication bookingController, //gets flights based on params, not all required
              String customerName, boolean flightStatus, int numOfFlights,
              ArrayList<Flight> allFlights, Flights filteredFlights
      ) throws JAXBException, IOException
@@ -127,7 +127,7 @@ public class FlightController {
         return filteredFlights;
      }
     
-    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException 
+    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException  //unmarshaller
     {
         // Create the unmarshaller
          JAXBContext jc = JAXBContext.newInstance(Flights.class);
@@ -139,7 +139,7 @@ public class FlightController {
          fin.close();    
     }
     
-    public void updateXML(Flights flights) throws PropertyException, JAXBException, FileNotFoundException 
+    public void updateXML(Flights flights) throws PropertyException, JAXBException, FileNotFoundException  //marshaller
     {
         JAXBContext jc = JAXBContext.newInstance(Flights.class);
         Marshaller m = jc.createMarshaller();     
@@ -147,7 +147,7 @@ public class FlightController {
         m.marshal(flights, new FileOutputStream("WEB-INF/flights.xml"));    
     }
     
-    public void addFlight(Flight flight) throws JAXBException, PropertyException, FileNotFoundException, IOException 
+    public void addFlight(Flight flight) throws JAXBException, PropertyException, FileNotFoundException, IOException //adds a flight
     {
         if(flight != null)
             flights.addFlight(flight);

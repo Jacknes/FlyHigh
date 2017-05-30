@@ -13,25 +13,19 @@ import javax.xml.bind.annotation.*;
  *
  * @author jacknes
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.FIELD) //notations for unmarshalling and marshalling from xml
 @XmlRootElement(name = "users")
 public class Users implements Serializable {
     @XmlElement(name = "user")
-    ArrayList<User> customers = new ArrayList<>();
+    ArrayList<User> customers = new ArrayList<>(); 
   
-    //TODO: Login functionality, return type the user or null
-    //      Does the user exist
-    //      Add user
-    //      Remove user
-    
     
     public Users() 
     {
-        super();
+        super(); //empty constructor for xml processes
     }
     
-    
-    public User login (String email, String password)
+    public User login (String email, String password) //validates a users login
     {
         for (User customer : customers) 
         {
@@ -41,7 +35,7 @@ public class Users implements Serializable {
         return null;
     }
     
-    public String removeUser (String email) 
+    public String removeUser (String email) //removes the user based on an email
     {
         User userToRemove = getUser(email);
         if (userToRemove !=  null) 
@@ -54,7 +48,7 @@ public class Users implements Serializable {
             
     }
     
-    public User getUser(String email) 
+    public User getUser(String email) //gets a user based on an email
     {
         for (User user : customers)
             if (user.isUser(email))
@@ -62,7 +56,7 @@ public class Users implements Serializable {
         return null;
     }
     
-    public boolean isAdmin(String userID) 
+    public boolean isAdmin(String userID) //checks if the user is an admin
     {
         for (User user : customers)
             if (user.getUserID().equals(userID))
@@ -71,7 +65,7 @@ public class Users implements Serializable {
         return false;
     }
     
-    public User getUserByID(String userID) 
+    public User getUserByID(String userID) //get user by userID
     {
        for (User user : customers)
             if (user.getUserID().equals(userID))
@@ -79,7 +73,7 @@ public class Users implements Serializable {
         return null; 
     }
     
-    public boolean addUser(String name, String email, String password, String dob) 
+    public boolean addUser(String name, String email, String password, String dob) //adds a user to the system
     {
         if (!isEmailAlreadyUsed(email)){
             User user = new User(getRandomUserIDUnique(), name, email, password, dob);
@@ -89,14 +83,13 @@ public class Users implements Serializable {
         return false;
     }
     
-    public ArrayList<User> getUsers ()
+    public ArrayList<User> getUsers () //returns the user list
     {
         return customers;
     }
-    
-    
-    
-    private boolean isEmailAlreadyUsed(String email) {
+
+    private boolean isEmailAlreadyUsed(String email)  //checks the email isn't already registered
+    {
         for(User user : customers) 
             if (user.getEmail().equals(email))
                 return true;
@@ -104,7 +97,7 @@ public class Users implements Serializable {
     }
     
     
-    public String getRandomUserIDUnique() 
+    public String getRandomUserIDUnique() //generates a new unique id based on all other users
     {
         Random randomGenerator = new Random(); 
         boolean isUnique = false;
@@ -124,6 +117,4 @@ public class Users implements Serializable {
        
        return id;
     }
-    
-
 }

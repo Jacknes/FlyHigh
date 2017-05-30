@@ -4,6 +4,7 @@
     Author     : Owner
 --%>
 
+<!--Page used for error handling - user accessing addresses they don't have access to-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

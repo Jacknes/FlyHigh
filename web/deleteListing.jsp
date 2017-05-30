@@ -19,52 +19,42 @@
     <jsp:useBean id="listingController" class="lit.ListingController" scope="application">
         <jsp:setProperty name="listingController" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
-    
+
     <div class="wrapper">
         <div class="header">
             <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
-                <h1>Deleted Listing</h1>
-                <%@include file="navbar.jsp" %>
+            <h1>Deleted Listing</h1>
+            <%@include file="navbar.jsp" %>
         </div>
-    <body>
-        <div class="mainTable">
-    <% 
-    String listingID = request.getParameter("listingID");
-    Listing listingToDelete = null;
-    User authorisingUser = (User)session.getAttribute("user");
-    String userID = authorisingUser.getUserID();
-    if (userID != null && authorisingUser != null){
-        if (listingID != null) 
-        {
-            listingToDelete = listingController.getListingForID(listingID);
-        }
-        //public boolean canUserRemoveListing(String userID, String listingID) 
-        //listingToDelete = listingApp.getListings().getListing(listingID);
-    }
-    
-    if (listingToDelete == null) 
-    { %>
-    <!--User Not found for ID-->
-    
-        <p>Listing to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
+        <body>
+            <div class="mainTable">
+                <%
+                    String listingID = request.getParameter("listingID"); //gets the listing ID
+                    Listing listingToDelete = null; //creates a listing object
+                    User authorisingUser = (User) session.getAttribute("user"); //gets the user from the session
+                    String userID = authorisingUser.getUserID(); //gets the users id
+                    if (userID != null && authorisingUser != null) {
+                        if (listingID != null) { //gets the listing for the listingID
+                            listingToDelete = listingController.getListingForID(listingID);
+                        }
+                    }
+                    //if the listing is not retrieved
+                    if (listingToDelete == null) { %> 
+                <!--User Not found for ID-->
 
-    
-        <%} else if (listingController.canUserRemoveListing(userID, listingID)) 
-            {
-            listingController.removeListing(listingToDelete);
-            //Listings listings = listingApp.getListings();
-            //listingController.updateXML(listings);
-//        if(userID.equals(authorisingUser.getUserID()))
-//            session.setAttribute("user", null);
-  %>  
-    
-        <p>Listing deleted. Click <a href="main.jsp">here</a> to return home</p>
+                <p>Listing to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
 
 
-<%
-    }  
-    %>
-        </div>
-    </body>
+                <%} else if (listingController.canUserRemoveListing(userID, listingID)) { //checks the user is authorised to delete the listing
+                    listingController.removeListing(listingToDelete);
+                %>  
+
+                <p>Listing deleted. Click <a href="main.jsp">here</a> to return home</p>
+
+                <%
+                    }
+                %>
+            </div>
+        </body>
     </div>
 </html>

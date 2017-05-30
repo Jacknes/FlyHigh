@@ -19,7 +19,8 @@ import javax.xml.bind.Unmarshaller;
  *
  * @author jacknes
  */
-public class BookingApplication {
+public class BookingApplication 
+{
     private String filePath;
     private Bookings bookings;
     
@@ -64,8 +65,7 @@ public class BookingApplication {
         m.marshal(bookings, new FileOutputStream(filePath));    
     }
     
-    //public Booking(String bookingID, String userID, String flightID, Date bookingDate) 
-    //(String bookingID, String username, String userID, String flightID, String departureDate, String returnDate, String origin, String destination, String flightType, double price, int seat, String description)
+   //adds a new booking based on params
     public void addBooking(String userID, String flightID, FlightController flightController, UserApplication userApp) throws JAXBException, PropertyException, FileNotFoundException, IOException 
     {
         Users users = userApp.getUsers();
@@ -73,11 +73,9 @@ public class BookingApplication {
         Flights flights = flightController.getFlights();
         Flight flight = flights.getFlight(flightID);
         
-        
         String bookingID = bookings.getRandomBookingIDUnique();
         Booking booking = new Booking(bookingID, user.getName() , userID, flightID, flight.getDepartureDate(), flight.getReturnDate(), flight.getOrigin(), flight.getDestination(), flight.getFlightType(), flight.getPrice(), flight.getSeats(), "A flight");
         bookings.addBooking(booking);
-        //updateXML(bookings);
     }
     
     public void removeBookingForUser(String userID) throws JAXBException, PropertyException, FileNotFoundException 

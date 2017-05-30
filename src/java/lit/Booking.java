@@ -73,12 +73,10 @@ public class Booking implements Serializable
     }
 
     @Override
-    public String toString() {
+    public String toString() { //debug toString
         return "Booking{" + "bookingID=" + bookingID + ", username=" + username + ", userID=" + userID + ", flightID=" + flightID + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", origin=" + origin + ", destination=" + destination + ", flightType=" + flightType + ", price=" + price + ", seat=" + seat + ", description=" + description + '}';
     }
 
-   
-    
     public boolean isBooking(String bookingID) 
     {
         return this.bookingID.equals(bookingID);
@@ -108,39 +106,48 @@ public class Booking implements Serializable
         return bookingID;
     }
 
-    public String getUsername() {
+    public String getUsername() 
+    {
         return username;
     }
 
-    public String getDepartureDate() {
+    public String getDepartureDate() 
+    {
         return departureDate;
     }
 
-    public String getReturnDate() {
+    public String getReturnDate() 
+    {
         return returnDate;
     }
 
-    public String getOrigin() {
+    public String getOrigin() 
+    {
         return origin;
     }
 
-    public String getDestination() {
+    public String getDestination() 
+    {
         return destination;
     }
 
-    public String getFlightType() {
+    public String getFlightType() 
+    {
         return flightType;
     }
 
-    public double getPrice() {
+    public double getPrice() 
+    {
         return price;
     }
 
-    public int getSeat() {
+    public int getSeat() 
+    {
         return seat;
     }
 
-    public String getDescription() {
+    public String getDescription() 
+    {
         return description;
     }
     

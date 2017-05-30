@@ -28,7 +28,7 @@ there are two options:
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>FlyHigh Register Page</title>
     </head>
-    
+
     <body>
         <div class="wrapper">
             <div class='header'>

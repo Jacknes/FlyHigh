@@ -22,31 +22,31 @@ import javax.xml.bind.Unmarshaller;
  */
 public class UserApplication 
 {
-    private String filePath;
-    private Users users;
+    private String filePath; //filepath of the xml
+    private Users users; //used to store the users
     
-    public UserApplication() 
+    public UserApplication() //empty constructor for xml operations
     {
         super();
     }
     
-    public String getFilePath() 
+    public String getFilePath() //returns the filepath
     {
         return filePath;
     }
 
-    public Users getUsers() 
+    public Users getUsers() //returns the users
     {
         return users;
     }
 
-    public void setUsers(Users users) 
+    public void setUsers(Users users) //sets the users
     {
         this.users = users;
     }
     
     
-    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException 
+    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException //unmarshals the xml data
     {
         // Create the unmarshaller
          JAXBContext jc = JAXBContext.newInstance(Users.class);
@@ -59,7 +59,7 @@ public class UserApplication
          fin.close();    
     }
     
-    public void updateXML(Users users) throws PropertyException, JAXBException, FileNotFoundException 
+    public void updateXML(Users users) throws PropertyException, JAXBException, FileNotFoundException //marshalls the users object back into xml
     {
         JAXBContext jc = JAXBContext.newInstance(Users.class);
         Marshaller m = jc.createMarshaller();     
@@ -68,13 +68,13 @@ public class UserApplication
     }
     
     public void addUser(String name, String email, String password, String dob) throws JAXBException, PropertyException, FileNotFoundException, IOException 
-    {
+    { //adds a user to the users object
         users.addUser(name, email, password, dob);
         updateXML(this.users);
     }
     
     public void removeUser (User user) throws JAXBException, PropertyException, FileNotFoundException 
-    {
+    {//removes a user from the users object
         ArrayList<User> usersList = users.getUsers();
         if (usersList.contains(user))
             usersList.remove(user);

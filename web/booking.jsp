@@ -75,16 +75,11 @@ Booking page: Flight customers can access this page from “Results” page or t
                     </tr>
                 </table>
             </div>
-            <!--Implement booking options logic here-->
-
-
             <% } else {
                 String redirectURL = "404.jsp";
                 response.sendRedirect(redirectURL);
             %>
             <% }%>
-
-            <!--Bookings Content goes here-->
         </div>
     </div>
 </body>

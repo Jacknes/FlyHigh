@@ -48,12 +48,8 @@ public class Listing implements Serializable
         this.flightType = flightType;
     }
     
-    @Override
-    public String toString() 
-    {
-        return "test";
-    }
 
+    //getters
     public String getUserID() 
     {
         return userID;
@@ -89,7 +85,7 @@ public class Listing implements Serializable
         return listingID;
     }
     
-    public boolean isListing (String listingID)
+    public boolean isListing (String listingID) //checks if a listing is a listing based on listingID
     {
         return listingID.equals(this.listingID);
     }

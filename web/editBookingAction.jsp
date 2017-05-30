@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--Get the booking bean-->
 <% String filePath = application.getRealPath("WEB-INF/bookings.xml");%>
 <jsp:useBean id="bookingApp" class="lit.BookingApplication" scope="application">
     <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath%>"/>
@@ -25,7 +26,7 @@
         </div>   
         <div class="mainTable"> 
         <%
-            String bookingID = request.getParameter("bookingID");
+            String bookingID = request.getParameter("bookingID"); //get the ids from the request
             String type = request.getParameter("flightType");
             if (bookingID != null) {
                 //get booking object, if non is found display error,
@@ -36,7 +37,7 @@
                 booking.changeType(type);
                 bookings.addBooking(booking);
                 bookingApp.setBookings(bookings);
-                String redirectURL = "main.jsp";
+                String redirectURL = "main.jsp"; //after the booking is updated, direct the user to the main page.
                 response.sendRedirect(redirectURL);
         %>
             <body>

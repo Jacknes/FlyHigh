@@ -4,6 +4,8 @@
     Author     : jacknes
 --%>
 
+
+<!--Gets the BookingApplication bean-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% String filePathBookings = application.getRealPath("WEB-INF/bookings.xml");%>
 <jsp:useBean id="bookingApp" class="lit.BookingApplication" scope="application">
@@ -24,12 +26,12 @@
         </div>       
         <div class="mainTable">
             <%
-                String bookingID = request.getParameter("bookingID");
+                String bookingID = request.getParameter("bookingID"); //gets the bookingID
                 if (bookingID != null) {
                     //get booking object, if non is found display error,
                     //else display booking in a form
                     Bookings bookings = bookingApp.getBookings();
-                    Booking booking = bookings.getBookingByID(bookingID);
+                    Booking booking = bookings.getBookingByID(bookingID); //gets the booking object for that ID.
                     if (booking != null) {
             %>
             <body>
