@@ -8,24 +8,28 @@ and open the template in the editor.
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 elementFormDefault="qualified">
 
+    <!--Defines the date to be in the format XXXX-XX-XX--> 
     <xs:simpleType name="dob">
         <xs:restriction base="xs:string">
             <xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
         </xs:restriction>
     </xs:simpleType>
     
+    <!--Defines the flightType as a string and can only be either economy or business-->
     <xs:simpleType name="flightType">
         <xs:restriction base="xs:string">
             <xs:pattern value="(economy|business)"/>
         </xs:restriction>
     </xs:simpleType>
     
+    <!--Defines the name as a string in the format of John Smith (case senstive)-->
     <xs:simpleType name="name">
         <xs:restriction base="xs:string">
             <xs:pattern value="[a-zA-z]+ [a-zA-z]+"/>
         </xs:restriction>
     </xs:simpleType>
     
+    <!--Defining structure of bookings.xml-->
     <xs:element name="bookings">
         <xs:complexType>
             <xs:sequence>

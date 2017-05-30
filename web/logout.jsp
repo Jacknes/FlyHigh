@@ -24,6 +24,7 @@
                     <li style="float:right"><a href="register.jsp">Register</a></li>
                 </ul>
             </div>
+                <!--Closes the session for the user and displays the message below-->
                     <% session.invalidate(); %>
             <p>You have been logged out. Click <a href="main.jsp">here</a> to return to the main page.</p>
         </div>

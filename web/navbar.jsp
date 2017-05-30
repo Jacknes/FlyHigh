@@ -8,15 +8,18 @@
 <%@page import="lit.*"%>
 <!DOCTYPE html>
 
-                
+                <!--Checks the current session for the user-->
                 <%
                     User user = (User) session.getAttribute("user");
                     String username = "";
+//                    If there is a user in the session, get the users name
                     if (user != null) {
                         username = user.getName();
+                        //Checks if user is an admin
                         if (user.isAdmin()) {
                 %>
 
+                <!--Prints out the following menu options if the user is an admin-->
                 <p>Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
@@ -25,8 +28,9 @@
                     <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
-<!--                <p>Case 1</p>-->
+
                 <% } else {%>
+                <!--Prints out the following menu options if it is a normal user-->
                 <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
@@ -36,14 +40,14 @@
                     <li style="float:right"><a href="account.jsp">Account</a></li>
                     <li style="float:right"><a href="logout.jsp">Logout</a></li>
                 </ul>
-<!--                <p>Case 2</p>-->
+
                 <% } %>
                 <% } else { %>
+                <!--Prints out the following menu options if it is a non logged in user-->
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li style="float:right"><a href="login.jsp">Login</a></li>
                     <li style="float:right"><a href="register.jsp">Register</a></li>
                 </ul>
-<!--                <p>case 3</p>-->
                 <%}%>
 
