@@ -21,40 +21,41 @@ should take them to the “Booking” page)
     <jsp:useBean id="userApp" class="lit.UserApplication" scope="application">
         <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
-
-    <%
-        Users users = new Users();
-        users = userApp.getUsers();
-        User loginUser = null;
-        if (users != null) 
-        {
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            loginUser = users.login(email, password);
-            if (loginUser != null) 
-            {
-                session.setAttribute("user", loginUser);
-            }
-        }       
-    %>
-
-
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Fly High Login</title>
+        <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
     </head>
-    <% if (loginUser != null) {
-            String redirectURL = "main.jsp";
-            response.sendRedirect(redirectURL);
-    %>
+    <div class="wrapper">
+        <div class="header">
+            <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
+            <h1>Login</h1>
+            <%@include file = "navbar.jsp" %>
+        </div>
 
-    <% } else { %>
-    <body>
-        <p>Login unsuccessful, click <a href="login.jsp">here</a> to retry or <a href="main.jsp">here</a> to return to the main screen.</p>
-
-    </body>
-
-    <% }%>
-
+        <%
+            Users users = new Users();
+            users = userApp.getUsers();
+            User loginUser = null;
+            String email = "";
+            if (users != null) {
+                email = request.getParameter("email");
+                String password = request.getParameter("password");
+                loginUser = users.login(email, password);
+                if (loginUser != null) {
+                    session.setAttribute("user", loginUser);
+                }
+            }
+            if (loginUser != null) {
+                String redirectURL = "main.jsp";
+                response.sendRedirect(redirectURL);
+            } else {
+        %>
+        <div class="mainTable">
+            <body>
+                <p style="text-align: center">Login unsuccessful, click <a href="login.jsp?email=<%= email%>">here</a> to retry or <a href="main.jsp">here</a> to return to the main screen.</p>
+            </body>
+        </div>
+        <% }%>
+    </div>
 </html>

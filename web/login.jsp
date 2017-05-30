@@ -26,18 +26,28 @@ should take them to the “Booking” page)
     </head>
     <body>
         <div class="wrapper">
-            <div class="header">
+        
+                <div class="header">
                 <img src="${pageContext.request.contextPath}/FHlogo.PNG" class="logo"/>
                 <h1>Login</h1>
                 <%@include file = "navbar.jsp" %>
             </div>
+            
+                <%
+                    String email = request.getParameter("email");
+                    String emailText = "";
+                    if (email != null) 
+                    {    
+                        emailText = email;
+                    }
+                %>
 
             <form action="loginAction.jsp" method="POST">
                 <div class="mainTable">
                     <table>
                         <tr>
                             <td>Email</td>
-                            <td><input type="text" name="email"></td>
+                            <td><input type="text" name="email" value="<%= emailText%>"></td>
                         </tr>
                         <tr>
                             <td>Password</td>
