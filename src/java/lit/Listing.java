@@ -36,9 +36,10 @@ public class Listing implements Serializable
         super();
     }
 
-    public Listing(String userID, String origin, String destination, String departureDate, String returnDate, String flightType) 
+    public Listing(String listingID, String userID, String origin, String destination, String departureDate, String returnDate, String flightType) 
     {
         super();
+        this.listingID = listingID;
         this.userID = userID;
         this.origin = origin;
         this.destination = destination;

@@ -14,6 +14,6 @@ xsi:noNamespaceSchemaLocation="listings.xsd">
         <destination>Melbourne</destination>
         <departureDate>2017-05-02</departureDate>
         <returnDate>2017-05-27</returnDate>
-        <type>economy</type>
+        <type>Economy</type>
     </listing>
 </listings>

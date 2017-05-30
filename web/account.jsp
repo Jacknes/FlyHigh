@@ -81,7 +81,12 @@
                 </form>
                 <div class="deleteAccount">
                     <form action="deleteAccount.jsp?userID=<%= userID%>" method="POST">
-                        <input type="submit" value="Cancel Membership">   
+                        <table>
+                            <tr>
+                                <td>Cancel Membership?</td>
+                                <td><input type="submit" value="Cancel Membership"></td>
+                            </tr>
+                        </table>
                     </form>  
                 </div>
             </div>
