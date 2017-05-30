@@ -13,40 +13,45 @@
         <title>Listing deleted</title>
     </head>
     <% String filePath = application.getRealPath("WEB-INF/listings.xml");%>
-    <jsp:useBean id="listingApp" class="lit.ListingController" scope="application">
-        <jsp:setProperty name="listingApp" property="filePath" value="<%=filePath%>"/>
+    <jsp:useBean id="listingController" class="lit.ListingController" scope="application">
+        <jsp:setProperty name="listingController" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
-    
+    <body>
     <% 
     String listingID = request.getParameter("listingID");
     Listing listingToDelete = null;
     User authorisingUser = (User)session.getAttribute("user");
     String userID = authorisingUser.getUserID();
     if (userID != null && authorisingUser != null){
-        listingToDelete = listingApp.getListings().getListing(listingID);
+        if (listingID != null) 
+        {
+            listingToDelete = listingController.getListingForID(listingID);
+        }
+        //public boolean canUserRemoveListing(String userID, String listingID) 
+        //listingToDelete = listingApp.getListings().getListing(listingID);
     }
     
     if (listingToDelete == null) 
     { %>
     <!--User Not found for ID-->
-    <body>
-        <p>Listing to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
-    </body>
     
-    <%} else if (userID.equals(authorisingUser.getUserID())) {
-        listingApp.removeListing(listingToDelete);
-        Listings listings = listingApp.getListings();
-        listingApp.updateXML(listings);
+        <p>Listing to delete not found. Click <a href="main.jsp">here</a> to return home. </p>
+
+    
+        <%} else if (listingController.canUserRemoveListing(userID, listingID)) 
+            {
+            listingController.removeListing(listingToDelete);
+            //Listings listings = listingApp.getListings();
+            //listingController.updateXML(listings);
 //        if(userID.equals(authorisingUser.getUserID()))
 //            session.setAttribute("user", null);
   %>  
     
-    <body>
         <p>Listing deleted. Click <a href="main.jsp">here</a> to return home</p>
-    </body>
+
 
 <%
     }  
     %>
-
+    </body>
 </html>

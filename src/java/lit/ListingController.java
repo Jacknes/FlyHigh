@@ -53,6 +53,17 @@ public class ListingController
         
     }
     
+    public Listing getListingForID(String listingID) 
+    {
+        ArrayList<Listing> listingsList = listings.getListings();
+        for (Listing listing : listingsList) 
+        {
+            if (listing.getListingID().equals(listingID))
+                return listing;
+        }
+        return null;
+    }
+    
     
     public void setListings(Listings listings)
     {
@@ -65,7 +76,24 @@ public class ListingController
         if (listingsList.contains(listing))
             listingsList.remove(listing);
         
-        updateXML(listings);
+        //updateXML(listings);
+    }
+    
+    public boolean canUserRemoveListing(String userID, String listingID) 
+    {
+        ArrayList<Listing> listingsList = listings.getListings();
+        Listing listing = null;
+        for (Listing listingTemp : listingsList) 
+        {
+            if (listingTemp.getListingID().equals(listingID))
+                listing = listingTemp;
+        }
+        if (listing != null) 
+        {
+            return listing.getUserID().equals(userID);
+        }
+        
+        return false;
     }
     
     public ArrayList<Listing> getListingsFromParam(String userID, String origin, String destination, String departureDate, String returnDate, String flightType)
@@ -94,7 +122,7 @@ public class ListingController
          fin.close();    
     }
     
-    public void updateXML(Listings listings) throws PropertyException, JAXBException, FileNotFoundException 
+    public void updateXML() throws PropertyException, JAXBException, FileNotFoundException 
     {
         JAXBContext jc = JAXBContext.newInstance(Listings.class);
         Marshaller m = jc.createMarshaller();     
@@ -107,7 +135,7 @@ public class ListingController
         if(listing != null)
             listings.addListing(listing);
         
-        updateXML(this.listings);
+        //updateXML(this.listings);
     }
     
     
