@@ -5,7 +5,7 @@ and open the template in the editor.
 */
 /* 
     Created on : 23/05/2017, 8:55:58 PM
-    Author     : Owner
+    Author     : Shasha Chaicharncheep
 */
 
 body {
@@ -17,7 +17,6 @@ body {
   
 }
 table {
-    ;
        padding-top: 0px;
        padding-right: 30px;
        padding-bottom: 30px;
@@ -50,7 +49,7 @@ tr:hover {background-color: #666666}
 
 h1 {
     font-size: 20px;
-    color: white;
+    color: #50a8dd;
 }
 
 h2 {
