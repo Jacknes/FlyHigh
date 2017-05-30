@@ -64,17 +64,19 @@
 
                 <% } %>
                 <% } else {
-                    String returnTo = (String) request.getAttribute("javax.servlet.forward.request_uri");
+                    //String returnTo = (String) request.getAttribute("javax.servlet.forward.request_uri");
+                    //Store the results object in the session somehow. Retrieve it back after register. 
                 %>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li style="float:right"><a href="login.jsp">Login</a></li>
-                    <li style="float:right"><a href="register.jsp?returnToResults=<%= returnTo%>">Register</a></li>
+                    <li style="float:right"><a href="register.jsp?returnToResults=">Register</a></li>
                 </ul>
                 <%}%>
             </div>
             <div>
                 <div class="mainTable">
+                    <h2>Results</h2>
                     <%
                         if (!flightList.isEmpty()) {
                             if (user != null) {

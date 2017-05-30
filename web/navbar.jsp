@@ -20,7 +20,7 @@
                 %>
 
                 <!--Prints out the following menu options if the user is an admin-->
-                <p>Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
+                <p class="welcomeText">Welcome back to FlyHigh Airlines, <%= user.getName()%> </p>   
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="ViewBookings.jsp">Manage Bookings</a></li>
@@ -31,7 +31,7 @@
 
                 <% } else {%>
                 <!--Prints out the following menu options if it is a normal user-->
-                <p>Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
+                <p class="welcomeText">Welcome back to FlyHigh Airlines <%= user.getName()%> </p>
                 <ul>
                     <li><a href="main.jsp">Home</a></li>
                     <li><a href="MyBookings.jsp">Bookings</a></li>

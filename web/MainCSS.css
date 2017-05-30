@@ -59,6 +59,7 @@ h2 {
 
 p {
     color: black;
+    text-align: center;
 }
 
 
@@ -123,6 +124,10 @@ li a {
 
 li a:hover {
     background-color: #778899;
+}
+
+.welcomeText {
+    text-align: left;
 }
 
 .active {

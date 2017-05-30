@@ -38,12 +38,13 @@
                         booking = bookings.getUserBooking(userID);
                 %>
             </div>
+             <div class="mainTable">
             <!--If the user has a booking, display the booking-->
             <%                if (booking != null) {
             %>
 
             <!--Creates a table to display the XML getters-->
-            <div class="mainTable">
+           
                 <!--gets the users name and displays it-->
                 <h2>This is your current booking, <%= user.getName()%></h2>
                 <table>
@@ -82,19 +83,20 @@
                         <td><a href="deleteBooking.jsp?bookingID=<%= booking.getBookingID()%>">Cancel Booking</a></td>   
                     </tr>
                 </table>
-            </div> 
+            
 
             <% } else { %>
             <!--When the user does not have a booking display this message-->
-            <h1>You do not currently have a booking.</h1>
+            <h2>You do not currently have a booking.</h2>
             <p>Click <a href="main.jsp">here</a> to make one!</p>
 
             <% }
 
             } else {%>
             <!--This displays when a user is not logged in, thus they do not have authority to view this page-->
-            <h1>You are not authorised to view this page</h1>
+            <h2>You are not authorised to view this page</h2>
             <p>Click <a href="login.jsp">here</a> to login!</p>
+            </div> 
         </div>
         <% }%>
     </body>

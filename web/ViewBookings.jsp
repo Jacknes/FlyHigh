@@ -25,7 +25,7 @@
     <head>
         <link href="MainCSS.css" rel="stylesheet" type="text/css" media="all">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>View Bookings</title>
     </head>
 
     <body>
@@ -91,13 +91,12 @@
                     <%} %>
                 </table>
             </div> 
-
             <% } else {
                     //if the logged in user is not an admin
                     //redirect to 404.jsp error page 
                     String redirectURL = "404.jsp";
-              response.sendRedirect(redirectURL);
-          }%>
+                    response.sendRedirect(redirectURL);
+                }%>
             <% }%>   
         </div>
     </body>
